@@ -1,0 +1,660 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B5E8C958-D07D-4F99-AFB1-FD6DA0629C45}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>EobBTS.My.MyApplication</StartupObject>
+    <RootNamespace>EobBTS</RootNamespace>
+    <AssemblyName>EobBTS</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>EobBTS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>EobBTS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DocumentationFile>EobBTS.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DocumentationFile>EobBTS.xml</DocumentationFile>
+    <Optimize>true</Optimize>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="DevComponents.DotNetBar2">
+      <HintPath>..\..\GL\GL APPLICATION\bin\Debug\DevComponents.DotNetBar2.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Design" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\clsReader.vb" />
+    <Compile Include="Classes\clsReport.vb" />
+    <Compile Include="Classes\clsWriter.vb" />
+    <Compile Include="frmCaseSettle.Designer.vb">
+      <DependentUpon>frmCaseSettle.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCaseSettle.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCaseUpdates.Designer.vb">
+      <DependentUpon>frmCaseUpdates.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCaseUpdates.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFIRHistoryPrint.Designer.vb">
+      <DependentUpon>frmFIRHistoryPrint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmFIRHistoryPrint.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmJobAssignment.designer.vb">
+      <DependentUpon>frmJobAssignment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmJobAssignment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmORverificationReminder.Designer.vb">
+      <DependentUpon>frmORverificationReminder.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmORverificationReminder.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProcessSheetForm.Designer.vb">
+      <DependentUpon>frmProcessSheetForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProcessSheetForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRecommendedByBTS.Designer.vb">
+      <DependentUpon>frmRecommendedByBTS.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRecommendedByBTS.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\crAllPendingCases.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crAllPendingCases.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\crCaseRecommendedButNotSettled.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crCaseRecommendedButNotSettled.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\crCasesRecommended.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crCasesRecommended.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\crFIRHistory.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crFIRHistory.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\crFIRRegister.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crFIRRegister.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\crLocalPendingCases.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crLocalPendingCases.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\crORPendingCases.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crORPendingCases.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\crORVerficationReminderPrint_2.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crORVerficationReminderPrint_2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\crORVerificationPrint.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crORVerificationPrint.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\crORVerificationReminderPrint.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crORVerificationReminderPrint.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\crPendingCasesWithReason.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crPendingCasesWithReason.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\crPendingRCC.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crPendingRCC.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\frmORVerificationPrint.Designer.vb">
+      <DependentUpon>frmORVerificationPrint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmORVerificationPrint.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmORVerificationSent.Designer.vb">
+      <DependentUpon>frmORVerificationSent.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmORVerificationSent.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\crProcessSheet.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crProcessSheet.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Form1.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.vb">
+      <DependentUpon>Form1.vb</DependentUpon>
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCaseReceived.Designer.vb">
+      <DependentUpon>frmCaseReceived.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmCaseReceived.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmployeesDef.Designer.vb">
+      <DependentUpon>frmEmployeesDef.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmployeesDef.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmployerSearch.Designer.vb">
+      <DependentUpon>frmEmployerSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmployerSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.designer.vb">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainscreen.Designer.vb">
+      <DependentUpon>frmMainscreen.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainscreen.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegionInfo.designer.vb">
+      <DependentUpon>frmRegionInfo.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegionInfo.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUserRole.designer.vb">
+      <DependentUpon>frmUserRole.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmUserRole.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsers.designer.vb">
+      <DependentUpon>frmUsers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsers.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVerificationReceived.Designer.vb">
+      <DependentUpon>frmVerificationReceived.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmVerificationReceived.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmVoucherSearch.designer.vb">
+      <DependentUpon>frmVoucherSearch.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmVoucherSearch.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYearDef.designer.vb">
+      <DependentUpon>frmYearDef.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmYearDef.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmYearSelect.Designer.vb">
+      <DependentUpon>frmYearSelect.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmYearSelect.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\InterfaceButtons.vb" />
+    <Compile Include="Modules\mdlGeneral.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Reports\frmORVeriReminderPrint.Designer.vb">
+      <DependentUpon>frmORVeriReminderPrint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmORVeriReminderPrint.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmPendingCasesReport.Designer.vb">
+      <DependentUpon>frmPendingCasesReport.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmPendingCasesReport.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmReports.Designer.vb">
+      <DependentUpon>frmReports.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmReports.vb">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="frmCaseSettle.resx">
+      <DependentUpon>frmCaseSettle.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCaseUpdates.resx">
+      <DependentUpon>frmCaseUpdates.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFIRHistoryPrint.resx">
+      <DependentUpon>frmFIRHistoryPrint.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmJobAssignment.resx">
+      <DependentUpon>frmJobAssignment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmORverificationReminder.resx">
+      <DependentUpon>frmORverificationReminder.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProcessSheetForm.resx">
+      <DependentUpon>frmProcessSheetForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRecommendedByBTS.resx">
+      <DependentUpon>frmRecommendedByBTS.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crAllPendingCases.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crAllPendingCases.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crCaseRecommendedButNotSettled.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crCaseRecommendedButNotSettled.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crCasesRecommended.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crCasesRecommended.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crFIRHistory.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crFIRHistory.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crFIRRegister.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crFIRRegister.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crLocalPendingCases.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crLocalPendingCases.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crORPendingCases.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crORPendingCases.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crORVerficationReminderPrint_2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crORVerficationReminderPrint_2.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crORVerificationPrint.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crORVerificationPrint.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crORVerificationReminderPrint.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crORVerificationReminderPrint.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crPendingCasesWithReason.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crPendingCasesWithReason.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crPendingRCC.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crPendingRCC.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmORVerificationPrint.resx">
+      <DependentUpon>frmORVerificationPrint.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmORVerificationSent.resx">
+      <DependentUpon>frmORVerificationSent.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crProcessSheet.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crProcessSheet.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCaseReceived.resx">
+      <DependentUpon>frmCaseReceived.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEmployeesDef.resx">
+      <DependentUpon>frmEmployeesDef.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEmployerSearch.resx">
+      <DependentUpon>frmEmployerSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainscreen.resx">
+      <DependentUpon>frmMainscreen.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegionInfo.resx">
+      <DependentUpon>frmRegionInfo.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUserRole.resx">
+      <DependentUpon>frmUserRole.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsers.resx">
+      <DependentUpon>frmUsers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVerificationReceived.resx">
+      <DependentUpon>frmVerificationReceived.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmVoucherSearch.resx">
+      <DependentUpon>frmVoucherSearch.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYearDef.resx">
+      <DependentUpon>frmYearDef.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmYearSelect.resx">
+      <DependentUpon>frmYearSelect.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmORVeriReminderPrint.resx">
+      <DependentUpon>frmORVeriReminderPrint.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmPendingCasesReport.resx">
+      <DependentUpon>frmPendingCasesReport.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmReports.resx">
+      <DependentUpon>frmReports.vb</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\app.manifest" />
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Private folder 3D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1277.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1396.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\7500.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AnnextA-Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Budget Balance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Budget.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BudgetPosRep.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\designer 3D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dossier partage 3D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Employee Medical.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\EOBI Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Exit image.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Hospital.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Job Assignment.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LedgerIcon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LRyellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\materials.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Medical Sheet Icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\MedicalReportHo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Medicines.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\messenger 3D v2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Opening Balance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Panel Medical Bills.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Payment Voucher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Petty Cash Voucher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PNG CloseView.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Products.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Receipt Voucher.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Region Info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Script Editor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tune up v2  3D.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\User Roles.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\VoucherReport.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Year.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Update.jpg" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>
