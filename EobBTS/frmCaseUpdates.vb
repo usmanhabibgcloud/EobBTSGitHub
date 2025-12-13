@@ -291,6 +291,25 @@ EditMode:
 
     End Sub
 
+    Private Sub grdVoucher_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles grdVoucher.CellContentClick
+        If e.ColumnIndex = grdVoucher.Columns("Del").Index Then
 
+            If grdVoucher.CurrentRow.Index = grdVoucher.RowCount - 1 Then Exit Sub
+            If MsgBox("Do You Want to Delete Row ", MsgBoxStyle.YesNo) = MsgBoxResult.No Then Exit Sub
+            grdVoucher.Rows.RemoveAt(e.RowIndex)
 
+            FillSerial(grdVoucher)
+        End If
+    End Sub
+
+    Private Sub grdVoucher_KeyDown(sender As Object, e As KeyEventArgs) Handles grdVoucher.KeyDown
+        If e.KeyCode = Keys.Delete Then
+            If grdVoucher.CurrentRow.Index = grdVoucher.RowCount - 1 Then Exit Sub
+            If MsgBox("Do You Want to Delete Row ", MsgBoxStyle.YesNo) = MsgBoxResult.No Then Exit Sub
+            grdVoucher.Rows.RemoveAt(grdVoucher.CurrentRow.Index)
+
+            FillSerial(grdVoucher)
+        End If
+
+    End Sub
 End Class

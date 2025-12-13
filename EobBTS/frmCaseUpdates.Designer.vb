@@ -79,11 +79,12 @@ Partial Class frmCaseUpdates
         Me.btnEdit = New System.Windows.Forms.ToolStripButton()
         Me.btnSave = New System.Windows.Forms.ToolStripButton()
         Me.grdVoucher = New System.Windows.Forms.DataGridView()
-        Me.Label17 = New System.Windows.Forms.Label()
         Me.Sr = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.FIRID = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CaseRemarksDate = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CaseRemarks = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.del = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.Label17 = New System.Windows.Forms.Label()
         Me.grpIP.SuspendLayout()
         Me.grpClaimant.SuspendLayout()
         Me.ToolActivity.SuspendLayout()
@@ -656,26 +657,13 @@ Partial Class frmCaseUpdates
         DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
         Me.grdVoucher.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.grdVoucher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.grdVoucher.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Sr, Me.FIRID, Me.CaseRemarksDate, Me.CaseRemarks})
+        Me.grdVoucher.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Sr, Me.FIRID, Me.CaseRemarksDate, Me.CaseRemarks, Me.del})
         Me.grdVoucher.Location = New System.Drawing.Point(16, 334)
         Me.grdVoucher.Margin = New System.Windows.Forms.Padding(4)
         Me.grdVoucher.Name = "grdVoucher"
         Me.grdVoucher.RowHeadersVisible = False
         Me.grdVoucher.Size = New System.Drawing.Size(981, 218)
         Me.grdVoucher.TabIndex = 60
-        '
-        'Label17
-        '
-        Me.Label17.AutoEllipsis = True
-        Me.Label17.Font = New System.Drawing.Font("Palatino Linotype", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label17.ForeColor = System.Drawing.Color.Teal
-        Me.Label17.Location = New System.Drawing.Point(16, 299)
-        Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
-        Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(981, 27)
-        Me.Label17.TabIndex = 67
-        Me.Label17.Text = "Please Mention Important Notes / Current Position /Updates / Remarks etc"
-        Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'Sr
         '
@@ -685,7 +673,7 @@ Partial Class frmCaseUpdates
         Me.Sr.HeaderText = "Sr#"
         Me.Sr.Name = "Sr"
         Me.Sr.ReadOnly = True
-        Me.Sr.Width = 30
+        Me.Sr.Width = 40
         '
         'FIRID
         '
@@ -710,7 +698,28 @@ Partial Class frmCaseUpdates
         Me.CaseRemarks.DefaultCellStyle = DataGridViewCellStyle5
         Me.CaseRemarks.HeaderText = "Case Remarks / Important Notes"
         Me.CaseRemarks.Name = "CaseRemarks"
-        Me.CaseRemarks.Width = 550
+        Me.CaseRemarks.Width = 500
+        '
+        'del
+        '
+        Me.del.HeaderText = ""
+        Me.del.Image = Global.EobBTS.My.Resources.Resources.PNG_CloseView
+        Me.del.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch
+        Me.del.Name = "del"
+        Me.del.Width = 20
+        '
+        'Label17
+        '
+        Me.Label17.AutoEllipsis = True
+        Me.Label17.Font = New System.Drawing.Font("Palatino Linotype", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Label17.ForeColor = System.Drawing.Color.Teal
+        Me.Label17.Location = New System.Drawing.Point(16, 299)
+        Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.Label17.Name = "Label17"
+        Me.Label17.Size = New System.Drawing.Size(981, 27)
+        Me.Label17.TabIndex = 67
+        Me.Label17.Text = "Please Mention Important Notes / Current Position /Updates / Remarks etc"
+        Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
         '
         'frmCaseUpdates
         '
@@ -794,4 +803,5 @@ Partial Class frmCaseUpdates
     Friend WithEvents FIRID As DataGridViewTextBoxColumn
     Friend WithEvents CaseRemarksDate As DataGridViewTextBoxColumn
     Friend WithEvents CaseRemarks As DataGridViewTextBoxColumn
+    Friend WithEvents del As DataGridViewImageColumn
 End Class
