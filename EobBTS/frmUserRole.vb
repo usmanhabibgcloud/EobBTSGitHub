@@ -36,15 +36,26 @@
                 Dim tbl As New DataTable
 
                 If edit = True Then
-                    clsM.GetRecord("Select d.mnuCode , case mnuLevel When 1 then mnuCaption when 2 then space(8)+mnuCaption when 3 then space(16)+mnuCaption end as Menu ," &
-                    " cast(case when charindex('X',d.Access,1)>0 then 1 else 0 end as bit) as [Access]," &
-                    " cast(case when charindex('A',d.Access,1)>0 then 1 else 0 end as bit) as [Add]," &
-                    " cast(case when charindex('E',d.Access,1)>0 then 1 else 0 end as bit) as [Edit]," &
-                    " cast(case when charindex('D',d.Access,1)>0 then 1 else 0 end as bit) as [Delete] " &
-                    " from tblRoleDetail d inner join tblMenu m on d.mnuCode = m.mnucode where d.RoleID = '" & treeRoles.SelectedNode.Text & "' ORDER BY MNUINDEX", cn)
+                    'clsM.GetRecord("Select d.mnuCode , case mnuLevel When 1 then mnuCaption when 2 then space(8)+mnuCaption when 3 then space(16)+mnuCaption end as Menu ," &
+                    '" cast(case when charindex('X',d.Access,1)>0 then 1 else 0 end as bit) as [Access]," &
+                    '" cast(case when charindex('A',d.Access,1)>0 then 1 else 0 end as bit) as [Add]," &
+                    '" cast(case when charindex('E',d.Access,1)>0 then 1 else 0 end as bit) as [Edit]," &
+                    '" cast(case when charindex('D',d.Access,1)>0 then 1 else 0 end as bit) as [Delete] " &
+                    '" from tblRoleDetail d inner join tblMenu m on d.mnuCode = m.mnucode where d.RoleID = '" & treeRoles.SelectedNode.Text & "' ORDER BY MNUINDEX", cn)
+
+                    clsM.GetRecord("Select m.mnuCode , case m.mnuLevel When 1 then mnuCaption when 2 then space(8)+mnuCaption when 3 then space(16)+mnuCaption end as Menu ," &
+                    " cast(case when d.Access IS NOT NULL AND charindex('X',d.Access,1)>0 then 1 else 0 end as bit) as [Access]," &
+                    " cast(case when d.Access IS NOT NULL AND charindex('A',d.Access,1)>0 then 1 else 0 end as bit) as [Add]," &
+                    " cast(case when d.Access IS NOT NULL AND charindex('E',d.Access,1)>0 then 1 else 0 end as bit) as [Edit]," &
+                    " cast(case when d.Access IS NOT NULL AND charindex('D',d.Access,1)>0 then 1 else 0 end as bit) as [Delete] " &
+                    " FROM tblMenu m LEFT JOIN tblRoleDetail d ON m.mnuCode = d.mnuCode AND d.RoleID = '" & treeRoles.SelectedNode.Text & "' ORDER BY MNUINDEX", cn)
+
                 Else
                     clsM.GetRecord("Select mnuCode,case mnuLevel When 1 then mnuCaption when 2 then space(8)+mnuCaption when 3 then space(16)+mnuCaption end as Menu ,cast(0 as bit) As Access, cast(0 as bit) As [Add], cast(0 as bit) As Edit, cast(0 as bit) As [Delete] from tblMenu order by mnuIndex", cn)
                 End If
+
+
+
 
                 'clsM.GetRecord("Select mnuCode,mnuCaption as Menu from tblMenu where mnuLevel = 3 order by mnuIndex", cn)
                 tbl = clsM.ds.Tables(0)
