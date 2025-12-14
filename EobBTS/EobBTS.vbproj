@@ -149,6 +149,12 @@
     <Compile Include="frmCaseUpdates.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmDBBackup.Designer.vb">
+      <DependentUpon>frmDBBackup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmDBBackup.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmFIRHistoryPrint.Designer.vb">
       <DependentUpon>frmFIRHistoryPrint.vb</DependentUpon>
     </Compile>
@@ -390,6 +396,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCaseUpdates.resx">
       <DependentUpon>frmCaseUpdates.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDBBackup.resx">
+      <DependentUpon>frmDBBackup.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmFIRHistoryPrint.resx">
       <DependentUpon>frmFIRHistoryPrint.vb</DependentUpon>
@@ -655,6 +664,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Update.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\backupDB_to_NAS.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

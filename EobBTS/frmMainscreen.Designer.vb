@@ -25,6 +25,16 @@ Partial Class frmMainscreen
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainscreen))
         Me.RibbonControl1 = New DevComponents.DotNetBar.RibbonControl()
+        Me.RibbonPanel1 = New DevComponents.DotNetBar.RibbonPanel()
+        Me.mnuDefGeneral = New DevComponents.DotNetBar.RibbonBar()
+        Me.mnuDefGeneralRegInfo = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuDefGeneralUsers = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuDefGeneralUserRole = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuDefGeneralFinancialYear = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuDefGeneralDBBackup = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuDefEmp = New DevComponents.DotNetBar.RibbonBar()
+        Me.mnuDefEmpDef = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuDefEmpJobAssignment = New DevComponents.DotNetBar.ButtonItem()
         Me.RibbonPanel3 = New DevComponents.DotNetBar.RibbonPanel()
         Me.mnuRptBTS = New DevComponents.DotNetBar.RibbonBar()
         Me.mnuRptFIRHistory = New DevComponents.DotNetBar.ButtonItem()
@@ -46,15 +56,6 @@ Partial Class frmMainscreen
         Me.mnuActORVerification = New DevComponents.DotNetBar.ButtonItem()
         Me.mnuActORVerificationReminder = New DevComponents.DotNetBar.ButtonItem()
         Me.mnuActCaseUpdates = New DevComponents.DotNetBar.ButtonItem()
-        Me.RibbonPanel1 = New DevComponents.DotNetBar.RibbonPanel()
-        Me.mnuDefGeneral = New DevComponents.DotNetBar.RibbonBar()
-        Me.mnuDefGeneralRegInfo = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuDefGeneralUsers = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuDefGeneralUserRole = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuDefGeneralFinancialYear = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuDefEmp = New DevComponents.DotNetBar.RibbonBar()
-        Me.mnuDefEmpDef = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuDefEmpJobAssignment = New DevComponents.DotNetBar.ButtonItem()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.mnuDefinitions = New DevComponents.DotNetBar.RibbonTabItem()
         Me.mnuActivities = New DevComponents.DotNetBar.RibbonTabItem()
@@ -78,18 +79,18 @@ Partial Class frmMainscreen
         Me.striplblUser = New System.Windows.Forms.ToolStripStatusLabel()
         Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton()
         Me.RibbonControl1.SuspendLayout()
+        Me.RibbonPanel1.SuspendLayout()
         Me.RibbonPanel3.SuspendLayout()
         Me.RibbonPanel2.SuspendLayout()
-        Me.RibbonPanel1.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
         'RibbonControl1
         '
         Me.RibbonControl1.CaptionVisible = True
+        Me.RibbonControl1.Controls.Add(Me.RibbonPanel1)
         Me.RibbonControl1.Controls.Add(Me.RibbonPanel3)
         Me.RibbonControl1.Controls.Add(Me.RibbonPanel2)
-        Me.RibbonControl1.Controls.Add(Me.RibbonPanel1)
         Me.RibbonControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.RibbonControl1.Images = Me.ImageList1
         Me.RibbonControl1.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.mnuDefinitions, Me.mnuActivities, Me.mnuReports})
@@ -105,18 +106,128 @@ Partial Class frmMainscreen
         Me.RibbonControl1.TabIndex = 1
         Me.RibbonControl1.Text = "RibbonControl1"
         '
+        'RibbonPanel1
+        '
+        Me.RibbonPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.RibbonPanel1.Controls.Add(Me.mnuDefGeneral)
+        Me.RibbonPanel1.Controls.Add(Me.mnuDefEmp)
+        Me.RibbonPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.RibbonPanel1.Location = New System.Drawing.Point(0, 55)
+        Me.RibbonPanel1.Margin = New System.Windows.Forms.Padding(4)
+        Me.RibbonPanel1.Name = "RibbonPanel1"
+        Me.RibbonPanel1.Padding = New System.Windows.Forms.Padding(4, 0, 4, 4)
+        Me.RibbonPanel1.Size = New System.Drawing.Size(1211, 133)
+        Me.RibbonPanel1.TabIndex = 1
+        '
+        'mnuDefGeneral
+        '
+        Me.mnuDefGeneral.AutoOverflowEnabled = True
+        Me.mnuDefGeneral.Dock = System.Windows.Forms.DockStyle.Left
+        Me.mnuDefGeneral.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.mnuDefGeneralRegInfo, Me.mnuDefGeneralUsers, Me.mnuDefGeneralUserRole, Me.mnuDefGeneralFinancialYear, Me.mnuDefGeneralDBBackup})
+        Me.mnuDefGeneral.Location = New System.Drawing.Point(201, 0)
+        Me.mnuDefGeneral.Margin = New System.Windows.Forms.Padding(4)
+        Me.mnuDefGeneral.Name = "mnuDefGeneral"
+        Me.mnuDefGeneral.Size = New System.Drawing.Size(402, 129)
+        Me.mnuDefGeneral.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.mnuDefGeneral.TabIndex = 2
+        Me.mnuDefGeneral.Text = "General"
+        '
+        'mnuDefGeneralRegInfo
+        '
+        Me.mnuDefGeneralRegInfo.Image = Global.EobBTS.My.Resources.Resources.Region_Info
+        Me.mnuDefGeneralRegInfo.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuDefGeneralRegInfo.ImagePaddingHorizontal = 8
+        Me.mnuDefGeneralRegInfo.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuDefGeneralRegInfo.Name = "mnuDefGeneralRegInfo"
+        Me.mnuDefGeneralRegInfo.SubItemsExpandWidth = 14
+        Me.mnuDefGeneralRegInfo.Text = "   Region" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Information"
+        '
+        'mnuDefGeneralUsers
+        '
+        Me.mnuDefGeneralUsers.Image = Global.EobBTS.My.Resources.Resources._1396
+        Me.mnuDefGeneralUsers.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuDefGeneralUsers.ImagePaddingHorizontal = 8
+        Me.mnuDefGeneralUsers.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuDefGeneralUsers.Name = "mnuDefGeneralUsers"
+        Me.mnuDefGeneralUsers.SubItemsExpandWidth = 14
+        Me.mnuDefGeneralUsers.Text = "Users"
+        '
+        'mnuDefGeneralUserRole
+        '
+        Me.mnuDefGeneralUserRole.Image = Global.EobBTS.My.Resources.Resources.User_Roles
+        Me.mnuDefGeneralUserRole.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuDefGeneralUserRole.ImagePaddingHorizontal = 8
+        Me.mnuDefGeneralUserRole.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuDefGeneralUserRole.Name = "mnuDefGeneralUserRole"
+        Me.mnuDefGeneralUserRole.SubItemsExpandWidth = 14
+        Me.mnuDefGeneralUserRole.Text = "User Role"
+        '
+        'mnuDefGeneralFinancialYear
+        '
+        Me.mnuDefGeneralFinancialYear.Image = Global.EobBTS.My.Resources.Resources.Year
+        Me.mnuDefGeneralFinancialYear.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuDefGeneralFinancialYear.ImagePaddingHorizontal = 8
+        Me.mnuDefGeneralFinancialYear.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuDefGeneralFinancialYear.Name = "mnuDefGeneralFinancialYear"
+        Me.mnuDefGeneralFinancialYear.SubItemsExpandWidth = 14
+        Me.mnuDefGeneralFinancialYear.Text = "Financial Year"
+        '
+        'mnuDefGeneralDBBackup
+        '
+        Me.mnuDefGeneralDBBackup.Image = Global.EobBTS.My.Resources.Resources.backupDB_to_NAS
+        Me.mnuDefGeneralDBBackup.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuDefGeneralDBBackup.ImagePaddingHorizontal = 8
+        Me.mnuDefGeneralDBBackup.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuDefGeneralDBBackup.Name = "mnuDefGeneralDBBackup"
+        Me.mnuDefGeneralDBBackup.SubItemsExpandWidth = 14
+        Me.mnuDefGeneralDBBackup.Text = "Database" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  Backup"
+        '
+        'mnuDefEmp
+        '
+        Me.mnuDefEmp.AutoOverflowEnabled = True
+        Me.mnuDefEmp.Dock = System.Windows.Forms.DockStyle.Left
+        Me.mnuDefEmp.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.mnuDefEmpDef, Me.mnuDefEmpJobAssignment})
+        Me.mnuDefEmp.Location = New System.Drawing.Point(4, 0)
+        Me.mnuDefEmp.Margin = New System.Windows.Forms.Padding(4)
+        Me.mnuDefEmp.Name = "mnuDefEmp"
+        Me.mnuDefEmp.Size = New System.Drawing.Size(197, 129)
+        Me.mnuDefEmp.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.mnuDefEmp.TabIndex = 0
+        Me.mnuDefEmp.Text = "Employees"
+        '
+        'mnuDefEmpDef
+        '
+        Me.mnuDefEmpDef.Image = Global.EobBTS.My.Resources.Resources._1277
+        Me.mnuDefEmpDef.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuDefEmpDef.ImagePaddingHorizontal = 8
+        Me.mnuDefEmpDef.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuDefEmpDef.Name = "mnuDefEmpDef"
+        Me.mnuDefEmpDef.SubItemsExpandWidth = 14
+        Me.mnuDefEmpDef.Text = "Employee" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Definition"
+        '
+        'mnuDefEmpJobAssignment
+        '
+        Me.mnuDefEmpJobAssignment.Image = Global.EobBTS.My.Resources.Resources.Job_Assignment
+        Me.mnuDefEmpJobAssignment.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuDefEmpJobAssignment.ImagePaddingHorizontal = 8
+        Me.mnuDefEmpJobAssignment.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuDefEmpJobAssignment.Name = "mnuDefEmpJobAssignment"
+        Me.mnuDefEmpJobAssignment.SubItemsExpandWidth = 14
+        Me.mnuDefEmpJobAssignment.Text = " Job" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Assignment"
+        '
         'RibbonPanel3
         '
         Me.RibbonPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
         Me.RibbonPanel3.Controls.Add(Me.mnuRptBTS)
         Me.RibbonPanel3.Controls.Add(Me.mnuRptEmp)
         Me.RibbonPanel3.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.RibbonPanel3.Location = New System.Drawing.Point(0, 55)
+        Me.RibbonPanel3.Location = New System.Drawing.Point(0, 0)
         Me.RibbonPanel3.Margin = New System.Windows.Forms.Padding(4)
         Me.RibbonPanel3.Name = "RibbonPanel3"
         Me.RibbonPanel3.Padding = New System.Windows.Forms.Padding(4, 0, 4, 4)
-        Me.RibbonPanel3.Size = New System.Drawing.Size(1211, 133)
+        Me.RibbonPanel3.Size = New System.Drawing.Size(1211, 188)
         Me.RibbonPanel3.TabIndex = 3
+        Me.RibbonPanel3.Visible = False
         '
         'mnuRptBTS
         '
@@ -126,7 +237,7 @@ Partial Class frmMainscreen
         Me.mnuRptBTS.Location = New System.Drawing.Point(137, 0)
         Me.mnuRptBTS.Margin = New System.Windows.Forms.Padding(4)
         Me.mnuRptBTS.Name = "mnuRptBTS"
-        Me.mnuRptBTS.Size = New System.Drawing.Size(503, 129)
+        Me.mnuRptBTS.Size = New System.Drawing.Size(503, 184)
         Me.mnuRptBTS.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
         Me.mnuRptBTS.TabIndex = 1
         '
@@ -199,7 +310,7 @@ Partial Class frmMainscreen
         Me.mnuRptEmp.Location = New System.Drawing.Point(4, 0)
         Me.mnuRptEmp.Margin = New System.Windows.Forms.Padding(4)
         Me.mnuRptEmp.Name = "mnuRptEmp"
-        Me.mnuRptEmp.Size = New System.Drawing.Size(133, 129)
+        Me.mnuRptEmp.Size = New System.Drawing.Size(133, 184)
         Me.mnuRptEmp.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
         Me.mnuRptEmp.TabIndex = 0
         Me.mnuRptEmp.Text = "Employees"
@@ -316,106 +427,6 @@ Partial Class frmMainscreen
         Me.mnuActCaseUpdates.SubItemsExpandWidth = 14
         Me.mnuActCaseUpdates.Text = "Update Case" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "   Status"
         '
-        'RibbonPanel1
-        '
-        Me.RibbonPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.RibbonPanel1.Controls.Add(Me.mnuDefGeneral)
-        Me.RibbonPanel1.Controls.Add(Me.mnuDefEmp)
-        Me.RibbonPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.RibbonPanel1.Location = New System.Drawing.Point(0, 55)
-        Me.RibbonPanel1.Margin = New System.Windows.Forms.Padding(4)
-        Me.RibbonPanel1.Name = "RibbonPanel1"
-        Me.RibbonPanel1.Padding = New System.Windows.Forms.Padding(4, 0, 4, 4)
-        Me.RibbonPanel1.Size = New System.Drawing.Size(1211, 133)
-        Me.RibbonPanel1.TabIndex = 1
-        Me.RibbonPanel1.Visible = False
-        '
-        'mnuDefGeneral
-        '
-        Me.mnuDefGeneral.AutoOverflowEnabled = True
-        Me.mnuDefGeneral.Dock = System.Windows.Forms.DockStyle.Left
-        Me.mnuDefGeneral.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.mnuDefGeneralRegInfo, Me.mnuDefGeneralUsers, Me.mnuDefGeneralUserRole, Me.mnuDefGeneralFinancialYear})
-        Me.mnuDefGeneral.Location = New System.Drawing.Point(201, 0)
-        Me.mnuDefGeneral.Margin = New System.Windows.Forms.Padding(4)
-        Me.mnuDefGeneral.Name = "mnuDefGeneral"
-        Me.mnuDefGeneral.Size = New System.Drawing.Size(324, 129)
-        Me.mnuDefGeneral.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.mnuDefGeneral.TabIndex = 2
-        Me.mnuDefGeneral.Text = "General"
-        '
-        'mnuDefGeneralRegInfo
-        '
-        Me.mnuDefGeneralRegInfo.Image = Global.EobBTS.My.Resources.Resources.Region_Info
-        Me.mnuDefGeneralRegInfo.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuDefGeneralRegInfo.ImagePaddingHorizontal = 8
-        Me.mnuDefGeneralRegInfo.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuDefGeneralRegInfo.Name = "mnuDefGeneralRegInfo"
-        Me.mnuDefGeneralRegInfo.SubItemsExpandWidth = 14
-        Me.mnuDefGeneralRegInfo.Text = "   Region" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Information"
-        '
-        'mnuDefGeneralUsers
-        '
-        Me.mnuDefGeneralUsers.Image = Global.EobBTS.My.Resources.Resources._1396
-        Me.mnuDefGeneralUsers.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuDefGeneralUsers.ImagePaddingHorizontal = 8
-        Me.mnuDefGeneralUsers.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuDefGeneralUsers.Name = "mnuDefGeneralUsers"
-        Me.mnuDefGeneralUsers.SubItemsExpandWidth = 14
-        Me.mnuDefGeneralUsers.Text = "Users"
-        '
-        'mnuDefGeneralUserRole
-        '
-        Me.mnuDefGeneralUserRole.Image = Global.EobBTS.My.Resources.Resources.User_Roles
-        Me.mnuDefGeneralUserRole.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuDefGeneralUserRole.ImagePaddingHorizontal = 8
-        Me.mnuDefGeneralUserRole.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuDefGeneralUserRole.Name = "mnuDefGeneralUserRole"
-        Me.mnuDefGeneralUserRole.SubItemsExpandWidth = 14
-        Me.mnuDefGeneralUserRole.Text = "User Role"
-        '
-        'mnuDefGeneralFinancialYear
-        '
-        Me.mnuDefGeneralFinancialYear.Image = Global.EobBTS.My.Resources.Resources.Year
-        Me.mnuDefGeneralFinancialYear.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuDefGeneralFinancialYear.ImagePaddingHorizontal = 8
-        Me.mnuDefGeneralFinancialYear.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuDefGeneralFinancialYear.Name = "mnuDefGeneralFinancialYear"
-        Me.mnuDefGeneralFinancialYear.SubItemsExpandWidth = 14
-        Me.mnuDefGeneralFinancialYear.Text = "Financial Year"
-        '
-        'mnuDefEmp
-        '
-        Me.mnuDefEmp.AutoOverflowEnabled = True
-        Me.mnuDefEmp.Dock = System.Windows.Forms.DockStyle.Left
-        Me.mnuDefEmp.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.mnuDefEmpDef, Me.mnuDefEmpJobAssignment})
-        Me.mnuDefEmp.Location = New System.Drawing.Point(4, 0)
-        Me.mnuDefEmp.Margin = New System.Windows.Forms.Padding(4)
-        Me.mnuDefEmp.Name = "mnuDefEmp"
-        Me.mnuDefEmp.Size = New System.Drawing.Size(197, 129)
-        Me.mnuDefEmp.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.mnuDefEmp.TabIndex = 0
-        Me.mnuDefEmp.Text = "Employees"
-        '
-        'mnuDefEmpDef
-        '
-        Me.mnuDefEmpDef.Image = Global.EobBTS.My.Resources.Resources._1277
-        Me.mnuDefEmpDef.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuDefEmpDef.ImagePaddingHorizontal = 8
-        Me.mnuDefEmpDef.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuDefEmpDef.Name = "mnuDefEmpDef"
-        Me.mnuDefEmpDef.SubItemsExpandWidth = 14
-        Me.mnuDefEmpDef.Text = "Employee" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Definition"
-        '
-        'mnuDefEmpJobAssignment
-        '
-        Me.mnuDefEmpJobAssignment.Image = Global.EobBTS.My.Resources.Resources.Job_Assignment
-        Me.mnuDefEmpJobAssignment.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuDefEmpJobAssignment.ImagePaddingHorizontal = 8
-        Me.mnuDefEmpJobAssignment.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuDefEmpJobAssignment.Name = "mnuDefEmpJobAssignment"
-        Me.mnuDefEmpJobAssignment.SubItemsExpandWidth = 14
-        Me.mnuDefEmpJobAssignment.Text = " Job" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Assignment"
-        '
         'ImageList1
         '
         Me.ImageList1.ImageStream = CType(resources.GetObject("ImageList1.ImageStream"), System.Windows.Forms.ImageListStreamer)
@@ -432,6 +443,7 @@ Partial Class frmMainscreen
         '
         'mnuDefinitions
         '
+        Me.mnuDefinitions.Checked = True
         Me.mnuDefinitions.ImagePaddingHorizontal = 8
         Me.mnuDefinitions.Name = "mnuDefinitions"
         Me.mnuDefinitions.Panel = Me.RibbonPanel1
@@ -446,7 +458,6 @@ Partial Class frmMainscreen
         '
         'mnuReports
         '
-        Me.mnuReports.Checked = True
         Me.mnuReports.ImagePaddingHorizontal = 8
         Me.mnuReports.Name = "mnuReports"
         Me.mnuReports.Panel = Me.RibbonPanel3
@@ -637,9 +648,9 @@ Partial Class frmMainscreen
         Me.Text = "Main Screen"
         Me.RibbonControl1.ResumeLayout(False)
         Me.RibbonControl1.PerformLayout()
+        Me.RibbonPanel1.ResumeLayout(False)
         Me.RibbonPanel3.ResumeLayout(False)
         Me.RibbonPanel2.ResumeLayout(False)
-        Me.RibbonPanel1.ResumeLayout(False)
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -699,4 +710,5 @@ Partial Class frmMainscreen
     Friend WithEvents LabelItem1 As DevComponents.DotNetBar.LabelItem
     Friend WithEvents LabelItem2 As DevComponents.DotNetBar.LabelItem
     Friend WithEvents mnuActCaseUpdates As DevComponents.DotNetBar.ButtonItem
+    Friend WithEvents mnuDefGeneralDBBackup As DevComponents.DotNetBar.ButtonItem
 End Class

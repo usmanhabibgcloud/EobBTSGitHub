@@ -118,23 +118,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Private folder 3D" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Private folder 3D.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Hospital" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Hospital.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="Medical Sheet Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Medical Sheet Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Petty Cash Voucher" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Petty Cash Voucher.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Medicines" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Medicines.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Job Assignment" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Job Assignment.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Year" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Year.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="BudgetPosRep" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BudgetPosRep.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Update.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Budget Balance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Budget Balance.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -153,9 +153,6 @@
   </data>
   <data name="7500" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\7500.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="PNG CloseView" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PNG CloseView.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Opening Balance" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Opening Balance.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -178,8 +175,8 @@
   <data name="Script Editor" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Script Editor.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LRyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LRyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Private folder 3D" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Private folder 3D.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Untitled" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Untitled.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -189,6 +186,9 @@
   </data>
   <data name="designer 3D" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\designer 3D.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="EOBI Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\EOBI Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AnnextA-Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AnnextA-Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -205,11 +205,14 @@
   <data name="Budget" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Budget.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Medicines" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Medicines.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Year" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Year.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Region Info" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Region Info.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="LRyellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LRyellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Panel Medical Bills" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Panel Medical Bills.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,16 +220,16 @@
   <data name="Employee Medical" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Employee Medical.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="EOBI Logo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\EOBI Logo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Hospital" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Hospital.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="BudgetPosRep" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\BudgetPosRep.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PNG CloseView" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PNG CloseView.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Receipt Voucher" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Receipt Voucher.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Update" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Update.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="backupDB_to_NAS" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\backupDB_to_NAS.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

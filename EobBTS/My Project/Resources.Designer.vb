@@ -103,6 +103,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property backupDB_to_NAS() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("backupDB_to_NAS", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property Budget() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Budget", resourceCulture)
