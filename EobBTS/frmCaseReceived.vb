@@ -121,7 +121,7 @@ Public Class frmCaseReceived
 
 
 
-    Private Sub frmJVAct_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
+    Private Sub frmCaseReceived_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         Try
 
             txtFIRDate.Text = Format(Today(), "dd/MM/yyyy")
@@ -129,22 +129,9 @@ Public Class frmCaseReceived
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-        'FillVTypes()
+
         ZeroPoint()
     End Sub
-
-    'Private Function GetRegionNames() As List(Of String)
-    '    Dim query As String = "select RegionName from tblRegionNames"
-    '    Dim cls As New clsReader
-    '    cls.GetRecord(query, cn)
-    '    Dim supplierNames = New List(Of String)()
-
-    '    For i As Integer = 0 To cls.ds.Tables(0).Rows.Count - 1
-    '        supplierNames.Add(cls.ds.Tables(0).Rows(i)("RegionName"))
-    '    Next
-
-    '    Return supplierNames
-    'End Function
     Private Sub btnEdit_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnEdit.Click
         ActionEdit()
 
@@ -156,7 +143,7 @@ Public Class frmCaseReceived
             cls.GetRecord("select FIRID,FIRNo,FIRDate,ClaimantName,ClaimantRelative,ClaimantCNIC,ClaimantGender,ClaimantDoB,CaseType,PreviousClaimNo,IPName,IPRelative,IPCNIC,IPGender,IPDoB,EOBINo,IPDeathDate,Editable,VSource,PreparedBy,Checked,CheckedBy,Approved,ApprovedBy,RefID,FYID from tblFIRMain where FIRID = '" & intFIRID & "'  select FIRDetailID, FIRID, EmployerName, PeriodFrom, PeriodTo, RegionName, Beat, EmployerCode from tblFIRDetail where FIRID = '" & intFIRID & "'", cn)
             strFIRNo = cls.ds.Tables(0).Rows(0)("FIRNo")
             txtFIRNo.Text = cls.ds.Tables(0).Rows(0)("FIRNo")
-            txtFIRDate.Text = cls.ds.Tables(0).Rows(0)("FIRDate").ToString
+            txtFIRDate.Text = CType(cls.ds.Tables(0).Rows(0)("FIRDate"), Date).ToString("dd-MM-yyyy")
             dtDate.Value = Convert.ToDateTime(txtFIRDate.Text)
             'MessageBox.Show(cls.ds.Tables(0).Rows(0)("FIRDate").ToString)
             txtClaimantName.Text = cls.ds.Tables(0).Rows(0)("ClaimantName")
@@ -165,7 +152,7 @@ Public Class frmCaseReceived
             txtClaimantCNIC.Text = cls.ds.Tables(0).Rows(0)("ClaimantCNIC")
             optMale1.Checked = IIf(cls.ds.Tables(0).Rows(0)("ClaimantGender") = "Male", True, False)
             optFemale1.Checked = IIf(cls.ds.Tables(0).Rows(0)("ClaimantGender") = "Female", True, False)
-            txtClaimnatDOB.Text = cls.ds.Tables(0).Rows(0)("ClaimantDoB").ToString
+            txtClaimnatDOB.Text = CType(cls.ds.Tables(0).Rows(0)("ClaimantDoB"), Date).ToString("dd-MM-yyyy")
 
             'MessageBox.Show(cls.ds.Tables(0).Rows(0)("ClaimantDoB").ToString)
             cboNatureOfBenefit.Text = cls.ds.Tables(0).Rows(0)("CaseType")
@@ -179,7 +166,7 @@ Public Class frmCaseReceived
             txtIPDOB.Text = cls.ds.Tables(0).Rows(0)("IPDoB").ToString
             txtEOBINo.Text = cls.ds.Tables(0).Rows(0)("EOBINo")
 
-            txtIPDeathDate.Text = IIf(cls.ds.Tables(0).Rows(0)("IPDeathDate").ToString = "01-01-1900 12:00:00 AM", Nothing, cls.ds.Tables(0).Rows(0)("IPDeathDate").ToString)
+            txtIPDeathDate.Text = IIf(cls.ds.Tables(0).Rows(0)("IPDeathDate").ToString = "01-01-1900 12:00:00 AM", Nothing, CType(cls.ds.Tables(0).Rows(0)("IPDeathDate"), Date).ToString("dd-MM-yyyy"))
 
             grpClaimant.Enabled = True
             grpIP.Enabled = True
@@ -196,8 +183,8 @@ Public Class frmCaseReceived
                 grdVoucher.Item("FIRDetailID", i).Value = cls.ds.Tables(1).Rows(i)("FIRDetailID")
                 grdVoucher.Item("FIRID", i).Value = cls.ds.Tables(1).Rows(i)("FIRID")
                 grdVoucher.Item("EmployerName", i).Value = cls.ds.Tables(1).Rows(i)("EmployerName")
-                grdVoucher.Item("PeriodFrom", i).Value = cls.ds.Tables(1).Rows(i)("PeriodFrom")
-                grdVoucher.Item("PeriodTo", i).Value = cls.ds.Tables(1).Rows(i)("PeriodTo")
+                grdVoucher.Item("PeriodFrom", i).Value = CType(cls.ds.Tables(1).Rows(i)("PeriodFrom"), Date).ToString("dd-MM-yyyy")
+                grdVoucher.Item("PeriodTo", i).Value = CType(cls.ds.Tables(1).Rows(i)("PeriodTo"), Date).ToString("dd-MM-yyyy")
                 grdVoucher.Item("RegionName", i).Value = cls.ds.Tables(1).Rows(i)("RegionName")
                 grdVoucher.Item("Beat", i).Value = cls.ds.Tables(1).Rows(i)("Beat")
                 grdVoucher.Item("EmployerCode", i).Value = cls.ds.Tables(1).Rows(i)("EmployerCode")
@@ -303,41 +290,55 @@ Public Class frmCaseReceived
 
         '-------------------------------Converting DataGrid into Data table---------------------
 
+
         Dim tblDetail As New DataTable
 
-        Dim strFldNames As String() = New String() {"EmployerName", "PeriodFrom", "PeriodTo", "RegionName", "Beat", "EmployerCode"}
+        tblDetail.Columns.Add("EmployerName", GetType(String))
+        tblDetail.Columns.Add("PeriodFrom", GetType(Date))
+        tblDetail.Columns.Add("PeriodTo", GetType(Date))
+        tblDetail.Columns.Add("RegionName", GetType(String))
+        tblDetail.Columns.Add("Beat", GetType(String))
+        tblDetail.Columns.Add("EmployerCode", GetType(String))
+        Try
+            For Each row As DataGridViewRow In grdVoucher.Rows
+                If row.Index < grdVoucher.RowCount - 1 Then
+                    Dim dr As DataRow = tblDetail.NewRow()  'dr = data row
+                    dr("EmployerName") = row.Cells("EmployerName").Value.ToString()
+                    dr("PeriodFrom") = fnStringDate_to_SqlDate(row.Cells("PeriodFrom").Value)
+                    dr("PeriodTo") = fnStringDate_to_SqlDate(row.Cells("PeriodTo").Value)
+                    dr("RegionName") = If(row.Cells("RegionName").Value, "")
+                    dr("Beat") = If(row.Cells("Beat").Value, "")
+                    dr("EmployerCode") = If(row.Cells("EmployerCode").Value, "")
+                    tblDetail.Rows.Add(dr)
 
-        For i As Integer = 0 To UBound(strFldNames)
-            tblDetail.Columns.Add(strFldNames(i).ToString)
-        Next
+                End If
+            Next
 
-        For r As Integer = 0 To grdVoucher.RowCount - 2
-            If Not (grdVoucher.Item("EmployerName", r).Value = Nothing) Then
-
-                tblDetail.Rows.Add()
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("EmployerName") = Replace(grdVoucher.Item("EmployerName", r).Value, "'", " ")
-                'tblDetail.Rows(tblDetail.Rows.Count - 1)("EmployerName") = grdVoucher.Item("EmployerName", r).Value
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("PeriodFrom") = IIf(grdVoucher.Item("PeriodFrom", r).Value = Nothing, "0001-01-01", fnTextToDate(grdVoucher.Item("PeriodFrom", r).Value))
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("PeriodTo") = IIf(grdVoucher.Item("PeriodTo", r).Value = Nothing, "0001-01-01", fnTextToDate(grdVoucher.Item("PeriodTo", r).Value))
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("RegionName") = grdVoucher.Item("RegionName", r).Value
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("Beat") = grdVoucher.Item("Beat", r).Value
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("EmployerCode") = grdVoucher.Item("EmployerCode", r).Value
-            End If
-        Next r
-
+        Catch ex As Exception
+            MsgBox(ex)
+            Exit Sub
+        End Try
         '---------------------------SAVING MAIN AND DETAIL TABLE-------------------------
 
 
         Dim cls As New ClsWriter
+
+        Dim fldNames As String() = New String() {"FIRNo", "FIRDate", "ClaimantName", "ClaimantRelative", "ClaimantCNIC", "ClaimantGender", "ClaimantDoB", "CaseType", "PreviousClaimNo", "IPName", "IPRelative", "IPCNIC", "IPGender", "IPDoB", "EOBINo", "IPDeathDate", "Editable", "VSource", "PreparedBy", "FYID"}
+        Dim fldValues As Object = New Object() {txtFIRNo.Text, Date.ParseExact(txtFIRDate.Text, "dd-MM-yyyy", Nothing),
+                txtClaimantName.Text, txtClaimantRelativeName.Text, txtClaimantCNIC.Text,
+                IIf(Me.optMale1.Checked = True, "Male", "Female"), Date.ParseExact(txtClaimnatDOB.Text, "dd-MM-yyyy", Nothing),
+                cboNatureOfBenefit.Text, txtPreviousClaimNo.Text, txtIPName.Text, txtIPRelativeName.Text, txtIPCNIC.Text,
+                IIf(Me.optMale2.Checked = True, "Male", "Female"), Date.ParseExact(txtIPDOB.Text, "dd-MM-yyyy", Nothing),
+                txtEOBINo.Text, If(txtIPDeathDate.MaskCompleted, Date.ParseExact(txtIPDeathDate.Text, "dd-MM-yyyy", Nothing), New Date(1900, 1, 1)),
+                1, "SELF", strUser, intFYID}
+
         If EditMode = False Then GoTo AddMode
         If EditMode = True Then GoTo EditMode
 AddMode:
         Try
 
-            Dim fldNames As String() = New String() {"FIRNo", "FIRDate", "ClaimantName", "ClaimantRelative", "ClaimantCNIC", "ClaimantGender", "ClaimantDoB", "CaseType", "PreviousClaimNo", "IPName", "IPRelative", "IPCNIC", "IPGender", "IPDoB", "EOBINo", "IPDeathDate", "Editable", "VSource", "PreparedBy", "FYID"}
-            Dim fldValues As Object = New Object() {txtFIRNo.Text, fnTextToDate(txtFIRDate.Text), txtClaimantName.Text, txtClaimantRelativeName.Text, txtClaimantCNIC.Text, IIf(Me.optMale1.Checked = True, "Male", "Female"), fnTextToDate(txtClaimnatDOB.Text), cboNatureOfBenefit.Text, txtPreviousClaimNo.Text, txtIPName.Text, txtIPRelativeName.Text, txtIPCNIC.Text, IIf(Me.optMale2.Checked = True, "Male", "Female"), fnTextToDate(txtIPDOB.Text), txtEOBINo.Text, fnTextToDate(IIf(txtIPDeathDate.Text = "  -  -", "01/01/1900", txtIPDeathDate.Text)), 1, "SELF", strUser, intFYID}
+            cls.AddRecord_U(tblDetail, cn, "tblFIRDetail", "tblFIRMain", "FIRID", fldNames, fldValues)
 
-            cls.AddRecord(tblDetail, cn, "tblFIRDetail", "tblFIRMain", "FIRID", fldNames, fldValues)
             cls = Nothing
             ZeroPoint()
             Cursor = Cursors.Default
@@ -349,10 +350,7 @@ AddMode:
 EditMode:
         Try
 
-            Dim fldNames As String() = New String() {"FIRNo", "FIRDate", "ClaimantName", "ClaimantRelative", "ClaimantCNIC", "ClaimantGender", "ClaimantDoB", "CaseType", "PreviousClaimNo", "IPName", "IPRelative", "IPCNIC", "IPGender", "IPDoB", "EOBINo", "IPDeathDate", "Editable", "VSource", "PreparedBy", "FYID"}
-            Dim fldValues As Object = New Object() {txtFIRNo.Text, fnTextToDate(txtFIRDate.Text), txtClaimantName.Text, txtClaimantRelativeName.Text, txtClaimantCNIC.Text, IIf(Me.optMale1.Checked = True, "Male", "Female"), fnTextToDate(txtClaimnatDOB.Text), cboNatureOfBenefit.Text, txtPreviousClaimNo.Text, txtIPName.Text, txtIPRelativeName.Text, txtIPCNIC.Text, IIf(Me.optMale2.Checked = True, "Male", "Female"), fnTextToDate(txtIPDOB.Text), txtEOBINo.Text, fnTextToDate(IIf(txtIPDeathDate.Text = "  -  -", "01/01/1900", txtIPDeathDate.Text)), 1, "SELF", strUser, intFYID}
-
-            cls.UpdateRecord(tblDetail, cn, "tblFIRDetail", "tblFIRMain", "FIRID", fldNames, fldValues, intFIRID)
+            cls.UpdateRecord_U(tblDetail, cn, "tblFIRDetail", "tblFIRMain", "FIRID", fldNames, fldValues, intFIRID)
             cls = Nothing
             ZeroPoint()
             Cursor = Cursors.Default
@@ -378,7 +376,7 @@ EditMode:
         If btnDelete.Visible = False Then Exit Sub
         If MessageBox.Show("Are you Want to Delete The Record", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.No Then Exit Sub
         Dim cls As New ClsWriter
-        cls.DeleteRecord("tblFIRMain", "FIRID", intFIRID, cn)
+        cls.DeleteRecord_U("tblFIRMain", "tblFIRDetail", "FIRID", intFIRID, cn)
         cls = Nothing
         ZeroPoint()
         '--------------Updating the name of user who deleted the record-----------

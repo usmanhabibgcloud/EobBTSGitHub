@@ -25,6 +25,20 @@ Module mdlGeneral
         Cancel = 3
         Delete = 4
     End Enum
+    Public Function fnStringDate_to_SqlDate(value As Object) As Date
+        Dim d As Date
+        Return If(
+        Date.TryParseExact(
+            Convert.ToString(value),
+            "dd-MM-yyyy",
+            Globalization.CultureInfo.InvariantCulture,
+            Globalization.DateTimeStyles.None,
+            d
+        ) AndAlso d <> Date.MinValue,
+        d,
+        New Date(1900, 1, 1)
+    )
+    End Function
 
     Public Function AddSerial(ByVal tbl As DataTable)
         tbl.Columns.Add("Sr")

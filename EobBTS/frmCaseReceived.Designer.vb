@@ -48,6 +48,17 @@ Partial Class frmCaseReceived
         Me.btnExit = New System.Windows.Forms.ToolStripButton()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.grdVoucher = New System.Windows.Forms.DataGridView()
+        Me.Sr = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.F1 = New System.Windows.Forms.DataGridViewImageColumn()
+        Me.FIRDetailID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.FIRID = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.EmployerName = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PeriodFrom = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PeriodTo = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.RegionName = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.Beat = New System.Windows.Forms.DataGridViewComboBoxColumn()
+        Me.EmployerCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Del = New System.Windows.Forms.DataGridViewImageColumn()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.DataGridViewImageColumn2 = New System.Windows.Forms.DataGridViewImageColumn()
         Me.grpClaimant = New System.Windows.Forms.GroupBox()
@@ -81,17 +92,6 @@ Partial Class frmCaseReceived
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label14 = New System.Windows.Forms.Label()
         Me.Label15 = New System.Windows.Forms.Label()
-        Me.Sr = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.F1 = New System.Windows.Forms.DataGridViewImageColumn()
-        Me.FIRDetailID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.FIRID = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.EmployerName = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PeriodFrom = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PeriodTo = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.RegionName = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.Beat = New System.Windows.Forms.DataGridViewComboBoxColumn()
-        Me.EmployerCode = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Del = New System.Windows.Forms.DataGridViewImageColumn()
         Me.ToolActivity.SuspendLayout()
         CType(Me.grdVoucher, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.grpClaimant.SuspendLayout()
@@ -290,6 +290,96 @@ Partial Class frmCaseReceived
         Me.grdVoucher.RowHeadersVisible = False
         Me.grdVoucher.Size = New System.Drawing.Size(963, 228)
         Me.grdVoucher.TabIndex = 3
+        '
+        'Sr
+        '
+        Me.Sr.Frozen = True
+        Me.Sr.HeaderText = "Sr#"
+        Me.Sr.Name = "Sr"
+        Me.Sr.ReadOnly = True
+        Me.Sr.Width = 30
+        '
+        'F1
+        '
+        Me.F1.HeaderText = ""
+        Me.F1.Image = Global.EobBTS.My.Resources.Resources.Untitled
+        Me.F1.Name = "F1"
+        Me.F1.Width = 10
+        '
+        'FIRDetailID
+        '
+        Me.FIRDetailID.HeaderText = "FIRDetailID"
+        Me.FIRDetailID.Name = "FIRDetailID"
+        Me.FIRDetailID.Visible = False
+        '
+        'FIRID
+        '
+        Me.FIRID.HeaderText = "FIRID"
+        Me.FIRID.Name = "FIRID"
+        Me.FIRID.Visible = False
+        '
+        'EmployerName
+        '
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.EmployerName.DefaultCellStyle = DataGridViewCellStyle3
+        Me.EmployerName.HeaderText = "Employer Name"
+        Me.EmployerName.Name = "EmployerName"
+        Me.EmployerName.Width = 250
+        '
+        'PeriodFrom
+        '
+        DataGridViewCellStyle4.Format = "d"
+        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.PeriodFrom.DefaultCellStyle = DataGridViewCellStyle4
+        Me.PeriodFrom.HeaderText = "Period From"
+        Me.PeriodFrom.Name = "PeriodFrom"
+        Me.PeriodFrom.Width = 110
+        '
+        'PeriodTo
+        '
+        DataGridViewCellStyle5.Format = "d"
+        DataGridViewCellStyle5.NullValue = Nothing
+        Me.PeriodTo.DefaultCellStyle = DataGridViewCellStyle5
+        Me.PeriodTo.HeaderText = "Period To"
+        Me.PeriodTo.Name = "PeriodTo"
+        Me.PeriodTo.Width = 110
+        '
+        'RegionName
+        '
+        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight
+        DataGridViewCellStyle6.NullValue = "0"
+        Me.RegionName.DefaultCellStyle = DataGridViewCellStyle6
+        Me.RegionName.HeaderText = "Region Name"
+        Me.RegionName.Items.AddRange(New Object() {"Faisalabad South", "Sheikhupura", "Kotri", "Korangi", "Rahim Yar Khan", "Islamabad", "Karachi Central", "Larkana", "Rawalpindi", "Faisalabad North", "Nazimabad", "Hyderabad", "Gujrat", "West Wharf", "Mangamandi", "Lahore Central", "Jehlum", "City", "Shahdarah", "Multan", "Quetta", "Faisalabad Central", "Bin Qasim", "Lahore South", "Sahiwal", "Mardan", "Bahawalpur", "Gujranwala", "Sargodha", "Karimabad", "Sukkur", "Lahore North", "Abbottabad", "Gilgit", "Sialkot", "Muzaffargarh", "Hassanabdal", "Peshawar", "Hub", "Chakwal", "Islamabad East", "Islamabad West"})
+        Me.RegionName.Name = "RegionName"
+        Me.RegionName.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.RegionName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.RegionName.Width = 120
+        '
+        'Beat
+        '
+        Me.Beat.HeaderText = "Beat"
+        Me.Beat.Items.AddRange(New Object() {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T"})
+        Me.Beat.Name = "Beat"
+        Me.Beat.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.Beat.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
+        Me.Beat.Width = 50
+        '
+        'EmployerCode
+        '
+        Me.EmployerCode.HeaderText = "EmployerCode"
+        Me.EmployerCode.Name = "EmployerCode"
+        Me.EmployerCode.ReadOnly = True
+        Me.EmployerCode.Visible = False
+        '
+        'Del
+        '
+        Me.Del.HeaderText = ""
+        Me.Del.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch
+        Me.Del.Name = "Del"
+        Me.Del.ReadOnly = True
+        Me.Del.Width = 20
         '
         'Label1
         '
@@ -686,96 +776,6 @@ Partial Class frmCaseReceived
         Me.Label15.TabIndex = 9
         Me.Label15.Text = "Insured Person Information"
         Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
-        '
-        'Sr
-        '
-        Me.Sr.Frozen = True
-        Me.Sr.HeaderText = "Sr#"
-        Me.Sr.Name = "Sr"
-        Me.Sr.ReadOnly = True
-        Me.Sr.Width = 30
-        '
-        'F1
-        '
-        Me.F1.HeaderText = ""
-        Me.F1.Image = Global.EobBTS.My.Resources.Resources.Untitled
-        Me.F1.Name = "F1"
-        Me.F1.Width = 10
-        '
-        'FIRDetailID
-        '
-        Me.FIRDetailID.HeaderText = "FIRDetailID"
-        Me.FIRDetailID.Name = "FIRDetailID"
-        Me.FIRDetailID.Visible = False
-        '
-        'FIRID
-        '
-        Me.FIRID.HeaderText = "FIRID"
-        Me.FIRID.Name = "FIRID"
-        Me.FIRID.Visible = False
-        '
-        'EmployerName
-        '
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle3.NullValue = Nothing
-        Me.EmployerName.DefaultCellStyle = DataGridViewCellStyle3
-        Me.EmployerName.HeaderText = "Employer Name"
-        Me.EmployerName.Name = "EmployerName"
-        Me.EmployerName.Width = 250
-        '
-        'PeriodFrom
-        '
-        DataGridViewCellStyle4.Format = "d"
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.PeriodFrom.DefaultCellStyle = DataGridViewCellStyle4
-        Me.PeriodFrom.HeaderText = "Period From"
-        Me.PeriodFrom.Name = "PeriodFrom"
-        Me.PeriodFrom.Width = 110
-        '
-        'PeriodTo
-        '
-        DataGridViewCellStyle5.Format = "d"
-        DataGridViewCellStyle5.NullValue = Nothing
-        Me.PeriodTo.DefaultCellStyle = DataGridViewCellStyle5
-        Me.PeriodTo.HeaderText = "Period To"
-        Me.PeriodTo.Name = "PeriodTo"
-        Me.PeriodTo.Width = 110
-        '
-        'RegionName
-        '
-        DataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight
-        DataGridViewCellStyle6.NullValue = "0"
-        Me.RegionName.DefaultCellStyle = DataGridViewCellStyle6
-        Me.RegionName.HeaderText = "Region Name"
-        Me.RegionName.Items.AddRange(New Object() {"Faisalabad South", "Sheikhupura", "Kotri", "Korangi", "Rahim Yar Khan", "Islamabad", "Karachi Central", "Larkana", "Rawalpindi", "Faisalabad North", "Nazimabad", "Hyderabad", "Gujrat", "West Wharf", "Mangamandi", "Lahore Central", "Jehlum", "City", "Shahdarah", "Multan", "Quetta", "Faisalabad Central", "Bin Qasim", "Lahore South", "Sahiwal", "Mardan", "Bahawalpur", "Gujranwala", "Sargodha", "Karimabad", "Sukkur", "Lahore North", "Abbottabad", "Gilgit", "Sialkot", "Muzaffargarh", "Hassanabdal", "Peshawar", "Hub", "Chakwal", "Islamabad East", "Islamabad West"})
-        Me.RegionName.Name = "RegionName"
-        Me.RegionName.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.RegionName.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.RegionName.Width = 120
-        '
-        'Beat
-        '
-        Me.Beat.HeaderText = "Beat"
-        Me.Beat.Items.AddRange(New Object() {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T"})
-        Me.Beat.Name = "Beat"
-        Me.Beat.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.Beat.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic
-        Me.Beat.Width = 50
-        '
-        'EmployerCode
-        '
-        Me.EmployerCode.HeaderText = "EmployerCode"
-        Me.EmployerCode.Name = "EmployerCode"
-        Me.EmployerCode.ReadOnly = True
-        Me.EmployerCode.Visible = False
-        '
-        'Del
-        '
-        Me.Del.HeaderText = ""
-        Me.Del.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch
-        Me.Del.Name = "Del"
-        Me.Del.ReadOnly = True
-        Me.Del.Width = 20
         '
         'frmCaseReceived
         '
