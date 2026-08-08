@@ -125,41 +125,76 @@ Public Class frmProcessSheetForm
     End Sub
 
     Private Sub ShowProcessSheetReport(FIRID As Double)
-        Try
-            Cursor = Cursors.WaitCursor
+        If optDelayCondonation.Checked = True Then
 
-            Dim myReport As New ReportDocument
-            Dim tbl As New DataTable
-            Dim myAdp As New SqlDataAdapter
-            Dim myCommand As New SqlCommand("spProcessSheet", cn) With {
+            Try
+                Cursor = Cursors.WaitCursor
+
+                Dim myReport As New ReportDocument
+                Dim tbl As New DataTable
+                Dim myAdp As New SqlDataAdapter
+                Dim myCommand As New SqlCommand("spDelayCondonation", cn) With {
                 .CommandType = CommandType.StoredProcedure
             }
-            Dim strSheetType As String
-            If optGrant.Checked = True Then
-                strSheetType = "Grant"
-            Else
-                strSheetType = "Pension"
-            End If
+                Dim strSheetType As String = "DelayCondonation"
 
-            myCommand.Parameters.Add("@FIRID", SqlDbType.Int).Value = FIRID
+                myCommand.Parameters.Add("@FIRID", SqlDbType.Int).Value = FIRID
 
-            myAdp.SelectCommand = myCommand
-            myAdp.Fill(tbl)
+                myAdp.SelectCommand = myCommand
+                myAdp.Fill(tbl)
 
-            myReport.Load(fnReportPath("crProcessSheet.rpt"))
-            myReport.SetDataSource(tbl)
-            myReport.SetParameterValue("RegionName", mdlGeneral.strRegionName)
-            myReport.SetParameterValue("SheetType", strSheetType)
+                myReport.Load(fnReportPath("crDelayCondonation.rpt"))
+                myReport.SetDataSource(tbl)
+                myReport.SetParameterValue("RegionName", mdlGeneral.strRegionName)
 
-            frmReports.crView.ReportSource = myReport
-            frmReports.crView.Show()
-            frmReports.Text = "Claimant Process Sheet"
-            frmReports.Show()
-            Cursor = Cursors.Default
-        Catch ex As Exception
-            Cursor = Cursors.Default
-            MessageBox.Show(ex.Message)
-        End Try
+                frmReports.crView.ReportSource = myReport
+                frmReports.crView.Show()
+                frmReports.Text = "Delay Condonation"
+                frmReports.Show()
+                Cursor = Cursors.Default
+            Catch ex As Exception
+                Cursor = Cursors.Default
+                MessageBox.Show(ex.Message)
+            End Try
+        Else
+
+            Try
+                Cursor = Cursors.WaitCursor
+
+                Dim myReport As New ReportDocument
+                Dim tbl As New DataTable
+                Dim myAdp As New SqlDataAdapter
+                Dim myCommand As New SqlCommand("spProcessSheet", cn) With {
+                .CommandType = CommandType.StoredProcedure
+            }
+                Dim strSheetType As String
+                If optGrant.Checked = True Then
+                    strSheetType = "Grant"
+                Else
+                    strSheetType = "Pension"
+                End If
+
+                myCommand.Parameters.Add("@FIRID", SqlDbType.Int).Value = FIRID
+
+                myAdp.SelectCommand = myCommand
+                myAdp.Fill(tbl)
+
+                myReport.Load(fnReportPath("crProcessSheet.rpt"))
+                myReport.SetDataSource(tbl)
+                myReport.SetParameterValue("RegionName", mdlGeneral.strRegionName)
+                myReport.SetParameterValue("SheetType", strSheetType)
+
+                frmReports.crView.ReportSource = myReport
+                frmReports.crView.Show()
+                frmReports.Text = "Claimant Process Sheet"
+                frmReports.Show()
+                Cursor = Cursors.Default
+            Catch ex As Exception
+                Cursor = Cursors.Default
+                MessageBox.Show(ex.Message)
+            End Try
+
+        End If
     End Sub
 
     Private Sub ZeroPoint()
@@ -176,4 +211,5 @@ Public Class frmProcessSheetForm
     Private Sub frmVoucherSearch_Closed(sender As Object, e As EventArgs) Handles Me.Closed
         ZeroPoint()
     End Sub
+
 End Class
