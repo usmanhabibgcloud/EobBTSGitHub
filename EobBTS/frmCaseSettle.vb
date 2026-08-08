@@ -139,7 +139,8 @@
             cls.GetRecord("select SettleID,SettleDate from tblCaseSettleMain Where SettleID = " & intSettleID & "  Select S.FIRID, (Select M.FIRNo from tblFIRMain M where M.FIRID = S.FIRID) as FIRNO,(Select M.ClaimantCNIC from tblFIRMain M where M.FIRID = S.FIRID) as ClaimantCNIC,(Select M.ClaimantName + '- ' + M.ClaimantRelative from tblFIRMain M where M.FIRID = S.FIRID) as ClaimantName,S.ClaimNo, S.Remarks from tblCaseSettleDetail S Where SettleID =  " & intSettleID, cn)
 
             Me.txtSettleID.Text = cls.ds.Tables(0).Rows(0)("SettleID")
-            txtSettleDate.Text = Format(cls.ds.Tables(0).Rows(0)("SettleDate"), "dd/MM/yyyy")
+            'txtSettleDate.Text = Format(cls.ds.Tables(0).Rows(0)("SettleDate"), "dd/MM/yyyy")
+            txtSettleDate.Text = CType(cls.ds.Tables(0).Rows(0)("SettleDate"), Date).ToString("dd-MM-yyyy")
             Me.dtDate.Value = cls.ds.Tables(0).Rows(0)("SettleDate")
             Me.grpSettlementInfo.Enabled = True
 
@@ -210,33 +211,39 @@
         '--------------------------Converting Grid to Table--------------
 
         Dim tblDetail As New DataTable
-        Dim strFldNames As String() = New String() {"FIRID", "ClaimNo", "Remarks"}
+        tblDetail.Columns.Add("FIRID", GetType(Double))
+        tblDetail.Columns.Add("ClaimNo", GetType(String))
+        tblDetail.Columns.Add("Remarks", GetType(String))
+        Try
+            For Each row As DataGridViewRow In grdSettle.Rows
+                If row.Index < grdSettle.RowCount - 1 Then
+                    Dim dr As DataRow = tblDetail.NewRow()  'dr = data row
+                    dr("FIRID") = row.Cells("FIRID").Value
+                    dr("ClaimNo") = row.Cells("ClaimNo").Value.ToString()
+                    dr("Remarks") = If(row.Cells("Remarks").Value, "")
+                    tblDetail.Rows.Add(dr)
 
-        For i As Integer = 0 To UBound(strFldNames)
-            tblDetail.Columns.Add(strFldNames(i).ToString)
-        Next
+                End If
+            Next
 
-        For r As Integer = 0 To Me.grdSettle.RowCount - 2
-            If Not (grdSettle.Item("ClaimantName", r).Value = Nothing) Then
-                tblDetail.Rows.Add()
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("FIRID") = Me.grdSettle.Item("FIRID", r).Value
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("ClaimNo") = Me.grdSettle.Item("ClaimNo", r).Value
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("Remarks") = Me.grdSettle.Item("Remarks", r).Value
-
-            End If
-        Next r
+        Catch ex As Exception
+            MsgBox(ex)
+            Exit Sub
+        End Try
 
         '---------------------------SAVING MAIN AND DETAIL TABLE-------------------------
 
         Dim cls As New ClsWriter
+        Dim fldNames As String() = New String() {"FYID", "SettleDate", "Editable", "UserID"}
+        Dim fldValues As Object = New Object() {intFYID, Date.ParseExact(txtSettleDate.Text, "dd-MM-yyyy", Nothing),
+                1, strUser}
+
         If EditMode = False Then GoTo AddMode
         If EditMode = True Then GoTo EditMode
 
 AddMode:
         Try
-            Dim fldNames As String() = New String() {"FYID", "SettleDate", "Editable", "UserID"}
-            Dim fldValues As Object = New Object() {intFYID, fnTextToDate(txtSettleDate.Text), 1, strUser}
-            cls.AddRecord(tblDetail, cn, "tblCaseSettleDetail", "tblCaseSettleMain", "SettleID", fldNames, fldValues)
+            cls.AddRecord_U(tblDetail, cn, "tblCaseSettleDetail", "tblCaseSettleMain", "SettleID", fldNames, fldValues)
             cls = Nothing
             ZeroPoint()
             Exit Sub
@@ -246,10 +253,8 @@ AddMode:
         End Try
 EditMode:
         Try
-            Dim fldNames As String() = New String() {"FYID", "SettleDate", "Editable", "UserID"}
-            Dim fldValues As Object = New Object() {intFYID, fnTextToDate(txtSettleDate.Text), 1, strUser}
 
-            cls.UpdateRecord(tblDetail, cn, "tblCaseSettleDetail", "tblCaseSettleMain", "SettleID", fldNames, fldValues, intSettleID)
+            cls.UpdateRecord_U(tblDetail, cn, "tblCaseSettleDetail", "tblCaseSettleMain", "SettleID", fldNames, fldValues, intSettleID)
             cls = Nothing
             ZeroPoint()
         Catch ex As Exception
@@ -272,7 +277,7 @@ EditMode:
             If MessageBox.Show("Are you sure you want to Delete the Record", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Information) = Windows.Forms.DialogResult.Yes Then
 
                 Dim cls As New ClsWriter
-                cls.DeleteRecord("tblCaseSettleMain", "SettleID", intSettleID, cn)
+                cls.DeleteRecord_U("tblCaseSettleMain", "tblCaseSettleDetail", "SettleID", intSettleID, cn)
                 cls = Nothing
                 ZeroPoint()
 

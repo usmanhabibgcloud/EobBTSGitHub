@@ -183,8 +183,8 @@ Public Class frmVerificationReceived
                 grdVoucher.Item("EmployerName", i).Value = cls.ds.Tables(1).Rows(i)("EmployerName")
                 grdVoucher.Item("PeriodFrom", i).Value = cls.ds.Tables(1).Rows(i)("PeriodFrom")
                 grdVoucher.Item("PeriodTo", i).Value = cls.ds.Tables(1).Rows(i)("PeriodTo")
-                grdVoucher.Item("VerifiedFrom", i).Value = IIf(cls.ds.Tables(1).Rows(i)("VerifiedFrom") = "01-01-0001", Nothing, cls.ds.Tables(1).Rows(i)("VerifiedFrom"))
-                grdVoucher.Item("VerifiedTo", i).Value = IIf(cls.ds.Tables(1).Rows(i)("VerifiedTo") = "01-01-0001", Nothing, cls.ds.Tables(1).Rows(i)("VerifiedTo"))
+                grdVoucher.Item("VerifiedFrom", i).Value = IIf(cls.ds.Tables(1).Rows(i)("VerifiedFrom") = "01-01-0001" Or cls.ds.Tables(1).Rows(i)("VerifiedFrom") = "01-01-1900", Nothing, CType(cls.ds.Tables(1).Rows(i)("VerifiedFrom"), Date).ToString("dd-MM-yyyy"))
+                grdVoucher.Item("VerifiedTo", i).Value = IIf(cls.ds.Tables(1).Rows(i)("VerifiedTo") = "01-01-0001" Or cls.ds.Tables(1).Rows(i)("VerifiedTo") = "01-01-1900", Nothing, CType(cls.ds.Tables(1).Rows(i)("VerifiedTo"), Date).ToString("dd-MM-yyyy"))
                 grdVoucher.Item("UnVerified", i).Value = cls.ds.Tables(1).Rows(i)("UnVerified")
                 grdVoucher.Item("ReferRCC", i).Value = cls.ds.Tables(1).Rows(i)("ReferRCC")
             Next
@@ -230,27 +230,39 @@ Public Class frmVerificationReceived
 
         Dim tblDetail As New DataTable
 
-        Dim strFldNames As String() = New String() {"FIRDetailID", "FIRID", "EmployerName", "VerifiedFrom", "VerifiedTo", "UnVerified", "ReferRCC", "PreparedBy"}
+        tblDetail.Columns.Add("FIRDetailID", GetType(Double))
+        tblDetail.Columns.Add("FIRID", GetType(Double))
+        tblDetail.Columns.Add("EmployerName", GetType(String))
+        tblDetail.Columns.Add("VerifiedFrom", GetType(Date))
+        tblDetail.Columns.Add("VerifiedTo", GetType(Date))
+        tblDetail.Columns.Add("UnVerified", GetType(Boolean))
+        tblDetail.Columns.Add("ReferRCC", GetType(Boolean))
+        tblDetail.Columns.Add("PreparedBy", GetType(String))
 
-        For i As Integer = 0 To UBound(strFldNames)
-            tblDetail.Columns.Add(strFldNames(i).ToString)
-        Next
 
-        For r As Integer = 0 To grdVoucher.RowCount - 2
-            If Not ((grdVoucher.Item("VerifiedFrom", r).Value = Nothing Or grdVoucher.Item("VerifiedFrom", r).Value = "01-01-0001") Or (grdVoucher.Item("VerifiedTo", r).Value = Nothing Or grdVoucher.Item("VerifiedTo", r).Value = "01-01-0001")) Or (grdVoucher.Item("UnVerified", r).Value = 1) Or (grdVoucher.Item("ReferRCC", r).Value = 1) Then
+        Try
+            For Each row As DataGridViewRow In grdVoucher.Rows
+                If row.Index < grdVoucher.RowCount - 1 Then
+                    Dim dr As DataRow = tblDetail.NewRow()  'dr = data row
+                    dr("FIRDetailID") = row.Cells("FIRDetailID").Value
+                    dr("FIRID") = intFIRID
+                    dr("EmployerName") = If(row.Cells("EmployerName").Value, "")
+                    dr("VerifiedFrom") = fnStringDate_to_SqlDate(row.Cells("VerifiedFrom").Value)
+                    dr("VerifiedTo") = fnStringDate_to_SqlDate(row.Cells("VerifiedTo").Value)
+                    dr("UnVerified") = If(IsDBNull(row.Cells("Unverified").Value) OrElse row.Cells("Unverified").Value Is Nothing, False, CBool(row.Cells("Unverified").Value))
+                    dr("ReferRCC") = If(IsDBNull(row.Cells("ReferRCC").Value) OrElse row.Cells("ReferRCC").Value Is Nothing, False, CBool(row.Cells("ReferRCC").Value))
+                    dr("PreparedBy") = strUser
 
-                tblDetail.Rows.Add()
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("FIRDetailID") = grdVoucher.Item("FIRDetailID", r).Value
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("FIRID") = grdVoucher.Item("FIRID", r).Value
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("EmployerName") = grdVoucher.Item("EmployerName", r).Value
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("VerifiedFrom") = IIf(grdVoucher.Item("VerifiedFrom", r).Value = Nothing, "0001-01-01", fnTextToDate(grdVoucher.Item("VerifiedFrom", r).Value))
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("VerifiedTo") = IIf(grdVoucher.Item("VerifiedTo", r).Value = Nothing, "0001-01-01", fnTextToDate(grdVoucher.Item("VerifiedTo", r).Value))
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("UnVerified") = grdVoucher.Item("Unverified", r).Value
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("ReferRCC") = grdVoucher.Item("ReferRCC", r).Value
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("PreparedBy") = mdlGeneral.strUser
+                    tblDetail.Rows.Add(dr)
 
-            End If
-        Next r
+                End If
+            Next
+
+        Catch ex As Exception
+            MsgBox(ex)
+            Exit Sub
+        End Try
+
         If tblDetail.Rows.Count = 0 Then
             MessageBox.Show("There is no Record to Save", "Please Enter Verified Period or Valid Priod")
             Cursor = Cursors.Arrow
@@ -271,32 +283,51 @@ EditMode:
         Try
             cmd.Connection = cn
             cmd.Transaction = myTran
-            cmd.CommandText = "delete tblVerificationDetail where FIRID = " & intFIRID
+            cmd.CommandText = "DELETE FROM tblVerificationDetail where FIRID = @FIRID"
+            cmd.Parameters.Clear()
+            cmd.Parameters.AddWithValue("@FIRID", intFIRID)
             cmd.ExecuteNonQuery()
             cmd.CommandText = Nothing
 
-            cmd.CommandText = "delete tblVerificationAvgWages where FIRID = " & intFIRID
+
+            cmd.CommandText = "DELETE FROM tblVerificationAvgWages where FIRID =@FIRID"
+            cmd.Parameters.Clear()
+            cmd.Parameters.AddWithValue("@FIRID", intFIRID)
             cmd.ExecuteNonQuery()
             cmd.CommandText = Nothing
 
 
+            cmd.CommandText = "insert into tblVerificationDetail (FIRDetailID,FIRID,EmployerName,VerifiedFrom,VerifiedTo,UnVerified,ReferRCC,PreparedBy) 
+                                    Values (@FIRDetailID,@FIRID,@EmployerName,@VerifiedFrom,@VerifiedTo,@UnVerified,@ReferRCC,@PreparedBy)"
+            cmd.Parameters.Clear()
+            cmd.Parameters.Add("@FIRDetailID", SqlDbType.Int)
+            cmd.Parameters.Add("@FIRID", SqlDbType.Int)
+            cmd.Parameters.Add("@EmployerName", SqlDbType.NVarChar)
+            cmd.Parameters.Add("@VerifiedFrom", SqlDbType.Date)
+            cmd.Parameters.Add("@VerifiedTo", SqlDbType.Date)
+            cmd.Parameters.Add("@UnVerified", SqlDbType.Bit)
+            cmd.Parameters.Add("@ReferRCC", SqlDbType.Bit)
+            cmd.Parameters.Add("@PreparedBy", SqlDbType.NVarChar)
 
-            For i As Integer = 0 To tblDetail.Rows.Count - 1
-                cmd.CommandText =
-                        "insert into tblVerificationDetail (FIRDetailID,FIRID,EmployerName,VerifiedFrom,VerifiedTo,UnVerified,ReferRCC,PreparedBy) Values (" _
-                                                            & "'" & tblDetail.Rows(i)("FIRDetailID") & "'," _
-                                                            & "'" & tblDetail.Rows(i)("FIRID") & "'," _
-                                                            & "'" & tblDetail.Rows(i)("EmployerName") & "'," _
-                                                            & "'" & tblDetail.Rows(i)("VerifiedFrom") & "'," _
-                                                            & "'" & tblDetail.Rows(i)("VerifiedTo") & "'," _
-                                                            & "'" & tblDetail.Rows(i)("UnVerified") & "'," _
-                                                            & "'" & tblDetail.Rows(i)("ReferRCC") & "'," _
-                                                            & "'" & tblDetail.Rows(i)("PreparedBy") & "' )"
+            For Each dr As DataRow In tblDetail.Rows
+
+                cmd.Parameters("@FIRDetailID").Value = dr("FIRDetailID")
+                cmd.Parameters("@FIRID").Value = intFIRID
+                cmd.Parameters("@EmployerName").Value = dr("EmployerName")
+                cmd.Parameters("@VerifiedFrom").Value = dr("VerifiedFrom")
+                cmd.Parameters("@VerifiedTo").Value = dr("VerifiedTo")
+                cmd.Parameters("@UnVerified").Value = dr("UnVerified")
+                cmd.Parameters("@ReferRCC").Value = dr("ReferRCC")
+                cmd.Parameters("@PreparedBy").Value = dr("PreparedBy")
+
                 cmd.ExecuteNonQuery()
-                cmd.CommandText = Nothing
             Next
-
-            cmd.CommandText = "insert into tblVerificationAvgWages Values ('" & intFIRID & "','" & Val(txtAvgWages.Text) & "')"
+            cmd.Parameters.Clear()
+            cmd.CommandText = Nothing
+            cmd.CommandText = "insert into tblVerificationAvgWages (FIRID,AvgWages) 
+                                Values (@FIRID,@AvgWages)"
+            cmd.Parameters.AddWithValue("@FIRID", intFIRID)
+            cmd.Parameters.AddWithValue("@AvgWages", Val(txtAvgWages.Text))
             cmd.ExecuteNonQuery()
             cmd.CommandText = Nothing
 
@@ -327,10 +358,12 @@ EditMode:
     Public Sub ActionDelete() Implements IDeleteBtn.ActionDelete
         If btnDelete.Visible = False Then Exit Sub
         If MessageBox.Show("Are you Want to Delete The Record", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) = Windows.Forms.DialogResult.No Then Exit Sub
+
         Dim cls As New ClsWriter
-        cls.DeleteRecord("tblVerificationDetail", "FIRID", intFIRID, cn)
+        cls.DeleteRecord("tblVerificationDetail", "tblVerificationAvgWages", "FIRID", intFIRID, cn) 'deleting record from 2 tables
 
         cls = Nothing
+
         ZeroPoint()
         '--------------Updating the name of user who deleted the record-----------
         'Dim cmd As New SqlCommand

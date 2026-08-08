@@ -161,31 +161,33 @@ Public Class frmCaseUpdates
         Cursor = Cursors.WaitCursor
 
         '-------------------------------Converting DataGrid into Data table---------------------
+
         Dim tblDetail As New DataTable
 
-        Dim strFldNames As String() = New String() {"FIRID", "CaseRemarksDate", "CaseRemarks", "PreparedBy"}
+        tblDetail.Columns.Add("FIRID", GetType(Double))
+        tblDetail.Columns.Add("CaseRemarksDate", GetType(Date))
+        tblDetail.Columns.Add("CaseRemarks", GetType(String))
+        tblDetail.Columns.Add("PreparedBy", GetType(String))
 
-        For i As Integer = 0 To UBound(strFldNames)
-            tblDetail.Columns.Add(strFldNames(i).ToString)
-        Next
+        Try
+            For Each row As DataGridViewRow In grdVoucher.Rows
+                If row.Index < grdVoucher.RowCount - 1 Then
+                    Dim dr As DataRow = tblDetail.NewRow()  'dr = data row
+                    dr("FIRID") = intFIRID
+                    'dr("CaseRemarksDate") = fnStringDate_to_SqlDate(row.Cells("PeriodFrom").Value)
+                    dr("CaseRemarksDate") = IIf(row.Cells("CaseRemarksDate").Value = Nothing Or row.Cells("CaseRemarksDate").Value = "01-01-0001", fnTextToDate(DateAndTime.Today), fnTextToDate(row.Cells("CaseRemarksDate").Value))
+                    dr("CaseRemarks") = If(row.Cells("CaseRemarks").Value, "")
+                    dr("PreparedBy") = strUser
 
-        For r As Integer = 0 To grdVoucher.RowCount - 2
-            If Not (grdVoucher.Item("CaseRemarks", r).Value = Nothing) Then
+                    tblDetail.Rows.Add(dr)
 
-                tblDetail.Rows.Add()
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("FIRID") = intFIRID
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("CaseRemarksDate") = IIf(grdVoucher.Item("CaseRemarksDate", r).Value = Nothing Or grdVoucher.Item("CaseRemarksDate", r).Value = "01-01-0001", fnTextToDate(DateAndTime.Today), fnTextToDate(grdVoucher.Item("CaseRemarksDate", r).Value))
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("CaseRemarks") = grdVoucher.Item("CaseRemarks", r).Value
-                tblDetail.Rows(tblDetail.Rows.Count - 1)("PreparedBy") = mdlGeneral.strUser
-            End If
-        Next r
-        If tblDetail.Rows.Count = 0 Then
-            MessageBox.Show("There is no Record to Save", "Please Enter Valid Remarks / Updates Etc")
-            Cursor = Cursors.Arrow
+                End If
+            Next
+
+        Catch ex As Exception
+            MsgBox(ex)
             Exit Sub
-
-        End If
-
+        End Try
         '---------------------------SAVING MAIN AND DETAIL TABLE-------------------------
 
 
@@ -199,20 +201,29 @@ EditMode:
         Try
             cmd.Connection = cn
             cmd.Transaction = myTran
-            cmd.CommandText = "delete tblCaseUpdates where FIRID = " & intFIRID
+            cmd.CommandText = "DELETE FROM tblCaseUpdates WHERE FIRID = @FIRID"
+            cmd.Parameters.Clear()
+            cmd.Parameters.AddWithValue("@FIRID", intFIRID)
             cmd.ExecuteNonQuery()
             cmd.CommandText = Nothing
 
+            cmd.CommandText = "insert into tblCaseUpdates (FIRID,CaseRemarksDate,CaseRemarks,PreparedBy)
+                                    Values (@FIRID,@CaseRemarksDate,@CaseRemarks,@PreparedBy)"
+            cmd.Parameters.Clear()
 
-            For i As Integer = 0 To tblDetail.Rows.Count - 1
-                cmd.CommandText =
-                        "insert into tblCaseUpdates (FIRID,CaseRemarksDate,CaseRemarks,PreparedBy) Values (" _
-                                                            & "'" & tblDetail.Rows(i)("FIRID") & "'," _
-                                                            & "'" & tblDetail.Rows(i)("CaseRemarksDate") & "'," _
-                                                            & "'" & tblDetail.Rows(i)("CaseRemarks") & "'," _
-                                                            & "'" & tblDetail.Rows(i)("PreparedBy") & "' )"
+            cmd.Parameters.Add("@FIRID", SqlDbType.Int)
+            cmd.Parameters.Add("@CaseRemarksDate", SqlDbType.Date)
+            cmd.Parameters.Add("@CaseRemarks", SqlDbType.NVarChar)
+            cmd.Parameters.Add("@PreparedBy", SqlDbType.NVarChar)
+
+            For Each dr As DataRow In tblDetail.Rows
+
+                cmd.Parameters("@FIRID").Value = intFIRID
+                cmd.Parameters("@CaseRemarksDate").Value = dr("CaseRemarksDate")
+                cmd.Parameters("@CaseRemarks").Value = dr("CaseRemarks")
+                cmd.Parameters("@PreparedBy").Value = dr("PreparedBy")
+
                 cmd.ExecuteNonQuery()
-                cmd.CommandText = Nothing
             Next
 
             myTran.Commit()
@@ -266,9 +277,6 @@ EditMode:
         End If
 
     End Sub
-
-
-    '-----------------------------Below is under Process---------------------
 
 
     Private Sub grdVoucher_CellEndEdit(sender As Object, e As DataGridViewCellEventArgs) Handles grdVoucher.CellEndEdit

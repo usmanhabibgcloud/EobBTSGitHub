@@ -315,6 +315,23 @@ AddMode:
         End Try
     End Sub
 
+    Public Sub DeleteRecord(ByVal tblName As String, ByVal tblName_2 As String, ByVal fldID As String, ByVal WhereCriteria As Object, ByVal con As SqlConnection)
+        Dim cmd As New SqlCommand
+        Dim myTran As SqlTransaction = con.BeginTransaction
+        Try
+            cmd.CommandText = "Delete " & tblName & " Where " & fldID & " = '" & WhereCriteria & "'"
+            cmd.CommandText += "  Delete " & tblName_2 & " Where " & fldID & " = '" & WhereCriteria & "'"
+            cmd.Connection = con
+            cmd.Transaction = myTran
+            cmd.ExecuteNonQuery()
+            myTran.Commit()
+            MsgBox(" The Record Has Deleted")
+        Catch ex As Exception
+            myTran.Rollback()
+            MsgBox(ex.Message)
+        End Try
+    End Sub
+
     Public Sub AddRecord(ByVal tblMainName As String, ByVal fldNames As String(), ByVal fldValues As Object(), ByVal con As SqlConnection)
 
         Dim myString As String = Nothing

@@ -34,7 +34,7 @@ Module mdlGeneral
             Globalization.CultureInfo.InvariantCulture,
             Globalization.DateTimeStyles.None,
             d
-        ) AndAlso d <> Date.MinValue,
+        ) AndAlso d <> Date.MinValue,    'MinValue stand as "01-01-0001"
         d,
         New Date(1900, 1, 1)
     )
@@ -274,9 +274,9 @@ Module mdlGeneral
 
     Public Function fnReportPath(ByVal strReportName As String) As String
 
-        'Dim RepPath As String = "D:\Visual Basic Programs\EobBTS\EobBTS\Reports\" & strReportName
+        Dim RepPath As String = "D:\Visual Basic Programs\EobBTS\EobBTS\Reports\" & strReportName
 
-        Dim RepPath As String = System.Windows.Forms.Application.StartupPath + "\Reports\" & strReportName
+        'Dim RepPath As String = System.Windows.Forms.Application.StartupPath + "\Reports\" & strReportName
         If Right(strReportName, 4) = ".rpt" Then
             RepPath = RepPath
         Else
