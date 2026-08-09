@@ -36,6 +36,7 @@ Partial Class frmProcessSheetForm
         Me.optDelayCondonation = New System.Windows.Forms.RadioButton()
         Me.optGrant = New System.Windows.Forms.RadioButton()
         Me.optPension = New System.Windows.Forms.RadioButton()
+        Me.optRejectionLetter = New System.Windows.Forms.RadioButton()
         CType(Me.grdVoucher, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox1.SuspendLayout()
         Me.SuspendLayout()
@@ -150,6 +151,7 @@ Partial Class frmProcessSheetForm
         '
         'GroupBox1
         '
+        Me.GroupBox1.Controls.Add(Me.optRejectionLetter)
         Me.GroupBox1.Controls.Add(Me.optDelayCondonation)
         Me.GroupBox1.Controls.Add(Me.optGrant)
         Me.GroupBox1.Controls.Add(Me.optPension)
@@ -199,6 +201,18 @@ Partial Class frmProcessSheetForm
         Me.optPension.Text = "Pension"
         Me.optPension.UseVisualStyleBackColor = True
         '
+        'optRejectionLetter
+        '
+        Me.optRejectionLetter.AutoSize = True
+        Me.optRejectionLetter.Font = New System.Drawing.Font("Times New Roman", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.optRejectionLetter.Location = New System.Drawing.Point(704, 28)
+        Me.optRejectionLetter.Margin = New System.Windows.Forms.Padding(4)
+        Me.optRejectionLetter.Name = "optRejectionLetter"
+        Me.optRejectionLetter.Size = New System.Drawing.Size(173, 27)
+        Me.optRejectionLetter.TabIndex = 3
+        Me.optRejectionLetter.Text = "Rejection Letter"
+        Me.optRejectionLetter.UseVisualStyleBackColor = True
+        '
         'frmProcessSheetForm
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
@@ -237,4 +251,5 @@ Partial Class frmProcessSheetForm
     Friend WithEvents optGrant As RadioButton
     Friend WithEvents optPension As RadioButton
     Friend WithEvents optDelayCondonation As RadioButton
+    Friend WithEvents optRejectionLetter As RadioButton
 End Class

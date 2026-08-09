@@ -10,8 +10,6 @@ Public Class frmProcessSheetForm
             Case "Process Sheet"
                 Me.Label1.Text = "Please Search the Case and Double Click on the case to make process sheet"
 
-
-
         End Select
 
     End Sub
@@ -125,6 +123,41 @@ Public Class frmProcessSheetForm
     End Sub
 
     Private Sub ShowProcessSheetReport(FIRID As Double)
+        If optRejectionLetter.Checked = True Then
+
+            Try
+                Cursor = Cursors.WaitCursor
+
+                Dim myReport As New ReportDocument
+                Dim tbl As New DataTable
+                Dim myAdp As New SqlDataAdapter
+                Dim myCommand As New SqlCommand("spRejectioinLetter", cn) With {
+                .CommandType = CommandType.StoredProcedure
+            }
+                Dim strSheetType As String = "RejectionLetter"
+
+                myCommand.Parameters.Add("@FIRID", SqlDbType.BigInt).Value = FIRID
+
+
+                myAdp.SelectCommand = myCommand
+                myAdp.Fill(tbl)
+
+                myReport.Load(fnReportPath("crRejectionLetter.rpt"))
+                myReport.SetDataSource(tbl)
+                myReport.SetParameterValue("RegionName", mdlGeneral.strRegionName)
+
+                frmReports.crView.ReportSource = myReport
+                frmReports.crView.Show()
+                frmReports.Text = "Rejection Letter"
+                frmReports.Show()
+                Cursor = Cursors.Default
+            Catch ex As Exception
+                Cursor = Cursors.Default
+                MessageBox.Show(ex.Message)
+            End Try
+            Exit Sub
+        End If
+
         If optDelayCondonation.Checked = True Then
 
             Try
@@ -138,7 +171,7 @@ Public Class frmProcessSheetForm
             }
                 Dim strSheetType As String = "DelayCondonation"
 
-                myCommand.Parameters.Add("@FIRID", SqlDbType.Int).Value = FIRID
+                myCommand.Parameters.Add("@FIRID", SqlDbType.BigInt).Value = FIRID
 
                 myAdp.SelectCommand = myCommand
                 myAdp.Fill(tbl)
@@ -156,6 +189,9 @@ Public Class frmProcessSheetForm
                 Cursor = Cursors.Default
                 MessageBox.Show(ex.Message)
             End Try
+
+
+
         Else
 
             Try
@@ -174,7 +210,7 @@ Public Class frmProcessSheetForm
                     strSheetType = "Pension"
                 End If
 
-                myCommand.Parameters.Add("@FIRID", SqlDbType.Int).Value = FIRID
+                myCommand.Parameters.Add("@FIRID", SqlDbType.BigInt).Value = FIRID
 
                 myAdp.SelectCommand = myCommand
                 myAdp.Fill(tbl)

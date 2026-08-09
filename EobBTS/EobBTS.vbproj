@@ -263,6 +263,12 @@
       <DependentUpon>crPendingRCC.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reports\crRejectionLetter.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crRejectionLetter.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\frmORVerificationPrint.Designer.vb">
       <DependentUpon>frmORVerificationPrint.vb</DependentUpon>
     </Compile>
@@ -472,6 +478,10 @@
     <EmbeddedResource Include="Reports\crPendingRCC.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crPendingRCC.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crRejectionLetter.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crRejectionLetter.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\frmORVerificationPrint.resx">
       <DependentUpon>frmORVerificationPrint.vb</DependentUpon>
