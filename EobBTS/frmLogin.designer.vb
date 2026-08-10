@@ -107,7 +107,6 @@
         Me.txtName.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.txtName.Size = New System.Drawing.Size(166, 27)
         Me.txtName.TabIndex = 0
-        Me.txtName.Text = "usman"
         '
         'txtPassword
         '
@@ -126,7 +125,6 @@
         Me.txtPassword.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.txtPassword.Size = New System.Drawing.Size(166, 26)
         Me.txtPassword.TabIndex = 1
-        Me.txtPassword.Text = "123SYSTEM"
         '
         'Label1
         '
