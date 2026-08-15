@@ -130,10 +130,18 @@ Public Class frmVerificationReceived
         ActionEdit()
 
     End Sub
-
+    Dim dtEndValue As Date
     Public Sub FillVoucher()
 
+
         Try
+            '--------------------This is used for getting the End Date Value for verified period based of IP DoB and Death Date.............
+            Dim cls1 As New clsReader
+            cls1.GetRecord("SELECT CASE WHEN m.CaseType = 'Old Age' THEN a.AgeEndDate ELSE iif(m.IPDeathDate <=  a.AgeEndDate, m.IPDeathDate, a.AgeEndDate) END AS EndDateValue FROM tblFIRMain m  CROSS APPLY ( SELECT CASE WHEN m.IPGender = 'Male' THEN DATEADD(YEAR, 60, m.IPDoB) WHEN m.IPGender = 'Female' THEN DATEADD(YEAR, 55, m.IPDoB) END AS AgeEndDate )  a where m.FIRID = '" & intFIRID & "'", cn)
+            dtEndDate = cls1.ds.Tables(0).Rows(0)("EndDateValue")
+            cls1 = Nothing
+            '-----------------------------------------------------------------------------------------------
+
             Dim cls As New clsReader
             cls.GetRecord("select FIRID, FIRNo, FIRDate, ClaimantName, ClaimantRelative, ClaimantCNIC, ClaimantGender, ClaimantDoB, CaseType, PreviousClaimNo, IPName, IPRelative, IPCNIC, IPGender, IPDoB, EOBINo, IPDeathDate, Editable, VSource, PreparedBy, Checked, CheckedBy, Approved, ApprovedBy, RefID, FYID from tblFIRMain where FIRID = '" & intFIRID & "'  select FD.FIRDetailID, FD.FIRID, FD.EmployerName, FD.PeriodFrom, FD.PeriodTo,Coalesce(VD.VerifiedFrom,'0001-01-01') as VerifiedFrom,Coalesce(VD.VerifiedTo,'0001-01-01') as VerifiedTo,Coalesce(VD.UnVerified,0) as UnVerified, Coalesce(VD.ReferRCC,0) as ReferRCC from tblFIRDetail FD left join tblVerificationDetail VD on FD.FIRDetailID=VD.FIRDetailID where FD.FIRID = '" & intFIRID & "'  select AvgWages from tblVerificationAvgWages where FIRID = '" & intFIRID & "' ", cn)
 
@@ -243,18 +251,20 @@ Public Class frmVerificationReceived
         Try
             For Each row As DataGridViewRow In grdVoucher.Rows
                 If row.Index < grdVoucher.RowCount - 1 Then
-                    Dim dr As DataRow = tblDetail.NewRow()  'dr = data row
-                    dr("FIRDetailID") = row.Cells("FIRDetailID").Value
-                    dr("FIRID") = intFIRID
-                    dr("EmployerName") = If(row.Cells("EmployerName").Value, "")
-                    dr("VerifiedFrom") = fnStringDate_to_SqlDate(row.Cells("VerifiedFrom").Value)
-                    dr("VerifiedTo") = fnStringDate_to_SqlDate(row.Cells("VerifiedTo").Value)
-                    dr("UnVerified") = If(IsDBNull(row.Cells("Unverified").Value) OrElse row.Cells("Unverified").Value Is Nothing, False, CBool(row.Cells("Unverified").Value))
-                    dr("ReferRCC") = If(IsDBNull(row.Cells("ReferRCC").Value) OrElse row.Cells("ReferRCC").Value Is Nothing, False, CBool(row.Cells("ReferRCC").Value))
-                    dr("PreparedBy") = strUser
+                    If Not ((row.Cells("VerifiedFrom").Value = Nothing Or row.Cells("VerifiedFrom").Value = "01-01-0001") Or (row.Cells("VerifiedTo").Value = Nothing Or row.Cells("VerifiedTo").Value = "01-01-0001")) Or (row.Cells("UnVerified").Value = 1) Or (row.Cells("ReferRCC").Value = 1) Then
+                        Dim dr As DataRow = tblDetail.NewRow()  'dr = data row
+                        dr("FIRDetailID") = row.Cells("FIRDetailID").Value
+                        dr("FIRID") = intFIRID
+                        dr("EmployerName") = If(row.Cells("EmployerName").Value, "")
+                        dr("VerifiedFrom") = fnStringDate_to_SqlDate(row.Cells("VerifiedFrom").Value)
+                        dr("VerifiedTo") = fnStringDate_to_SqlDate(row.Cells("VerifiedTo").Value)
+                        dr("UnVerified") = If(IsDBNull(row.Cells("Unverified").Value) OrElse row.Cells("Unverified").Value Is Nothing, False, CBool(row.Cells("Unverified").Value))
+                        dr("ReferRCC") = If(IsDBNull(row.Cells("ReferRCC").Value) OrElse row.Cells("ReferRCC").Value Is Nothing, False, CBool(row.Cells("ReferRCC").Value))
+                        dr("PreparedBy") = strUser
 
-                    tblDetail.Rows.Add(dr)
+                        tblDetail.Rows.Add(dr)
 
+                    End If
                 End If
             Next
 
@@ -372,8 +382,7 @@ EditMode:
         'cmd.ExecuteNonQuery()
 
     End Sub
-    Dim dt2 As Date
-    Dim dt3 As Date
+
     Private Sub grdVoucher_CellValidating(sender As Object, e As DataGridViewCellValidatingEventArgs) Handles grdVoucher.CellValidating
         Dim dt2 As Date
         Dim dt3 As Date
@@ -385,20 +394,33 @@ EditMode:
 
                 e.Cancel = True
                 Exit Sub
+            End If
 
+            '----Check maximum allowed date-----------
+            If dt2 > dtEndDate Then
+                MessageBox.Show("Verified Period Can't exceed ", Format(dtEndDate, "dd-MM-yyyy"))
+                e.Cancel = True
+                Exit Sub
             End If
             grdVoucher.Item("VerifiedFrom", e.RowIndex).Value = Format(dt2, "dd-MM-yyyy")
 
         End If
         If e.ColumnIndex = grdVoucher.Columns("VerifiedTo").Index Then
-            'If grdVoucher.Item("PeriodTo", e.RowIndex).Value = Nothing Then Exit Sub
+
             If e.FormattedValue.ToString <> String.Empty AndAlso Not DateTime.TryParse(e.FormattedValue.ToString, dt3) Then
                 MessageBox.Show("Enter correct Date")
-                'Me.DataGridViewsalarydetail.Rows(e.RowIndex).ErrorText = "Enter a valid Date time"
                 e.Cancel = True
                 Exit Sub
 
             End If
+
+            '----Check maximum allowed date-----------
+            If dt3 > dtEndDate Then
+                MessageBox.Show("Verified Period Can't exceed ", Format(dtEndDate, "dd-MM-yyyy"))
+                e.Cancel = True
+                Exit Sub
+            End If
+
             grdVoucher.Item("VerifiedTo", e.RowIndex).Value = Format(dt3, "dd-MM-yyyy")
 
         End If

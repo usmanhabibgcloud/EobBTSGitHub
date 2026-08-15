@@ -109,9 +109,10 @@ Partial Class frmVerificationReceived
         '
         Me.optFemale1.AutoSize = True
         Me.optFemale1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.optFemale1.Location = New System.Drawing.Point(63, 76)
+        Me.optFemale1.Location = New System.Drawing.Point(84, 94)
+        Me.optFemale1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.optFemale1.Name = "optFemale1"
-        Me.optFemale1.Size = New System.Drawing.Size(72, 20)
+        Me.optFemale1.Size = New System.Drawing.Size(85, 24)
         Me.optFemale1.TabIndex = 6
         Me.optFemale1.Text = "Female"
         Me.optFemale1.UseVisualStyleBackColor = True
@@ -119,9 +120,10 @@ Partial Class frmVerificationReceived
         'txtPreviousClaimNo
         '
         Me.txtPreviousClaimNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtPreviousClaimNo.Location = New System.Drawing.Point(629, 77)
+        Me.txtPreviousClaimNo.Location = New System.Drawing.Point(839, 95)
+        Me.txtPreviousClaimNo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtPreviousClaimNo.Name = "txtPreviousClaimNo"
-        Me.txtPreviousClaimNo.Size = New System.Drawing.Size(84, 22)
+        Me.txtPreviousClaimNo.Size = New System.Drawing.Size(111, 26)
         Me.txtPreviousClaimNo.TabIndex = 9
         '
         'optMale1
@@ -129,9 +131,10 @@ Partial Class frmVerificationReceived
         Me.optMale1.AutoSize = True
         Me.optMale1.Checked = True
         Me.optMale1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.optMale1.Location = New System.Drawing.Point(7, 76)
+        Me.optMale1.Location = New System.Drawing.Point(9, 94)
+        Me.optMale1.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.optMale1.Name = "optMale1"
-        Me.optMale1.Size = New System.Drawing.Size(56, 20)
+        Me.optMale1.Size = New System.Drawing.Size(66, 24)
         Me.optMale1.TabIndex = 5
         Me.optMale1.TabStop = True
         Me.optMale1.Text = "Male"
@@ -139,9 +142,10 @@ Partial Class frmVerificationReceived
         '
         'Label9
         '
-        Me.Label9.Location = New System.Drawing.Point(521, 74)
+        Me.Label9.Location = New System.Drawing.Point(695, 91)
+        Me.Label9.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(100, 31)
+        Me.Label9.Size = New System.Drawing.Size(133, 38)
         Me.Label9.TabIndex = 23
         Me.Label9.Text = "Previous Claim No " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(if Converted Case)"
         Me.Label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -150,18 +154,20 @@ Partial Class frmVerificationReceived
         '
         Me.txtClaimnatDOB.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtClaimnatDOB.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite
-        Me.txtClaimnatDOB.Location = New System.Drawing.Point(178, 73)
+        Me.txtClaimnatDOB.Location = New System.Drawing.Point(237, 90)
+        Me.txtClaimnatDOB.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtClaimnatDOB.Mask = "00/00/0000"
         Me.txtClaimnatDOB.Name = "txtClaimnatDOB"
-        Me.txtClaimnatDOB.Size = New System.Drawing.Size(81, 22)
+        Me.txtClaimnatDOB.Size = New System.Drawing.Size(107, 26)
         Me.txtClaimnatDOB.TabIndex = 7
         Me.txtClaimnatDOB.ValidatingType = GetType(Date)
         '
         'Label8
         '
-        Me.Label8.Location = New System.Drawing.Point(131, 74)
+        Me.Label8.Location = New System.Drawing.Point(175, 91)
+        Me.Label8.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label8.Name = "Label8"
-        Me.Label8.Size = New System.Drawing.Size(41, 20)
+        Me.Label8.Size = New System.Drawing.Size(55, 25)
         Me.Label8.TabIndex = 22
         Me.Label8.Text = "D.O.B"
         Me.Label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -170,10 +176,11 @@ Partial Class frmVerificationReceived
         '
         Me.txtClaimantCNIC.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtClaimantCNIC.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite
-        Me.txtClaimantCNIC.Location = New System.Drawing.Point(602, 43)
+        Me.txtClaimantCNIC.Location = New System.Drawing.Point(803, 53)
+        Me.txtClaimantCNIC.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtClaimantCNIC.Mask = "#####-#######-#"
         Me.txtClaimantCNIC.Name = "txtClaimantCNIC"
-        Me.txtClaimantCNIC.Size = New System.Drawing.Size(111, 22)
+        Me.txtClaimantCNIC.Size = New System.Drawing.Size(147, 26)
         Me.txtClaimantCNIC.TabIndex = 4
         '
         'cboNatureOfBenefit
@@ -184,16 +191,18 @@ Partial Class frmVerificationReceived
         Me.cboNatureOfBenefit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cboNatureOfBenefit.FormattingEnabled = True
         Me.cboNatureOfBenefit.Items.AddRange(New Object() {"Old Age", "Survivor", "Minor Child", "Estate Pension"})
-        Me.cboNatureOfBenefit.Location = New System.Drawing.Point(346, 74)
+        Me.cboNatureOfBenefit.Location = New System.Drawing.Point(461, 91)
+        Me.cboNatureOfBenefit.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.cboNatureOfBenefit.Name = "cboNatureOfBenefit"
-        Me.cboNatureOfBenefit.Size = New System.Drawing.Size(166, 24)
+        Me.cboNatureOfBenefit.Size = New System.Drawing.Size(220, 28)
         Me.cboNatureOfBenefit.TabIndex = 8
         '
         'Label4
         '
-        Me.Label4.Location = New System.Drawing.Point(518, 43)
+        Me.Label4.Location = New System.Drawing.Point(691, 53)
+        Me.Label4.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label4.Name = "Label4"
-        Me.Label4.Size = New System.Drawing.Size(77, 20)
+        Me.Label4.Size = New System.Drawing.Size(103, 25)
         Me.Label4.TabIndex = 15
         Me.Label4.Text = "Claimant CNIC"
         Me.Label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -201,17 +210,19 @@ Partial Class frmVerificationReceived
         'txtClaimantRelativeName
         '
         Me.txtClaimantRelativeName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtClaimantRelativeName.Location = New System.Drawing.Point(346, 44)
+        Me.txtClaimantRelativeName.Location = New System.Drawing.Point(461, 54)
+        Me.txtClaimantRelativeName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtClaimantRelativeName.Name = "txtClaimantRelativeName"
-        Me.txtClaimantRelativeName.Size = New System.Drawing.Size(168, 22)
+        Me.txtClaimantRelativeName.Size = New System.Drawing.Size(223, 26)
         Me.txtClaimantRelativeName.TabIndex = 3
         '
         'Label7
         '
         Me.Label7.AutoSize = True
-        Me.Label7.Location = New System.Drawing.Point(266, 48)
+        Me.Label7.Location = New System.Drawing.Point(355, 59)
+        Me.Label7.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label7.Name = "Label7"
-        Me.Label7.Size = New System.Drawing.Size(77, 13)
+        Me.Label7.Size = New System.Drawing.Size(100, 17)
         Me.Label7.TabIndex = 13
         Me.Label7.Text = "Relative Name"
         '
@@ -222,17 +233,19 @@ Partial Class frmVerificationReceived
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtFIRNo.BackColor = System.Drawing.SystemColors.Window
         Me.txtFIRNo.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFIRNo.Location = New System.Drawing.Point(87, 14)
+        Me.txtFIRNo.Location = New System.Drawing.Point(116, 17)
+        Me.txtFIRNo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtFIRNo.Name = "txtFIRNo"
-        Me.txtFIRNo.Size = New System.Drawing.Size(120, 24)
+        Me.txtFIRNo.Size = New System.Drawing.Size(159, 29)
         Me.txtFIRNo.TabIndex = 0
         '
         'Label3
         '
         Me.Label3.AutoSize = True
-        Me.Label3.Location = New System.Drawing.Point(239, 20)
+        Me.Label3.Location = New System.Drawing.Point(319, 25)
+        Me.Label3.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label3.Name = "Label3"
-        Me.Label3.Size = New System.Drawing.Size(50, 13)
+        Me.Label3.Size = New System.Drawing.Size(63, 17)
         Me.Label3.TabIndex = 1
         Me.Label3.Text = "FIR Date"
         '
@@ -240,10 +253,11 @@ Partial Class frmVerificationReceived
         '
         Me.txtIPDeathDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtIPDeathDate.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite
-        Me.txtIPDeathDate.Location = New System.Drawing.Point(615, 45)
+        Me.txtIPDeathDate.Location = New System.Drawing.Point(820, 55)
+        Me.txtIPDeathDate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtIPDeathDate.Mask = "00/00/0000"
         Me.txtIPDeathDate.Name = "txtIPDeathDate"
-        Me.txtIPDeathDate.Size = New System.Drawing.Size(98, 22)
+        Me.txtIPDeathDate.Size = New System.Drawing.Size(129, 26)
         Me.txtIPDeathDate.TabIndex = 7
         Me.txtIPDeathDate.ValidatingType = GetType(Date)
         '
@@ -251,9 +265,10 @@ Partial Class frmVerificationReceived
         '
         Me.optFemale2.AutoSize = True
         Me.optFemale2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.optFemale2.Location = New System.Drawing.Point(62, 44)
+        Me.optFemale2.Location = New System.Drawing.Point(83, 54)
+        Me.optFemale2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.optFemale2.Name = "optFemale2"
-        Me.optFemale2.Size = New System.Drawing.Size(72, 21)
+        Me.optFemale2.Size = New System.Drawing.Size(85, 24)
         Me.optFemale2.TabIndex = 4
         Me.optFemale2.Text = "Female"
         Me.optFemale2.UseVisualStyleBackColor = True
@@ -262,10 +277,11 @@ Partial Class frmVerificationReceived
         '
         Me.txtIPCNIC.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtIPCNIC.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite
-        Me.txtIPCNIC.Location = New System.Drawing.Point(602, 12)
+        Me.txtIPCNIC.Location = New System.Drawing.Point(803, 15)
+        Me.txtIPCNIC.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtIPCNIC.Mask = "#####-#######-#"
         Me.txtIPCNIC.Name = "txtIPCNIC"
-        Me.txtIPCNIC.Size = New System.Drawing.Size(111, 22)
+        Me.txtIPCNIC.Size = New System.Drawing.Size(147, 26)
         Me.txtIPCNIC.TabIndex = 2
         '
         'grdVoucher
@@ -289,10 +305,11 @@ Partial Class frmVerificationReceived
         Me.grdVoucher.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.grdVoucher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdVoucher.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Sr, Me.FIRDetailID, Me.FIRID, Me.EmployerName, Me.PeriodFrom, Me.PeriodTo, Me.VerifiedFrom, Me.VerifiedTo, Me.UnVerified, Me.ReferRCC})
-        Me.grdVoucher.Location = New System.Drawing.Point(12, 271)
+        Me.grdVoucher.Location = New System.Drawing.Point(16, 334)
+        Me.grdVoucher.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.grdVoucher.Name = "grdVoucher"
         Me.grdVoucher.RowHeadersVisible = False
-        Me.grdVoucher.Size = New System.Drawing.Size(736, 177)
+        Me.grdVoucher.Size = New System.Drawing.Size(981, 218)
         Me.grdVoucher.TabIndex = 0
         '
         'Sr
@@ -395,9 +412,10 @@ Partial Class frmVerificationReceived
         Me.optMale2.AutoSize = True
         Me.optMale2.Checked = True
         Me.optMale2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.optMale2.Location = New System.Drawing.Point(7, 44)
+        Me.optMale2.Location = New System.Drawing.Point(9, 54)
+        Me.optMale2.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.optMale2.Name = "optMale2"
-        Me.optMale2.Size = New System.Drawing.Size(56, 20)
+        Me.optMale2.Size = New System.Drawing.Size(66, 24)
         Me.optMale2.TabIndex = 3
         Me.optMale2.TabStop = True
         Me.optMale2.Text = "Male"
@@ -410,10 +428,10 @@ Partial Class frmVerificationReceived
         Me.ToolActivity.ImageScalingSize = New System.Drawing.Size(32, 32)
         Me.ToolActivity.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.btnAdd, Me.btnEdit, Me.btnSave, Me.btnCancel, Me.btnDelete, Me.ToolStripSeparator1, Me.btnExit})
         Me.ToolActivity.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow
-        Me.ToolActivity.Location = New System.Drawing.Point(0, 451)
+        Me.ToolActivity.Location = New System.Drawing.Point(0, 564)
         Me.ToolActivity.Name = "ToolActivity"
         Me.ToolActivity.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.ToolActivity.Size = New System.Drawing.Size(760, 39)
+        Me.ToolActivity.Size = New System.Drawing.Size(1013, 39)
         Me.ToolActivity.TabIndex = 2
         Me.ToolActivity.Text = "ToolStrip1"
         '
@@ -482,24 +500,27 @@ Partial Class frmVerificationReceived
         'txtIPRelativeName
         '
         Me.txtIPRelativeName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIPRelativeName.Location = New System.Drawing.Point(346, 13)
+        Me.txtIPRelativeName.Location = New System.Drawing.Point(461, 16)
+        Me.txtIPRelativeName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtIPRelativeName.Name = "txtIPRelativeName"
-        Me.txtIPRelativeName.Size = New System.Drawing.Size(168, 22)
+        Me.txtIPRelativeName.Size = New System.Drawing.Size(223, 26)
         Me.txtIPRelativeName.TabIndex = 1
         '
         'txtIPName
         '
         Me.txtIPName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtIPName.Location = New System.Drawing.Point(87, 13)
+        Me.txtIPName.Location = New System.Drawing.Point(116, 16)
+        Me.txtIPName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtIPName.Name = "txtIPName"
-        Me.txtIPName.Size = New System.Drawing.Size(172, 22)
+        Me.txtIPName.Size = New System.Drawing.Size(228, 26)
         Me.txtIPName.TabIndex = 0
         '
         'Label16
         '
-        Me.Label16.Location = New System.Drawing.Point(533, 42)
+        Me.Label16.Location = New System.Drawing.Point(711, 52)
+        Me.Label16.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label16.Name = "Label16"
-        Me.Label16.Size = New System.Drawing.Size(80, 31)
+        Me.Label16.Size = New System.Drawing.Size(107, 38)
         Me.Label16.TabIndex = 26
         Me.Label16.Text = "Date of Death" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "(if Died)"
         Me.Label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -507,34 +528,38 @@ Partial Class frmVerificationReceived
         'txtEOBINo
         '
         Me.txtEOBINo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtEOBINo.Location = New System.Drawing.Point(346, 44)
+        Me.txtEOBINo.Location = New System.Drawing.Point(461, 54)
+        Me.txtEOBINo.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtEOBINo.Name = "txtEOBINo"
-        Me.txtEOBINo.Size = New System.Drawing.Size(166, 22)
+        Me.txtEOBINo.Size = New System.Drawing.Size(220, 26)
         Me.txtEOBINo.TabIndex = 6
         '
         'Label10
         '
-        Me.Label10.Location = New System.Drawing.Point(271, 43)
+        Me.Label10.Location = New System.Drawing.Point(361, 53)
+        Me.Label10.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label10.Name = "Label10"
-        Me.Label10.Size = New System.Drawing.Size(61, 20)
+        Me.Label10.Size = New System.Drawing.Size(81, 25)
         Me.Label10.TabIndex = 23
         Me.Label10.Text = "EOBI No."
         Me.Label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label11
         '
-        Me.Label11.Location = New System.Drawing.Point(130, 46)
+        Me.Label11.Location = New System.Drawing.Point(173, 57)
+        Me.Label11.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label11.Name = "Label11"
-        Me.Label11.Size = New System.Drawing.Size(41, 20)
+        Me.Label11.Size = New System.Drawing.Size(55, 25)
         Me.Label11.TabIndex = 22
         Me.Label11.Text = "D.O.B"
         Me.Label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'Label12
         '
-        Me.Label12.Location = New System.Drawing.Point(515, 14)
+        Me.Label12.Location = New System.Drawing.Point(687, 17)
+        Me.Label12.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label12.Name = "Label12"
-        Me.Label12.Size = New System.Drawing.Size(74, 20)
+        Me.Label12.Size = New System.Drawing.Size(99, 25)
         Me.Label12.TabIndex = 15
         Me.Label12.Text = "IP CNIC"
         Me.Label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -542,9 +567,10 @@ Partial Class frmVerificationReceived
         'Label13
         '
         Me.Label13.AutoSize = True
-        Me.Label13.Location = New System.Drawing.Point(269, 18)
+        Me.Label13.Location = New System.Drawing.Point(359, 22)
+        Me.Label13.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label13.Name = "Label13"
-        Me.Label13.Size = New System.Drawing.Size(77, 13)
+        Me.Label13.Size = New System.Drawing.Size(100, 17)
         Me.Label13.TabIndex = 13
         Me.Label13.Text = "Relative Name"
         '
@@ -554,8 +580,9 @@ Partial Class frmVerificationReceived
         Me.Label1.Dock = System.Windows.Forms.DockStyle.Top
         Me.Label1.Font = New System.Drawing.Font("Palatino Linotype", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.Location = New System.Drawing.Point(0, 0)
+        Me.Label1.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(760, 25)
+        Me.Label1.Size = New System.Drawing.Size(1013, 31)
         Me.Label1.TabIndex = 53
         Me.Label1.Text = "Claimant Information"
         Me.Label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -564,10 +591,11 @@ Partial Class frmVerificationReceived
         '
         Me.txtIPDOB.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtIPDOB.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite
-        Me.txtIPDOB.Location = New System.Drawing.Point(177, 43)
+        Me.txtIPDOB.Location = New System.Drawing.Point(236, 53)
+        Me.txtIPDOB.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtIPDOB.Mask = "00/00/0000"
         Me.txtIPDOB.Name = "txtIPDOB"
-        Me.txtIPDOB.Size = New System.Drawing.Size(81, 22)
+        Me.txtIPDOB.Size = New System.Drawing.Size(107, 26)
         Me.txtIPDOB.TabIndex = 5
         Me.txtIPDOB.ValidatingType = GetType(Date)
         '
@@ -590,9 +618,11 @@ Partial Class frmVerificationReceived
         Me.grpIP.Controls.Add(Me.Label13)
         Me.grpIP.Controls.Add(Me.Label14)
         Me.grpIP.Enabled = False
-        Me.grpIP.Location = New System.Drawing.Point(12, 160)
+        Me.grpIP.Location = New System.Drawing.Point(16, 197)
+        Me.grpIP.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.grpIP.Name = "grpIP"
-        Me.grpIP.Size = New System.Drawing.Size(736, 78)
+        Me.grpIP.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grpIP.Size = New System.Drawing.Size(981, 96)
         Me.grpIP.TabIndex = 50
         Me.grpIP.TabStop = False
         Me.grpIP.Text = "Insured Person Info"
@@ -600,9 +630,10 @@ Partial Class frmVerificationReceived
         'Label14
         '
         Me.Label14.AutoSize = True
-        Me.Label14.Location = New System.Drawing.Point(34, 18)
+        Me.Label14.Location = New System.Drawing.Point(45, 22)
+        Me.Label14.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label14.Name = "Label14"
-        Me.Label14.Size = New System.Drawing.Size(48, 13)
+        Me.Label14.Size = New System.Drawing.Size(61, 17)
         Me.Label14.TabIndex = 11
         Me.Label14.Text = "IP Name"
         '
@@ -630,9 +661,11 @@ Partial Class frmVerificationReceived
         Me.grpClaimant.Controls.Add(Me.txtFIRNo)
         Me.grpClaimant.Controls.Add(Me.Label3)
         Me.grpClaimant.Enabled = False
-        Me.grpClaimant.Location = New System.Drawing.Point(12, 24)
+        Me.grpClaimant.Location = New System.Drawing.Point(16, 30)
+        Me.grpClaimant.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.grpClaimant.Name = "grpClaimant"
-        Me.grpClaimant.Size = New System.Drawing.Size(736, 108)
+        Me.grpClaimant.Padding = New System.Windows.Forms.Padding(4, 4, 4, 4)
+        Me.grpClaimant.Size = New System.Drawing.Size(981, 133)
         Me.grpClaimant.TabIndex = 48
         Me.grpClaimant.TabStop = False
         Me.grpClaimant.Text = "Claimant Info"
@@ -640,26 +673,29 @@ Partial Class frmVerificationReceived
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(277, 77)
+        Me.Label2.Location = New System.Drawing.Point(369, 95)
+        Me.Label2.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(58, 13)
+        Me.Label2.Size = New System.Drawing.Size(76, 17)
         Me.Label2.TabIndex = 25
         Me.Label2.Text = "Case Type"
         '
         'txtClaimantName
         '
         Me.txtClaimantName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtClaimantName.Location = New System.Drawing.Point(87, 44)
+        Me.txtClaimantName.Location = New System.Drawing.Point(116, 54)
+        Me.txtClaimantName.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtClaimantName.Name = "txtClaimantName"
-        Me.txtClaimantName.Size = New System.Drawing.Size(172, 22)
+        Me.txtClaimantName.Size = New System.Drawing.Size(228, 26)
         Me.txtClaimantName.TabIndex = 2
         '
         'Label6
         '
         Me.Label6.AutoSize = True
-        Me.Label6.Location = New System.Drawing.Point(3, 48)
+        Me.Label6.Location = New System.Drawing.Point(4, 59)
+        Me.Label6.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label6.Name = "Label6"
-        Me.Label6.Size = New System.Drawing.Size(78, 13)
+        Me.Label6.Size = New System.Drawing.Size(103, 17)
         Me.Label6.TabIndex = 11
         Me.Label6.Text = "Claimant Name"
         '
@@ -667,10 +703,11 @@ Partial Class frmVerificationReceived
         '
         Me.txtFIRDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtFIRDate.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Overwrite
-        Me.txtFIRDate.Location = New System.Drawing.Point(301, 14)
+        Me.txtFIRDate.Location = New System.Drawing.Point(401, 17)
+        Me.txtFIRDate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtFIRDate.Mask = "00/00/0000"
         Me.txtFIRDate.Name = "txtFIRDate"
-        Me.txtFIRDate.Size = New System.Drawing.Size(98, 24)
+        Me.txtFIRDate.Size = New System.Drawing.Size(129, 29)
         Me.txtFIRDate.TabIndex = 1
         Me.txtFIRDate.ValidatingType = GetType(Date)
         '
@@ -680,9 +717,10 @@ Partial Class frmVerificationReceived
         Me.dtDate.CalendarTrailingForeColor = System.Drawing.SystemColors.Desktop
         Me.dtDate.Enabled = False
         Me.dtDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.dtDate.Location = New System.Drawing.Point(420, 14)
+        Me.dtDate.Location = New System.Drawing.Point(560, 17)
+        Me.dtDate.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.dtDate.Name = "dtDate"
-        Me.dtDate.Size = New System.Drawing.Size(293, 24)
+        Me.dtDate.Size = New System.Drawing.Size(389, 29)
         Me.dtDate.TabIndex = 10
         Me.dtDate.TabStop = False
         Me.dtDate.Value = New Date(2012, 5, 23, 0, 0, 0, 0)
@@ -690,9 +728,10 @@ Partial Class frmVerificationReceived
         'Label5
         '
         Me.Label5.AutoSize = True
-        Me.Label5.Location = New System.Drawing.Point(10, 20)
+        Me.Label5.Location = New System.Drawing.Point(13, 25)
+        Me.Label5.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label5.Name = "Label5"
-        Me.Label5.Size = New System.Drawing.Size(73, 13)
+        Me.Label5.Size = New System.Drawing.Size(91, 17)
         Me.Label5.TabIndex = 9
         Me.Label5.Text = "FIR/Case No."
         '
@@ -700,9 +739,10 @@ Partial Class frmVerificationReceived
         '
         Me.Label15.AutoEllipsis = True
         Me.Label15.Font = New System.Drawing.Font("Palatino Linotype", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label15.Location = New System.Drawing.Point(0, 136)
+        Me.Label15.Location = New System.Drawing.Point(0, 167)
+        Me.Label15.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label15.Name = "Label15"
-        Me.Label15.Size = New System.Drawing.Size(725, 27)
+        Me.Label15.Size = New System.Drawing.Size(967, 33)
         Me.Label15.TabIndex = 52
         Me.Label15.Text = "Insured Person Information"
         Me.Label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -739,9 +779,10 @@ Partial Class frmVerificationReceived
         Me.Label17.AutoEllipsis = True
         Me.Label17.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label17.ForeColor = System.Drawing.Color.Red
-        Me.Label17.Location = New System.Drawing.Point(9, 241)
+        Me.Label17.Location = New System.Drawing.Point(12, 297)
+        Me.Label17.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label17.Name = "Label17"
-        Me.Label17.Size = New System.Drawing.Size(245, 22)
+        Me.Label17.Size = New System.Drawing.Size(327, 27)
         Me.Label17.TabIndex = 55
         Me.Label17.Text = "Please Enter Verification Report "
         Me.Label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -751,9 +792,10 @@ Partial Class frmVerificationReceived
         Me.Label18.AutoEllipsis = True
         Me.Label18.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label18.ForeColor = System.Drawing.Color.Sienna
-        Me.Label18.Location = New System.Drawing.Point(254, 241)
+        Me.Label18.Location = New System.Drawing.Point(339, 297)
+        Me.Label18.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label18.Name = "Label18"
-        Me.Label18.Size = New System.Drawing.Size(167, 27)
+        Me.Label18.Size = New System.Drawing.Size(223, 33)
         Me.Label18.TabIndex = 56
         Me.Label18.Text = "Period Claimed"
         Me.Label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -763,9 +805,10 @@ Partial Class frmVerificationReceived
         Me.Label19.AutoEllipsis = True
         Me.Label19.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label19.ForeColor = System.Drawing.Color.Sienna
-        Me.Label19.Location = New System.Drawing.Point(427, 241)
+        Me.Label19.Location = New System.Drawing.Point(569, 297)
+        Me.Label19.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label19.Name = "Label19"
-        Me.Label19.Size = New System.Drawing.Size(174, 27)
+        Me.Label19.Size = New System.Drawing.Size(232, 33)
         Me.Label19.TabIndex = 57
         Me.Label19.Text = "Period Verified"
         Me.Label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -775,9 +818,10 @@ Partial Class frmVerificationReceived
         Me.lblTotalVerified.AutoEllipsis = True
         Me.lblTotalVerified.Font = New System.Drawing.Font("Palatino Linotype", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblTotalVerified.ForeColor = System.Drawing.Color.Magenta
-        Me.lblTotalVerified.Location = New System.Drawing.Point(613, 241)
+        Me.lblTotalVerified.Location = New System.Drawing.Point(817, 297)
+        Me.lblTotalVerified.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblTotalVerified.Name = "lblTotalVerified"
-        Me.lblTotalVerified.Size = New System.Drawing.Size(135, 27)
+        Me.lblTotalVerified.Size = New System.Drawing.Size(180, 33)
         Me.lblTotalVerified.TabIndex = 58
         Me.lblTotalVerified.Text = "Zero"
         Me.lblTotalVerified.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -787,9 +831,10 @@ Partial Class frmVerificationReceived
         Me.Label20.AutoEllipsis = True
         Me.Label20.Font = New System.Drawing.Font("Palatino Linotype", 11.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label20.ForeColor = System.Drawing.Color.Red
-        Me.Label20.Location = New System.Drawing.Point(414, 459)
+        Me.Label20.Location = New System.Drawing.Point(552, 565)
+        Me.Label20.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.Label20.Name = "Label20"
-        Me.Label20.Size = New System.Drawing.Size(182, 22)
+        Me.Label20.Size = New System.Drawing.Size(243, 27)
         Me.Label20.TabIndex = 59
         Me.Label20.Text = "Average Wages Verified"
         Me.Label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter
@@ -801,16 +846,17 @@ Partial Class frmVerificationReceived
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.txtAvgWages.BackColor = System.Drawing.SystemColors.Window
         Me.txtAvgWages.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtAvgWages.Location = New System.Drawing.Point(605, 459)
+        Me.txtAvgWages.Location = New System.Drawing.Point(807, 565)
+        Me.txtAvgWages.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.txtAvgWages.Name = "txtAvgWages"
-        Me.txtAvgWages.Size = New System.Drawing.Size(120, 24)
+        Me.txtAvgWages.Size = New System.Drawing.Size(159, 29)
         Me.txtAvgWages.TabIndex = 1
         '
         'frmVerificationReceived
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(8.0!, 16.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(760, 490)
+        Me.ClientSize = New System.Drawing.Size(1013, 603)
         Me.Controls.Add(Me.txtAvgWages)
         Me.Controls.Add(Me.Label20)
         Me.Controls.Add(Me.lblTotalVerified)
@@ -824,6 +870,7 @@ Partial Class frmVerificationReceived
         Me.Controls.Add(Me.grpClaimant)
         Me.Controls.Add(Me.Label15)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow
+        Me.Margin = New System.Windows.Forms.Padding(4, 4, 4, 4)
         Me.Name = "frmVerificationReceived"
         Me.Text = "frmVerificationReceived"
         CType(Me.grdVoucher, System.ComponentModel.ISupportInitialize).EndInit()

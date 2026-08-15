@@ -258,12 +258,52 @@ Public Class frmCaseReceived
             Cursor = Cursors.Default
             Exit Sub
         End If
+        '------Checking the Claimant CNIC and Gender---------------
         If Len(txtClaimantCNIC.Text) < 15 Then
             MessageBox.Show("Please Enter Valid Claimant CNIC Number", "Error")
             Cursor = Cursors.Default
             Exit Sub
+        Else
+            Dim lastDigit As Integer = CInt(txtClaimantCNIC.Text.Last().ToString())
+            If lastDigit Mod 2 <> 0 Then  '---Checking CNIC Last Digit and Male ... Even for Male
+                If optMale1.Checked = False Then
+                    MessageBox.Show("Please Select Proper Claimant Gender", "Error")
+                    Cursor = Cursors.Default
+                    Exit Sub
+                End If
+            Else
+                If optFemale1.Checked = False Then
+                    MessageBox.Show("Please Select Proper Claimant Gender", "Error")
+                    Cursor = Cursors.Default
+                    Exit Sub
+                End If
+            End If
+
         End If
 
+        '------Checking the Insured Person CNIC and Gender---------------
+        If Len(txtIPCNIC.Text) < 15 Then
+            MessageBox.Show("Please Enter Valid IP CNIC Number", "Error")
+            Cursor = Cursors.Default
+            Exit Sub
+        Else
+            Dim lastDigit As Integer = CInt(txtIPCNIC.Text.Last().ToString())
+            If lastDigit Mod 2 <> 0 Then  '---Checking CNIC Last Digit and Male ... Even for Male
+                If optMale2.Checked = False Then
+                    MessageBox.Show("Please Select Proper IP Gender", "Error")
+                    Cursor = Cursors.Default
+                    Exit Sub
+                End If
+            Else
+                If optFemale2.Checked = False Then
+                    MessageBox.Show("Please Select Proper IP Gender", "Error")
+                    Cursor = Cursors.Default
+                    Exit Sub
+                End If
+            End If
+
+        End If
+        '-----------------------------------------------------------------
         If Not (cboNatureOfBenefit.Text = "Old Age") And txtIPDeathDate.Text = "  -  -" Then
             'If Not (cboNatureOfBenefit.Text = "Old Age" Or cboNatureOfBenefit.Text = "Invalidity") And txtIPDeathDate.Text = "  -  -" Then
             MessageBox.Show("Please Enter Valid IP Death/Invalidity Date", "Error")
@@ -524,7 +564,4 @@ EditMode:
         End If
     End Sub
 
-    Private Sub DataGridViewImageColumn1_Disposed(sender As Object, e As EventArgs) Handles DataGridViewImageColumn1.Disposed
-
-    End Sub
 End Class
