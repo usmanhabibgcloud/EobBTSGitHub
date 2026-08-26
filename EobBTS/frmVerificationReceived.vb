@@ -138,7 +138,7 @@ Public Class frmVerificationReceived
             '--------------------This is used for getting the End Date Value for verified period based of IP DoB and Death Date.............
             Dim cls1 As New clsReader
             cls1.GetRecord("SELECT CASE WHEN m.CaseType = 'Old Age' THEN a.AgeEndDate ELSE iif(m.IPDeathDate <=  a.AgeEndDate, m.IPDeathDate, a.AgeEndDate) END AS EndDateValue FROM tblFIRMain m  CROSS APPLY ( SELECT CASE WHEN m.IPGender = 'Male' THEN DATEADD(YEAR, 60, m.IPDoB) WHEN m.IPGender = 'Female' THEN DATEADD(YEAR, 55, m.IPDoB) END AS AgeEndDate )  a where m.FIRID = '" & intFIRID & "'", cn)
-            dtEndDate = cls1.ds.Tables(0).Rows(0)("EndDateValue")
+            dtEndValue = cls1.ds.Tables(0).Rows(0)("EndDateValue")
             cls1 = Nothing
             '-----------------------------------------------------------------------------------------------
 
