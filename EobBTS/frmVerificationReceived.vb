@@ -397,8 +397,8 @@ EditMode:
             End If
 
             '----Check maximum allowed date-----------
-            If dt2 > dtEndDate Then
-                MessageBox.Show("Verified Period Can't exceed ", Format(dtEndDate, "dd-MM-yyyy"))
+            If dt2 > dtEndValue Then
+                MessageBox.Show("Verified Period Can't exceed ", Format(dtEndValue, "dd-MM-yyyy"))
                 e.Cancel = True
                 Exit Sub
             End If
@@ -415,8 +415,8 @@ EditMode:
             End If
 
             '----Check maximum allowed date-----------
-            If dt3 > dtEndDate Then
-                MessageBox.Show("Verified Period Can't exceed ", Format(dtEndDate, "dd-MM-yyyy"))
+            If dt3 > dtEndValue Then
+                MessageBox.Show("Verified Period Can't exceed ", Format(dtEndValue, "dd-MM-yyyy"))
                 e.Cancel = True
                 Exit Sub
             End If
