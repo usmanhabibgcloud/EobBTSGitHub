@@ -73,6 +73,7 @@
         mnuActORVerificationReminder.Visible = MenuVisible("mnuActORVerificationReminder")
         mnuActCaseRecommended.Visible = MenuVisible("mnuActCaseRecommended")
         mnuDefGeneralDBBackup.Visible = MenuVisible("mnuDefGeneralDBBackup")
+        mnuActPetitions.Visible = MenuVisible("mnuActPetitions")
     End Sub
 
     Private Sub mnuDefGeneralRegInfo_Click(sender As Object, e As EventArgs) Handles mnuDefGeneralRegInfo.Click
@@ -139,5 +140,14 @@
 
     Private Sub mnuDefGeneralDBBackup_Click(sender As Object, e As EventArgs) Handles mnuDefGeneralDBBackup.Click
         ShowChild(frmDBBackup)
+    End Sub
+
+    Private Sub mnuActPetitions_Click(sender As Object, e As EventArgs) Handles mnuActPetitions.Click
+        ShowChild(frmAuthorityComments)
+    End Sub
+
+    Private Sub mnuRptPetitionComments_Click(sender As Object, e As EventArgs) Handles mnuRptPetitionComments.Click
+        frmPetitionCommentsPrint.myTag = "Petition Comments"
+        ShowChild(frmPetitionCommentsPrint)
     End Sub
 End Class

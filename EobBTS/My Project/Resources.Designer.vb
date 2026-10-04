@@ -193,6 +193,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Friend ReadOnly Property external_petition_activism_flaticons_lineal_color_flat_icons() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("external-petition-activism-flaticons-lineal-color-flat-icons", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Friend ReadOnly Property Hospital() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("Hospital", resourceCulture)

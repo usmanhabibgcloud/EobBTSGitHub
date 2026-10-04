@@ -137,6 +137,12 @@
     <Compile Include="Classes\clsReader.vb" />
     <Compile Include="Classes\clsReport.vb" />
     <Compile Include="Classes\clsWriter.vb" />
+    <Compile Include="frmAuthorityComments.Designer.vb">
+      <DependentUpon>frmAuthorityComments.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAuthorityComments.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmCaseSettle.Designer.vb">
       <DependentUpon>frmCaseSettle.vb</DependentUpon>
     </Compile>
@@ -173,6 +179,12 @@
     <Compile Include="frmORverificationReminder.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmPetitionCommentsPrint.Designer.vb">
+      <DependentUpon>frmPetitionCommentsPrint.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPetitionCommentsPrint.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmProcessSheetForm.Designer.vb">
       <DependentUpon>frmProcessSheetForm.vb</DependentUpon>
     </Compile>
@@ -189,6 +201,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crAllPendingCases.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\crAuthorityComments.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crAuthorityComments.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\crCaseRecommendedButNotSettled.vb">
@@ -403,6 +421,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmAuthorityComments.resx">
+      <DependentUpon>frmAuthorityComments.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCaseSettle.resx">
       <DependentUpon>frmCaseSettle.vb</DependentUpon>
     </EmbeddedResource>
@@ -421,6 +442,9 @@
     <EmbeddedResource Include="frmORverificationReminder.resx">
       <DependentUpon>frmORverificationReminder.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPetitionCommentsPrint.resx">
+      <DependentUpon>frmPetitionCommentsPrint.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmProcessSheetForm.resx">
       <DependentUpon>frmProcessSheetForm.vb</DependentUpon>
     </EmbeddedResource>
@@ -430,6 +454,10 @@
     <EmbeddedResource Include="Reports\crAllPendingCases.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crAllPendingCases.vb</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\crAuthorityComments.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crAuthorityComments.vb</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\crCaseRecommendedButNotSettled.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -687,6 +715,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\backupDB_to_NAS.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\external-petition-activism-flaticons-lineal-color-flat-icons.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
 </Project>

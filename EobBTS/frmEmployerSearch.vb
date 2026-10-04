@@ -8,6 +8,7 @@ Public Class frmEmployerSearch
 
     Public Enum Destination
         CaseReceived = 0
+        AuthorityComments = 1
 
     End Enum
     Private Sub OK()
@@ -28,6 +29,21 @@ Public Class frmEmployerSearch
                     Next
                     Me.Close()
 
+
+                Case Destination.AuthorityComments
+                    If Me.grdEmployersChild.RowCount >= frmAuthorityComments.grdVoucher.RowCount - intRIndex Then
+                        frmAuthorityComments.grdVoucher.RowCount = frmAuthorityComments.grdVoucher.RowCount + (Me.grdEmployersChild.RowCount - (frmAuthorityComments.grdVoucher.RowCount - intRIndex)) + 1
+                    End If
+                    For i As Integer = 0 To Me.grdEmployersChild.RowCount - 1
+                        frmAuthorityComments.grdVoucher.Item("EmployerName", intRIndex).Value = Me.grdEmployersChild.Item("EmployerName", i).Value
+                        frmAuthorityComments.grdVoucher.Item("RegionName", intRIndex).Value = Me.grdEmployersChild.Item("RegionName", i).Value
+                        frmAuthorityComments.grdVoucher.Item("Beat", intRIndex).Value = Me.grdEmployersChild.Item("Beat", i).Value
+                        frmAuthorityComments.grdVoucher.Item("EmployerCode", intRIndex).Value = Me.grdEmployersChild.Item("EmployerCode", i).Value
+                        frmAuthorityComments.grdVoucher.Item("ActApplicable", intRIndex).Value = Me.grdEmployersChild.Item("ActApplicability", i).Value
+                        frmAuthorityComments.grdVoucher.Item("ActiveStatus", intRIndex).Value = Me.grdEmployersChild.Item("ActiveStatus", i).Value
+                        intRIndex = intRIndex + 1
+                    Next
+                    Me.Close()
 
             End Select
 

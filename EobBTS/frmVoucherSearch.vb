@@ -82,15 +82,26 @@ Public Class frmVoucherSearch
                 Me.grdVoucher.Columns("FYID").Visible = False
                 Me.grdVoucher.Columns("ORVerificationDate").DefaultCellStyle.Format = "dd/MM/yyyy"
 
+            Case "Authority_Comments"
+                Me.Label1.Text = "Please Search and Select to Edit the Record"
+                lblFIR.Text = "Petition"
+                btnShowAllCases.Text = "Show All Petitions"
 
         End Select
 
     End Sub
     Private Sub txtDesc_KeyUp(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyEventArgs) Handles txtClaimantInfo.KeyUp
+        Select Case myTag
+            Case "Authority_Comments"
+                If Len(txtClaimantInfo.Text) >= 1 Then
+                    GetPetitioner_ByDesc()
+                End If
+            Case Else
 
-        If Len(txtClaimantInfo.Text) >= 4 Then
-            GetClaimant_ByDesc()
-        End If
+                If Len(txtClaimantInfo.Text) >= 4 Then
+                    GetClaimant_ByDesc()
+                End If
+        End Select
 
     End Sub
     Private Sub GetClaimant_ByDesc()
@@ -103,6 +114,18 @@ Public Class frmVoucherSearch
         Me.grdVoucher.Columns("Editable").Visible = False
         Me.grdVoucher.Columns("FIRID").Visible = False
         Me.grdVoucher.Columns("FIRDate").DefaultCellStyle.Format = "dd/MM/yyyy"
+
+    End Sub
+    Private Sub GetPetitioner_ByDesc()
+        Dim cls As New clsReader
+        cls.GetRecord("Select AuthorityID,Editable,PetitionNo,ClaimantName,ClaimantCNIC,IPName,IPCNIC,EOBINo from tblAuthorityMain where  (VSource = 'Self') and (PetitionNo like '%" & txtClaimantInfo.Text & "%' or ClaimantName like '%" & txtClaimantInfo.Text & "%' or IPName like '%" & txtClaimantInfo.Text & "%' or ClaimantCNIC like '%" & txtClaimantInfo.Text & "%' or EOBINo like '%" & txtClaimantInfo.Text & "%' or IPCNIC like '%" & txtClaimantInfo.Text & "%') order by PetitionNo", cn)
+        grdVoucher.DataSource = AddSerial(cls.ds.Tables(0))
+        Dim intCSize As Integer() = New Integer() {40, 10, 10, 120, 130, 115, 130, 115, 100}
+        grdVoucher = GridColumnSize(grdVoucher, intCSize)
+
+        Me.grdVoucher.Columns("Editable").Visible = False
+        Me.grdVoucher.Columns("AuthorityID").Visible = False
+        ' Me.grdVoucher.Columns("FIRDate").DefaultCellStyle.Format = "dd/MM/yyyy"
 
     End Sub
 
@@ -184,7 +207,25 @@ Public Class frmVoucherSearch
                 Catch ex As Exception
 
                 End Try
+            Case "Authority_Comments"
+                Try
 
+                    frmAuthorityComments.intAuthorityID = grdVoucher.Item("AuthorityID", e.RowIndex).Value
+                    frmAuthorityComments.FillVoucher()
+                    Me.Close()
+                Catch ex As Exception
+
+                End Try
+
+            Case "Authority_Comments_ImportData"
+                Try
+
+                    frmAuthorityComments.intFIRID = grdVoucher.Item("FIRID", e.RowIndex).Value
+                    frmAuthorityComments.FillVoucher_DataImport()
+                    Me.Close()
+                Catch ex As Exception
+
+                End Try
 
         End Select
 
@@ -212,24 +253,47 @@ Public Class frmVoucherSearch
 
     Private Sub txtFIRNo_KeyUp(sender As Object, e As KeyEventArgs) Handles txtFIRNo.KeyUp
         If e.KeyCode = Keys.Enter Then
-            txtClaimantInfo.Text = Nothing
-            If txtFIRNo.Text = Nothing Then
-                MessageBox.Show("Please Enter Case/FIR No")
-                Exit Sub
-            End If
-            Dim cls As New clsReader
-            cls.GetRecord("select FIRID,Editable,FIRNo,FIRDate,ClaimantName,ClaimantCNIC,IPName,IPCNIC,EOBINo from tblFIRMain where  (VSource = 'Self') and (FIRNo = '" & txtFIRNo.Text & "') order by FIRNo", cn)
-            If cls.EOF = True Then
-                MessageBox.Show("The Claim/FIR/Case No Does Not Exists")
+            Select Case myTag
+                Case "Authority_Comments"
+                    txtClaimantInfo.Text = Nothing
+                    If txtFIRNo.Text = Nothing Then
+                        MessageBox.Show("Please Enter Petition No.")
+                        Exit Sub
+                    End If
+                    Dim cls As New clsReader
+                    cls.GetRecord("Select AuthorityID,Editable,PetitionNo,ClaimantName,ClaimantCNIC,IPName,IPCNIC,EOBINo from tblAuthorityMain where  (VSource = 'Self') and (PetitionNo like '%" & txtFIRNo.Text & "%') order by PetitionNo", cn)
+                    If cls.EOF = True Then
+                        MessageBox.Show("The Petition No. Does Not Exists")
 
-            End If
-            grdVoucher.DataSource = AddSerial(cls.ds.Tables(0))
-            Dim intCSize As Integer() = New Integer() {40, 10, 10, 60, 80, 130, 115, 130, 115, 100}
-            grdVoucher = GridColumnSize(grdVoucher, intCSize)
+                    End If
+                    grdVoucher.DataSource = AddSerial(cls.ds.Tables(0))
+                    Dim intCSize As Integer() = New Integer() {40, 10, 10, 120, 130, 115, 130, 115, 100}
+                    grdVoucher = GridColumnSize(grdVoucher, intCSize)
 
-            Me.grdVoucher.Columns("Editable").Visible = False
-            Me.grdVoucher.Columns("FIRID").Visible = False
-            Me.grdVoucher.Columns("FIRDate").DefaultCellStyle.Format = "dd/MM/yyyy"
+                    Me.grdVoucher.Columns("Editable").Visible = False
+                    Me.grdVoucher.Columns("AuthorityID").Visible = False
+
+                Case Else
+                    txtClaimantInfo.Text = Nothing
+                    If txtFIRNo.Text = Nothing Then
+                        MessageBox.Show("Please Enter Case/FIR No")
+                        Exit Sub
+                    End If
+                    Dim cls As New clsReader
+                    cls.GetRecord("select FIRID,Editable,FIRNo,FIRDate,ClaimantName,ClaimantCNIC,IPName,IPCNIC,EOBINo from tblFIRMain where  (VSource = 'Self') and (FIRNo = '" & txtFIRNo.Text & "') order by FIRNo", cn)
+                    If cls.EOF = True Then
+                        MessageBox.Show("The Claim/FIR/Case No Does Not Exists")
+
+                    End If
+                    grdVoucher.DataSource = AddSerial(cls.ds.Tables(0))
+                    Dim intCSize As Integer() = New Integer() {40, 10, 10, 60, 80, 130, 115, 130, 115, 100}
+                    grdVoucher = GridColumnSize(grdVoucher, intCSize)
+
+                    Me.grdVoucher.Columns("Editable").Visible = False
+                    Me.grdVoucher.Columns("FIRID").Visible = False
+                    Me.grdVoucher.Columns("FIRDate").DefaultCellStyle.Format = "dd/MM/yyyy"
+            End Select
+
 
         End If
     End Sub
@@ -239,19 +303,37 @@ Public Class frmVoucherSearch
     End Sub
 
     Private Sub btnShowAllCases_Click(sender As Object, e As EventArgs) Handles btnShowAllCases.Click
-        Dim cls As New clsReader
-        cls.GetRecord("select FIRID,Editable,FIRNo,FIRDate,ClaimantName,ClaimantCNIC,IPName,IPCNIC,EOBINo from tblFIRMain where VSource = 'Self' order by FIRdate, FIRNo", cn)
-        If cls.EOF = True Then
-            MessageBox.Show("The Claim/FIR/Case No Does Not Exists")
+        Select Case myTag
+            Case "Authority_Comments"
+                Dim cls As New clsReader
+                cls.GetRecord("Select AuthorityID,Editable,PetitionNo,ClaimantName,ClaimantCNIC,IPName,IPCNIC,EOBINo from tblAuthorityMain where  (VSource = 'Self')  order by PetitionNo", cn)
+                If cls.EOF = True Then
+                    MessageBox.Show("The Petition No. Does Not Exists")
 
-        End If
-        grdVoucher.DataSource = AddSerial(cls.ds.Tables(0))
-        Dim intCSize As Integer() = New Integer() {40, 10, 10, 60, 80, 130, 115, 130, 115, 100}
-        grdVoucher = GridColumnSize(grdVoucher, intCSize)
+                End If
+                grdVoucher.DataSource = AddSerial(cls.ds.Tables(0))
+                Dim intCSize As Integer() = New Integer() {40, 10, 10, 120, 130, 115, 130, 115, 100}
+                grdVoucher = GridColumnSize(grdVoucher, intCSize)
 
-        Me.grdVoucher.Columns("Editable").Visible = False
-        Me.grdVoucher.Columns("FIRID").Visible = False
-        Me.grdVoucher.Columns("FIRDate").DefaultCellStyle.Format = "dd/MM/yyyy"
+                Me.grdVoucher.Columns("Editable").Visible = False
+                Me.grdVoucher.Columns("AuthorityID").Visible = False
+
+            Case Else
+
+                Dim cls As New clsReader
+                cls.GetRecord("select FIRID,Editable,FIRNo,FIRDate,ClaimantName,ClaimantCNIC,IPName,IPCNIC,EOBINo from tblFIRMain where VSource = 'Self' order by FIRdate, FIRNo", cn)
+                If cls.EOF = True Then
+                    MessageBox.Show("The Claim/FIR/Case No Does Not Exists")
+
+                End If
+                grdVoucher.DataSource = AddSerial(cls.ds.Tables(0))
+                Dim intCSize As Integer() = New Integer() {40, 10, 10, 60, 80, 130, 115, 130, 115, 100}
+                grdVoucher = GridColumnSize(grdVoucher, intCSize)
+
+                Me.grdVoucher.Columns("Editable").Visible = False
+                Me.grdVoucher.Columns("FIRID").Visible = False
+                Me.grdVoucher.Columns("FIRDate").DefaultCellStyle.Format = "dd/MM/yyyy"
+        End Select
 
     End Sub
 
@@ -264,6 +346,11 @@ Public Class frmVoucherSearch
         txtClaimantInfo.Visible = True
         btnShowAllCases.Visible = True
         Me.grdVoucher.DataSource = Nothing
+        myTag = ""
+        Me.Label1.Text = "Search Claim Cases"
+        lblFIR.Text = "FIR/Case No."
+        btnShowAllCases.Text = "Show All Cases"
+
 
     End Sub
 
