@@ -24,15 +24,15 @@ Partial Class frmAuthorityComments
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmAuthorityComments))
-        Dim DataGridViewCellStyle10 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle11 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle12 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle13 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle14 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle15 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle16 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle17 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle18 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle5 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle6 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle7 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle8 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle9 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.optFemale1 = New System.Windows.Forms.RadioButton()
         Me.txtPreviousClaimNo = New System.Windows.Forms.TextBox()
@@ -40,6 +40,7 @@ Partial Class frmAuthorityComments
         Me.txtClaimnatDOB = New System.Windows.Forms.MaskedTextBox()
         Me.btnExit = New System.Windows.Forms.ToolStripButton()
         Me.grpIP = New System.Windows.Forms.GroupBox()
+        Me.btnBriefFacts = New System.Windows.Forms.Button()
         Me.txtIPDeathDate = New System.Windows.Forms.MaskedTextBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.txtIPDOB = New System.Windows.Forms.MaskedTextBox()
@@ -203,6 +204,7 @@ Partial Class frmAuthorityComments
         Me.grpIP.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.grpIP.BackColor = System.Drawing.SystemColors.GradientInactiveCaption
+        Me.grpIP.Controls.Add(Me.btnBriefFacts)
         Me.grpIP.Controls.Add(Me.txtIPDeathDate)
         Me.grpIP.Controls.Add(Me.Label15)
         Me.grpIP.Controls.Add(Me.txtIPDOB)
@@ -227,6 +229,21 @@ Partial Class frmAuthorityComments
         Me.grpIP.Size = New System.Drawing.Size(1486, 79)
         Me.grpIP.TabIndex = 1
         Me.grpIP.TabStop = False
+        '
+        'btnBriefFacts
+        '
+        Me.btnBriefFacts.Anchor = System.Windows.Forms.AnchorStyles.None
+        Me.btnBriefFacts.BackColor = System.Drawing.SystemColors.Highlight
+        Me.btnBriefFacts.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnBriefFacts.Font = New System.Drawing.Font("Sitka Small", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBriefFacts.ForeColor = System.Drawing.Color.Linen
+        Me.btnBriefFacts.Location = New System.Drawing.Point(1342, 23)
+        Me.btnBriefFacts.Margin = New System.Windows.Forms.Padding(4)
+        Me.btnBriefFacts.Name = "btnBriefFacts"
+        Me.btnBriefFacts.Size = New System.Drawing.Size(138, 31)
+        Me.btnBriefFacts.TabIndex = 77
+        Me.btnBriefFacts.Text = "Brief Facts"
+        Me.btnBriefFacts.UseVisualStyleBackColor = False
         '
         'txtIPDeathDate
         '
@@ -569,19 +586,19 @@ Partial Class frmAuthorityComments
         Me.grdVoucher.AllowUserToDeleteRows = False
         Me.grdVoucher.AllowUserToResizeColumns = False
         Me.grdVoucher.AllowUserToResizeRows = False
-        DataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
-        Me.grdVoucher.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle10
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(255, Byte), Integer))
+        Me.grdVoucher.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.grdVoucher.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
             Or System.Windows.Forms.AnchorStyles.Left) _
             Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        DataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
-        DataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle11.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.grdVoucher.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle11
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.grdVoucher.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.grdVoucher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.grdVoucher.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Sr, Me.F1, Me.AuthorityDetailID, Me.AuthorityID, Me.EmployerCode, Me.EmployerName, Me.ActApplicable, Me.ActiveStatus, Me.PeriodFrom, Me.PeriodTo, Me.Remarks1, Me.VerifiedFrom, Me.VerifiedTo, Me.Remarks2, Me.RejectionReason, Me.RegionName, Me.Beat, Me.Del})
         Me.grdVoucher.Location = New System.Drawing.Point(16, 254)
@@ -629,18 +646,18 @@ Partial Class frmAuthorityComments
         '
         'EmployerName
         '
-        DataGridViewCellStyle12.BackColor = System.Drawing.Color.White
-        DataGridViewCellStyle12.NullValue = Nothing
-        Me.EmployerName.DefaultCellStyle = DataGridViewCellStyle12
+        DataGridViewCellStyle3.BackColor = System.Drawing.Color.White
+        DataGridViewCellStyle3.NullValue = Nothing
+        Me.EmployerName.DefaultCellStyle = DataGridViewCellStyle3
         Me.EmployerName.HeaderText = "Employer Name"
         Me.EmployerName.Name = "EmployerName"
         Me.EmployerName.Width = 180
         '
         'ActApplicable
         '
-        DataGridViewCellStyle13.Format = "d"
-        DataGridViewCellStyle13.NullValue = Nothing
-        Me.ActApplicable.DefaultCellStyle = DataGridViewCellStyle13
+        DataGridViewCellStyle4.Format = "d"
+        DataGridViewCellStyle4.NullValue = Nothing
+        Me.ActApplicable.DefaultCellStyle = DataGridViewCellStyle4
         Me.ActApplicable.HeaderText = "ActApplicable"
         Me.ActApplicable.Name = "ActApplicable"
         Me.ActApplicable.Visible = False
@@ -655,18 +672,18 @@ Partial Class frmAuthorityComments
         '
         'PeriodFrom
         '
-        DataGridViewCellStyle14.Format = "d"
-        DataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
-        Me.PeriodFrom.DefaultCellStyle = DataGridViewCellStyle14
+        DataGridViewCellStyle5.Format = "d"
+        DataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.[False]
+        Me.PeriodFrom.DefaultCellStyle = DataGridViewCellStyle5
         Me.PeriodFrom.HeaderText = "Claimed From"
         Me.PeriodFrom.Name = "PeriodFrom"
         Me.PeriodFrom.Width = 80
         '
         'PeriodTo
         '
-        DataGridViewCellStyle15.Format = "d"
-        DataGridViewCellStyle15.NullValue = Nothing
-        Me.PeriodTo.DefaultCellStyle = DataGridViewCellStyle15
+        DataGridViewCellStyle6.Format = "d"
+        DataGridViewCellStyle6.NullValue = Nothing
+        Me.PeriodTo.DefaultCellStyle = DataGridViewCellStyle6
         Me.PeriodTo.HeaderText = "Claimed To"
         Me.PeriodTo.Name = "PeriodTo"
         Me.PeriodTo.Width = 80
@@ -679,17 +696,17 @@ Partial Class frmAuthorityComments
         '
         'VerifiedFrom
         '
-        DataGridViewCellStyle16.Format = "d"
-        Me.VerifiedFrom.DefaultCellStyle = DataGridViewCellStyle16
+        DataGridViewCellStyle7.Format = "d"
+        Me.VerifiedFrom.DefaultCellStyle = DataGridViewCellStyle7
         Me.VerifiedFrom.HeaderText = "Verified From"
         Me.VerifiedFrom.Name = "VerifiedFrom"
         Me.VerifiedFrom.Width = 80
         '
         'VerifiedTo
         '
-        DataGridViewCellStyle17.Format = "d"
-        DataGridViewCellStyle17.NullValue = Nothing
-        Me.VerifiedTo.DefaultCellStyle = DataGridViewCellStyle17
+        DataGridViewCellStyle8.Format = "d"
+        DataGridViewCellStyle8.NullValue = Nothing
+        Me.VerifiedTo.DefaultCellStyle = DataGridViewCellStyle8
         Me.VerifiedTo.HeaderText = "Verified To"
         Me.VerifiedTo.Name = "VerifiedTo"
         Me.VerifiedTo.Width = 80
@@ -708,9 +725,9 @@ Partial Class frmAuthorityComments
         '
         'RegionName
         '
-        DataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight
-        DataGridViewCellStyle18.NullValue = "0"
-        Me.RegionName.DefaultCellStyle = DataGridViewCellStyle18
+        DataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomRight
+        DataGridViewCellStyle9.NullValue = "0"
+        Me.RegionName.DefaultCellStyle = DataGridViewCellStyle9
         Me.RegionName.HeaderText = "Region Name"
         Me.RegionName.Items.AddRange(New Object() {"Faisalabad South", "Sheikhupura", "Kotri", "Korangi", "Rahim Yar Khan", "Islamabad", "Karachi Central", "Larkana", "Rawalpindi", "Faisalabad North", "Nazimabad", "Hyderabad", "Gujrat", "West Wharf", "Mangamandi", "Lahore Central", "Jehlum", "City", "Shahdarah", "Multan", "Quetta", "Faisalabad Central", "Bin Qasim", "Lahore South", "Sahiwal", "Mardan", "Bahawalpur", "Gujranwala", "Sargodha", "Karimabad", "Sukkur", "Lahore North", "Abbottabad", "Gilgit", "Sialkot", "Muzaffargarh", "Hassanabdal", "Peshawar", "Hub", "Chakwal", "Islamabad East", "Islamabad West"})
         Me.RegionName.Name = "RegionName"
@@ -1317,4 +1334,5 @@ Partial Class frmAuthorityComments
     Friend WithEvents Beat As DataGridViewComboBoxColumn
     Friend WithEvents Del As DataGridViewImageColumn
     Friend WithEvents btnImportData As Button
+    Friend WithEvents btnBriefFacts As Button
 End Class

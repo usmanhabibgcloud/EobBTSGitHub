@@ -1,6 +1,7 @@
 ﻿Imports Microsoft.VisualBasic.DateAndTime
 Imports System.ComponentModel
 Imports System.Data.SqlClient
+Imports System.Globalization
 
 
 
@@ -741,5 +742,45 @@ EditMode:
     Private Sub btnImportData_Click(sender As Object, e As EventArgs) Handles btnImportData.Click
         frmVoucherSearch.myTag = "Authority_Comments_ImportData"
         frmVoucherSearch.ShowDialog()
+    End Sub
+
+    Private Sub btnBriefFacts_Click(sender As Object, e As EventArgs) Handles btnBriefFacts.Click
+        txtBriefFactsofCase.Text = Nothing
+        txtPetitionerContention.Text = Nothing
+        txtRespondentRebuttal.Text = Nothing
+        txtAnyBenefitAwarded.Text = Nothing
+        txtMootPoint.Text = Nothing
+        txtDecision33.Text = Nothing
+        txtDecision34.Text = Nothing
+        txtOtherCourtProceed.Text = Nothing
+
+        CalculateTotal()
+
+        Select Case cboNatureOfBenefit.Text
+            Case "Old Age"
+                txtBriefFactsofCase.Text = "The claimant applied for old age pension but due to less than 15 years of verified insurable employment, the case is rejected for pension"
+                txtPetitionerContention.Text = "To award Old Age Pension to the petitioner"
+                txtRespondentRebuttal.Text = "The Claimant is not entitled for old age pension because verified insurable employemnt is " & Math.Round(TotalVerified, 2) & " Years only"
+                txtAnyBenefitAwarded.Text = "An old age grant has been awarded to the petitioner"
+            Case "Survivor"
+                txtBriefFactsofCase.Text = "The claimant applied for Survivor pension but due to less than 5 years of verified insurable employment, the case is rejected for pension"
+                txtPetitionerContention.Text = "To award Survivor Pension to the petitioner"
+                txtRespondentRebuttal.Text = "The Claimant is not entitled for Survivor pension because verified insurable employemnt is " & Math.Round(TotalVerified, 2) & " Years only"
+            Case "Minor Child"
+                txtBriefFactsofCase.Text = "The claimant applied for Minor Child pension but due to less than 5 years of verified insurable employment, the case is rejected for pension"
+                txtPetitionerContention.Text = "To award Old Age Pension to the petitioner"
+                txtRespondentRebuttal.Text = "The Claimant is not entitled for Minor pension because verified insurable employemnt is " & Math.Round(TotalVerified, 2) & " Years only"
+            Case "Estate Pension"
+
+                txtBriefFactsofCase.Text = "The claimant applied for Estate pension but due to less than 5 years of verified insurable employment, the case is rejected for pension"
+                txtPetitionerContention.Text = "To provide Estate Pension to the petitioner"
+                txtRespondentRebuttal.Text = "The Claimant is not entitled for Estate pension because verified insurable employemnt is " & Math.Round(TotalVerified, 2) & " Years only"
+
+            Case "Invalidity"
+                txtBriefFactsofCase.Text = "The claimant applied for Invalidity pension but due to less than 15 years of verified insurable employment, the case is rejected for pension"
+                txtPetitionerContention.Text = "To award Invalidity Pension to the Claimant"
+                txtRespondentRebuttal.Text = "The Claimant is not entitled for Invalidity pension because verified insurable employemnt is " & Math.Round(TotalVerified, 2) & " Years only"
+        End Select
+
     End Sub
 End Class
