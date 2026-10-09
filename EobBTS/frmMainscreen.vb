@@ -68,12 +68,26 @@
         mnuDefGeneralUsers.Visible = MenuVisible("mnuDefGeneralUsers")
         mnuDefGeneralUserRole.Visible = MenuVisible("mnuDefGeneralUserRole")
         mnuDefGeneralFinancialYear.Visible = MenuVisible("mnuDefGeneralFinancialYear")
-        mnuDefGeneralFinancialYear.Visible = MenuVisible("mnuActCaseSettle")
+        mnuActCaseSettle.Visible = MenuVisible("mnuActCaseSettle")
         mnuActORVerification.Visible = MenuVisible("mnuActORVerification")
         mnuActORVerificationReminder.Visible = MenuVisible("mnuActORVerificationReminder")
         mnuActCaseRecommended.Visible = MenuVisible("mnuActCaseRecommended")
         mnuDefGeneralDBBackup.Visible = MenuVisible("mnuDefGeneralDBBackup")
+        mnuActCaseUpdates.Visible = MenuVisible("mnuActCaseUpdates")
         mnuActPetitions.Visible = MenuVisible("mnuActPetitions")
+
+        mnuReports.Visible = MenuVisible("mnuReports")
+        mnuRptEmp.Visible = MenuVisible("mnuRptEmp")
+        mnuRptBTS.Visible = MenuVisible("mnuRptBTS")
+        mnuRptFIRHistory.Visible = MenuVisible("mnuRptFIRHistory")
+        mnuRptBTSProcessSheet.Visible = MenuVisible("mnuRptBTSProcessSheet")
+        mnuRptORVerification.Visible = MenuVisible("mnuRptORVerification")
+        mnuRptORVeriReminder.Visible = MenuVisible("mnuRptORVeriReminder")
+        mnuRptClaimCasesReport.Visible = MenuVisible("mnuRptClaimCasesReport")
+        mnuRptPetitions.Visible = MenuVisible("mnuRptPetitions")
+        mnuRptPetitionComments.Visible = MenuVisible("mnuRptPetitionComments")
+
+
     End Sub
 
     Private Sub mnuDefGeneralRegInfo_Click(sender As Object, e As EventArgs) Handles mnuDefGeneralRegInfo.Click
@@ -150,4 +164,5 @@
         frmPetitionCommentsPrint.myTag = "Petition Comments"
         ShowChild(frmPetitionCommentsPrint)
     End Sub
+
 End Class

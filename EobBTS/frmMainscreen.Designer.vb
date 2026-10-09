@@ -25,17 +25,40 @@ Partial Class frmMainscreen
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainscreen))
         Me.RibbonControl1 = New DevComponents.DotNetBar.RibbonControl()
+        Me.RibbonPanel3 = New DevComponents.DotNetBar.RibbonPanel()
+        Me.mnuRptPetitions = New DevComponents.DotNetBar.RibbonBar()
+        Me.mnuRptPetitionComments = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuRptBTS = New DevComponents.DotNetBar.RibbonBar()
+        Me.mnuRptFIRHistory = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuRptBTSProcessSheet = New DevComponents.DotNetBar.ButtonItem()
+        Me.LabelItem2 = New DevComponents.DotNetBar.LabelItem()
+        Me.mnuRptORVerification = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuRptORVeriReminder = New DevComponents.DotNetBar.ButtonItem()
+        Me.LabelItem1 = New DevComponents.DotNetBar.LabelItem()
+        Me.mnuRptClaimCasesReport = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuRptEmp = New DevComponents.DotNetBar.RibbonBar()
+        Me.mnuRptEmpRegionEmployees = New DevComponents.DotNetBar.ButtonItem()
         Me.RibbonPanel2 = New DevComponents.DotNetBar.RibbonPanel()
         Me.mnuActCases = New DevComponents.DotNetBar.RibbonBar()
+        Me.mnuActCaseReceived = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuActVerificationReceived = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuActCaseRecommended = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuActCaseSettle = New DevComponents.DotNetBar.ButtonItem()
         Me.ItemContainer5 = New DevComponents.DotNetBar.ItemContainer()
+        Me.mnuActORVerification = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuActORVerificationReminder = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuActCaseUpdates = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuActPetitions = New DevComponents.DotNetBar.ButtonItem()
         Me.RibbonPanel1 = New DevComponents.DotNetBar.RibbonPanel()
         Me.mnuDefGeneral = New DevComponents.DotNetBar.RibbonBar()
+        Me.mnuDefGeneralRegInfo = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuDefGeneralUsers = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuDefGeneralUserRole = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuDefGeneralFinancialYear = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuDefGeneralDBBackup = New DevComponents.DotNetBar.ButtonItem()
         Me.mnuDefEmp = New DevComponents.DotNetBar.RibbonBar()
-        Me.RibbonPanel3 = New DevComponents.DotNetBar.RibbonPanel()
-        Me.mnuRptBTS = New DevComponents.DotNetBar.RibbonBar()
-        Me.LabelItem2 = New DevComponents.DotNetBar.LabelItem()
-        Me.LabelItem1 = New DevComponents.DotNetBar.LabelItem()
-        Me.mnuRptEmp = New DevComponents.DotNetBar.RibbonBar()
+        Me.mnuDefEmpDef = New DevComponents.DotNetBar.ButtonItem()
+        Me.mnuDefEmpJobAssignment = New DevComponents.DotNetBar.ButtonItem()
         Me.ImageList1 = New System.Windows.Forms.ImageList(Me.components)
         Me.mnuDefinitions = New DevComponents.DotNetBar.RibbonTabItem()
         Me.mnuActivities = New DevComponents.DotNetBar.RibbonTabItem()
@@ -57,34 +80,11 @@ Partial Class frmMainscreen
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.striplblSystem = New System.Windows.Forms.ToolStripStatusLabel()
         Me.striplblUser = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.RibbonBar1 = New DevComponents.DotNetBar.RibbonBar()
         Me.ToolStripDropDownButton1 = New System.Windows.Forms.ToolStripDropDownButton()
-        Me.mnuRptPetitionComments = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuRptFIRHistory = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuRptBTSProcessSheet = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuRptORVerification = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuRptORVeriReminder = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuRptClaimCasesReport = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuRptEmpRegionEmployees = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuActCaseReceived = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuActVerificationReceived = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuActCaseRecommended = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuActCaseSettle = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuActORVerification = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuActORVerificationReminder = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuActCaseUpdates = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuActPetitions = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuDefGeneralRegInfo = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuDefGeneralUsers = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuDefGeneralUserRole = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuDefGeneralFinancialYear = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuDefGeneralDBBackup = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuDefEmpDef = New DevComponents.DotNetBar.ButtonItem()
-        Me.mnuDefEmpJobAssignment = New DevComponents.DotNetBar.ButtonItem()
         Me.RibbonControl1.SuspendLayout()
+        Me.RibbonPanel3.SuspendLayout()
         Me.RibbonPanel2.SuspendLayout()
         Me.RibbonPanel1.SuspendLayout()
-        Me.RibbonPanel3.SuspendLayout()
         Me.StatusStrip1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -109,81 +109,10 @@ Partial Class frmMainscreen
         Me.RibbonControl1.TabIndex = 1
         Me.RibbonControl1.Text = "RibbonControl1"
         '
-        'RibbonPanel2
-        '
-        Me.RibbonPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.RibbonPanel2.Controls.Add(Me.mnuActCases)
-        Me.RibbonPanel2.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.RibbonPanel2.Location = New System.Drawing.Point(0, 0)
-        Me.RibbonPanel2.Margin = New System.Windows.Forms.Padding(4)
-        Me.RibbonPanel2.Name = "RibbonPanel2"
-        Me.RibbonPanel2.Padding = New System.Windows.Forms.Padding(4, 0, 4, 4)
-        Me.RibbonPanel2.Size = New System.Drawing.Size(1211, 188)
-        Me.RibbonPanel2.TabIndex = 2
-        Me.RibbonPanel2.Visible = False
-        '
-        'mnuActCases
-        '
-        Me.mnuActCases.AutoOverflowEnabled = True
-        Me.mnuActCases.Dock = System.Windows.Forms.DockStyle.Left
-        Me.mnuActCases.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.mnuActCaseReceived, Me.mnuActVerificationReceived, Me.mnuActCaseRecommended, Me.mnuActCaseSettle, Me.ItemContainer5, Me.mnuActORVerification, Me.mnuActORVerificationReminder, Me.mnuActCaseUpdates, Me.mnuActPetitions})
-        Me.mnuActCases.Location = New System.Drawing.Point(4, 0)
-        Me.mnuActCases.Margin = New System.Windows.Forms.Padding(4)
-        Me.mnuActCases.Name = "mnuActCases"
-        Me.mnuActCases.Size = New System.Drawing.Size(713, 184)
-        Me.mnuActCases.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.mnuActCases.TabIndex = 1
-        Me.mnuActCases.Text = "Claim Cases"
-        '
-        'ItemContainer5
-        '
-        Me.ItemContainer5.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical
-        Me.ItemContainer5.Name = "ItemContainer5"
-        '
-        'RibbonPanel1
-        '
-        Me.RibbonPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.RibbonPanel1.Controls.Add(Me.mnuDefGeneral)
-        Me.RibbonPanel1.Controls.Add(Me.mnuDefEmp)
-        Me.RibbonPanel1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.RibbonPanel1.Location = New System.Drawing.Point(0, 55)
-        Me.RibbonPanel1.Margin = New System.Windows.Forms.Padding(4)
-        Me.RibbonPanel1.Name = "RibbonPanel1"
-        Me.RibbonPanel1.Padding = New System.Windows.Forms.Padding(4, 0, 4, 4)
-        Me.RibbonPanel1.Size = New System.Drawing.Size(1211, 133)
-        Me.RibbonPanel1.TabIndex = 1
-        Me.RibbonPanel1.Visible = False
-        '
-        'mnuDefGeneral
-        '
-        Me.mnuDefGeneral.AutoOverflowEnabled = True
-        Me.mnuDefGeneral.Dock = System.Windows.Forms.DockStyle.Left
-        Me.mnuDefGeneral.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.mnuDefGeneralRegInfo, Me.mnuDefGeneralUsers, Me.mnuDefGeneralUserRole, Me.mnuDefGeneralFinancialYear, Me.mnuDefGeneralDBBackup})
-        Me.mnuDefGeneral.Location = New System.Drawing.Point(201, 0)
-        Me.mnuDefGeneral.Margin = New System.Windows.Forms.Padding(4)
-        Me.mnuDefGeneral.Name = "mnuDefGeneral"
-        Me.mnuDefGeneral.Size = New System.Drawing.Size(402, 129)
-        Me.mnuDefGeneral.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.mnuDefGeneral.TabIndex = 2
-        Me.mnuDefGeneral.Text = "General"
-        '
-        'mnuDefEmp
-        '
-        Me.mnuDefEmp.AutoOverflowEnabled = True
-        Me.mnuDefEmp.Dock = System.Windows.Forms.DockStyle.Left
-        Me.mnuDefEmp.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.mnuDefEmpDef, Me.mnuDefEmpJobAssignment})
-        Me.mnuDefEmp.Location = New System.Drawing.Point(4, 0)
-        Me.mnuDefEmp.Margin = New System.Windows.Forms.Padding(4)
-        Me.mnuDefEmp.Name = "mnuDefEmp"
-        Me.mnuDefEmp.Size = New System.Drawing.Size(197, 129)
-        Me.mnuDefEmp.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.mnuDefEmp.TabIndex = 0
-        Me.mnuDefEmp.Text = "Employees"
-        '
         'RibbonPanel3
         '
         Me.RibbonPanel3.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.RibbonPanel3.Controls.Add(Me.RibbonBar1)
+        Me.RibbonPanel3.Controls.Add(Me.mnuRptPetitions)
         Me.RibbonPanel3.Controls.Add(Me.mnuRptBTS)
         Me.RibbonPanel3.Controls.Add(Me.mnuRptEmp)
         Me.RibbonPanel3.Dock = System.Windows.Forms.DockStyle.Fill
@@ -193,6 +122,28 @@ Partial Class frmMainscreen
         Me.RibbonPanel3.Padding = New System.Windows.Forms.Padding(4, 0, 4, 4)
         Me.RibbonPanel3.Size = New System.Drawing.Size(1211, 133)
         Me.RibbonPanel3.TabIndex = 3
+        '
+        'mnuRptPetitions
+        '
+        Me.mnuRptPetitions.AutoOverflowEnabled = True
+        Me.mnuRptPetitions.Dock = System.Windows.Forms.DockStyle.Left
+        Me.mnuRptPetitions.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.mnuRptPetitionComments})
+        Me.mnuRptPetitions.Location = New System.Drawing.Point(564, 0)
+        Me.mnuRptPetitions.Name = "mnuRptPetitions"
+        Me.mnuRptPetitions.Size = New System.Drawing.Size(150, 129)
+        Me.mnuRptPetitions.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.mnuRptPetitions.TabIndex = 2
+        Me.mnuRptPetitions.Text = "Petitions"
+        '
+        'mnuRptPetitionComments
+        '
+        Me.mnuRptPetitionComments.Image = Global.EobBTS.My.Resources.Resources.external_petition_activism_flaticons_lineal_color_flat_icons
+        Me.mnuRptPetitionComments.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuRptPetitionComments.ImagePaddingHorizontal = 8
+        Me.mnuRptPetitionComments.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuRptPetitionComments.Name = "mnuRptPetitionComments"
+        Me.mnuRptPetitionComments.SubItemsExpandWidth = 14
+        Me.mnuRptPetitionComments.Text = "  Petition" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Comments"
         '
         'mnuRptBTS
         '
@@ -207,15 +158,66 @@ Partial Class frmMainscreen
         Me.mnuRptBTS.TabIndex = 1
         Me.mnuRptBTS.Text = "Benefit Reports"
         '
+        'mnuRptFIRHistory
+        '
+        Me.mnuRptFIRHistory.Image = Global.EobBTS.My.Resources.Resources.MedicalReportHo
+        Me.mnuRptFIRHistory.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuRptFIRHistory.ImagePaddingHorizontal = 8
+        Me.mnuRptFIRHistory.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuRptFIRHistory.Name = "mnuRptFIRHistory"
+        Me.mnuRptFIRHistory.SubItemsExpandWidth = 14
+        Me.mnuRptFIRHistory.Text = "Case History"
+        '
+        'mnuRptBTSProcessSheet
+        '
+        Me.mnuRptBTSProcessSheet.Image = Global.EobBTS.My.Resources.Resources.VoucherReport
+        Me.mnuRptBTSProcessSheet.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuRptBTSProcessSheet.ImagePaddingHorizontal = 8
+        Me.mnuRptBTSProcessSheet.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuRptBTSProcessSheet.Name = "mnuRptBTSProcessSheet"
+        Me.mnuRptBTSProcessSheet.SubItemsExpandWidth = 14
+        Me.mnuRptBTSProcessSheet.Text = "Process Sheet"
+        '
         'LabelItem2
         '
         Me.LabelItem2.Name = "LabelItem2"
         Me.LabelItem2.Text = "    "
         '
+        'mnuRptORVerification
+        '
+        Me.mnuRptORVerification.Image = Global.EobBTS.My.Resources.Resources.AnnextA_Icon
+        Me.mnuRptORVerification.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuRptORVerification.ImagePaddingHorizontal = 8
+        Me.mnuRptORVerification.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuRptORVerification.Name = "mnuRptORVerification"
+        Me.mnuRptORVerification.SubItemsExpandWidth = 14
+        Me.mnuRptORVerification.Text = "Other Region" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " Verification"
+        '
+        'mnuRptORVeriReminder
+        '
+        Me.mnuRptORVeriReminder.ForeColor = System.Drawing.Color.Red
+        Me.mnuRptORVeriReminder.Image = Global.EobBTS.My.Resources.Resources.AnnextA_Icon
+        Me.mnuRptORVeriReminder.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuRptORVeriReminder.ImagePaddingHorizontal = 8
+        Me.mnuRptORVeriReminder.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuRptORVeriReminder.Name = "mnuRptORVeriReminder"
+        Me.mnuRptORVeriReminder.SubItemsExpandWidth = 14
+        Me.mnuRptORVeriReminder.Text = "OR Verification" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Reminder"
+        '
         'LabelItem1
         '
         Me.LabelItem1.Name = "LabelItem1"
         Me.LabelItem1.Text = "    "
+        '
+        'mnuRptClaimCasesReport
+        '
+        Me.mnuRptClaimCasesReport.Image = Global.EobBTS.My.Resources.Resources.tune_up_v2__3D
+        Me.mnuRptClaimCasesReport.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuRptClaimCasesReport.ImagePaddingHorizontal = 8
+        Me.mnuRptClaimCasesReport.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuRptClaimCasesReport.Name = "mnuRptClaimCasesReport"
+        Me.mnuRptClaimCasesReport.SubItemsExpandWidth = 14
+        Me.mnuRptClaimCasesReport.Text = "Claim Cases" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  Reports"
         '
         'mnuRptEmp
         '
@@ -229,6 +231,237 @@ Partial Class frmMainscreen
         Me.mnuRptEmp.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
         Me.mnuRptEmp.TabIndex = 0
         Me.mnuRptEmp.Text = "Employees"
+        '
+        'mnuRptEmpRegionEmployees
+        '
+        Me.mnuRptEmpRegionEmployees.Image = Global.EobBTS.My.Resources.Resources._1277
+        Me.mnuRptEmpRegionEmployees.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuRptEmpRegionEmployees.ImagePaddingHorizontal = 8
+        Me.mnuRptEmpRegionEmployees.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuRptEmpRegionEmployees.Name = "mnuRptEmpRegionEmployees"
+        Me.mnuRptEmpRegionEmployees.SubItemsExpandWidth = 14
+        Me.mnuRptEmpRegionEmployees.Text = "Region" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Employees"
+        '
+        'RibbonPanel2
+        '
+        Me.RibbonPanel2.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.RibbonPanel2.Controls.Add(Me.mnuActCases)
+        Me.RibbonPanel2.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.RibbonPanel2.Location = New System.Drawing.Point(0, 55)
+        Me.RibbonPanel2.Margin = New System.Windows.Forms.Padding(4)
+        Me.RibbonPanel2.Name = "RibbonPanel2"
+        Me.RibbonPanel2.Padding = New System.Windows.Forms.Padding(4, 0, 4, 4)
+        Me.RibbonPanel2.Size = New System.Drawing.Size(1211, 133)
+        Me.RibbonPanel2.TabIndex = 2
+        Me.RibbonPanel2.Visible = False
+        '
+        'mnuActCases
+        '
+        Me.mnuActCases.AutoOverflowEnabled = True
+        Me.mnuActCases.Dock = System.Windows.Forms.DockStyle.Left
+        Me.mnuActCases.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.mnuActCaseReceived, Me.mnuActVerificationReceived, Me.mnuActCaseRecommended, Me.mnuActCaseSettle, Me.ItemContainer5, Me.mnuActORVerification, Me.mnuActORVerificationReminder, Me.mnuActCaseUpdates, Me.mnuActPetitions})
+        Me.mnuActCases.Location = New System.Drawing.Point(4, 0)
+        Me.mnuActCases.Margin = New System.Windows.Forms.Padding(4)
+        Me.mnuActCases.Name = "mnuActCases"
+        Me.mnuActCases.Size = New System.Drawing.Size(713, 129)
+        Me.mnuActCases.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.mnuActCases.TabIndex = 1
+        Me.mnuActCases.Text = "Claim Cases"
+        '
+        'mnuActCaseReceived
+        '
+        Me.mnuActCaseReceived.Image = Global.EobBTS.My.Resources.Resources.Receipt_Voucher
+        Me.mnuActCaseReceived.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuActCaseReceived.ImagePaddingHorizontal = 8
+        Me.mnuActCaseReceived.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuActCaseReceived.Name = "mnuActCaseReceived"
+        Me.mnuActCaseReceived.SubItemsExpandWidth = 14
+        Me.mnuActCaseReceived.Text = "    FIR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Case Receive"
+        '
+        'mnuActVerificationReceived
+        '
+        Me.mnuActVerificationReceived.Image = Global.EobBTS.My.Resources.Resources.Script_Editor
+        Me.mnuActVerificationReceived.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuActVerificationReceived.ImagePaddingHorizontal = 8
+        Me.mnuActVerificationReceived.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuActVerificationReceived.Name = "mnuActVerificationReceived"
+        Me.mnuActVerificationReceived.SubItemsExpandWidth = 14
+        Me.mnuActVerificationReceived.Text = "Verification " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " Received"
+        '
+        'mnuActCaseRecommended
+        '
+        Me.mnuActCaseRecommended.Image = Global.EobBTS.My.Resources.Resources.Opening_Balance
+        Me.mnuActCaseRecommended.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuActCaseRecommended.ImagePaddingHorizontal = 8
+        Me.mnuActCaseRecommended.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuActCaseRecommended.Name = "mnuActCaseRecommended"
+        Me.mnuActCaseRecommended.SubItemsExpandWidth = 14
+        Me.mnuActCaseRecommended.Text = "Case" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Recommended"
+        '
+        'mnuActCaseSettle
+        '
+        Me.mnuActCaseSettle.Image = Global.EobBTS.My.Resources.Resources.dossier_partage_3D
+        Me.mnuActCaseSettle.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuActCaseSettle.ImagePaddingHorizontal = 8
+        Me.mnuActCaseSettle.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuActCaseSettle.Name = "mnuActCaseSettle"
+        Me.mnuActCaseSettle.SubItemsExpandWidth = 14
+        Me.mnuActCaseSettle.Text = "Case" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Settle"
+        '
+        'ItemContainer5
+        '
+        Me.ItemContainer5.LayoutOrientation = DevComponents.DotNetBar.eOrientation.Vertical
+        Me.ItemContainer5.Name = "ItemContainer5"
+        '
+        'mnuActORVerification
+        '
+        Me.mnuActORVerification.Image = Global.EobBTS.My.Resources.Resources.designer_3D
+        Me.mnuActORVerification.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuActORVerification.ImagePaddingHorizontal = 8
+        Me.mnuActORVerification.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuActORVerification.Name = "mnuActORVerification"
+        Me.mnuActORVerification.SubItemsExpandWidth = 14
+        Me.mnuActORVerification.Text = "Other Region" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " Verification"
+        '
+        'mnuActORVerificationReminder
+        '
+        Me.mnuActORVerificationReminder.ForeColor = System.Drawing.Color.Red
+        Me.mnuActORVerificationReminder.Image = Global.EobBTS.My.Resources.Resources.designer_3D
+        Me.mnuActORVerificationReminder.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuActORVerificationReminder.ImagePaddingHorizontal = 8
+        Me.mnuActORVerificationReminder.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuActORVerificationReminder.Name = "mnuActORVerificationReminder"
+        Me.mnuActORVerificationReminder.SubItemsExpandWidth = 14
+        Me.mnuActORVerificationReminder.Text = "Other Region" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " Reminder"
+        '
+        'mnuActCaseUpdates
+        '
+        Me.mnuActCaseUpdates.Image = Global.EobBTS.My.Resources.Resources.Update
+        Me.mnuActCaseUpdates.ImageFixedSize = New System.Drawing.Size(50, 40)
+        Me.mnuActCaseUpdates.ImagePaddingHorizontal = 8
+        Me.mnuActCaseUpdates.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuActCaseUpdates.Name = "mnuActCaseUpdates"
+        Me.mnuActCaseUpdates.SubItemsExpandWidth = 14
+        Me.mnuActCaseUpdates.Text = "Update Case" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "   Status"
+        '
+        'mnuActPetitions
+        '
+        Me.mnuActPetitions.Image = Global.EobBTS.My.Resources.Resources.AnnextA_Icon
+        Me.mnuActPetitions.ImageFixedSize = New System.Drawing.Size(50, 40)
+        Me.mnuActPetitions.ImagePaddingHorizontal = 8
+        Me.mnuActPetitions.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuActPetitions.Name = "mnuActPetitions"
+        Me.mnuActPetitions.SubItemsExpandWidth = 14
+        Me.mnuActPetitions.Text = "Petitions" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Comments"
+        '
+        'RibbonPanel1
+        '
+        Me.RibbonPanel1.ColorSchemeStyle = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.RibbonPanel1.Controls.Add(Me.mnuDefGeneral)
+        Me.RibbonPanel1.Controls.Add(Me.mnuDefEmp)
+        Me.RibbonPanel1.Dock = System.Windows.Forms.DockStyle.Fill
+        Me.RibbonPanel1.Location = New System.Drawing.Point(0, 55)
+        Me.RibbonPanel1.Margin = New System.Windows.Forms.Padding(4)
+        Me.RibbonPanel1.Name = "RibbonPanel1"
+        Me.RibbonPanel1.Padding = New System.Windows.Forms.Padding(4, 0, 4, 4)
+        Me.RibbonPanel1.Size = New System.Drawing.Size(1211, 133)
+        Me.RibbonPanel1.TabIndex = 1
+        '
+        'mnuDefGeneral
+        '
+        Me.mnuDefGeneral.AutoOverflowEnabled = True
+        Me.mnuDefGeneral.Dock = System.Windows.Forms.DockStyle.Left
+        Me.mnuDefGeneral.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.mnuDefGeneralRegInfo, Me.mnuDefGeneralUsers, Me.mnuDefGeneralUserRole, Me.mnuDefGeneralFinancialYear, Me.mnuDefGeneralDBBackup})
+        Me.mnuDefGeneral.Location = New System.Drawing.Point(201, 0)
+        Me.mnuDefGeneral.Margin = New System.Windows.Forms.Padding(4)
+        Me.mnuDefGeneral.Name = "mnuDefGeneral"
+        Me.mnuDefGeneral.Size = New System.Drawing.Size(402, 129)
+        Me.mnuDefGeneral.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.mnuDefGeneral.TabIndex = 2
+        Me.mnuDefGeneral.Text = "General"
+        '
+        'mnuDefGeneralRegInfo
+        '
+        Me.mnuDefGeneralRegInfo.Image = Global.EobBTS.My.Resources.Resources.Region_Info
+        Me.mnuDefGeneralRegInfo.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuDefGeneralRegInfo.ImagePaddingHorizontal = 8
+        Me.mnuDefGeneralRegInfo.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuDefGeneralRegInfo.Name = "mnuDefGeneralRegInfo"
+        Me.mnuDefGeneralRegInfo.SubItemsExpandWidth = 14
+        Me.mnuDefGeneralRegInfo.Text = "   Region" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Information"
+        '
+        'mnuDefGeneralUsers
+        '
+        Me.mnuDefGeneralUsers.Image = Global.EobBTS.My.Resources.Resources._1396
+        Me.mnuDefGeneralUsers.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuDefGeneralUsers.ImagePaddingHorizontal = 8
+        Me.mnuDefGeneralUsers.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuDefGeneralUsers.Name = "mnuDefGeneralUsers"
+        Me.mnuDefGeneralUsers.SubItemsExpandWidth = 14
+        Me.mnuDefGeneralUsers.Text = "Users"
+        '
+        'mnuDefGeneralUserRole
+        '
+        Me.mnuDefGeneralUserRole.Image = Global.EobBTS.My.Resources.Resources.User_Roles
+        Me.mnuDefGeneralUserRole.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuDefGeneralUserRole.ImagePaddingHorizontal = 8
+        Me.mnuDefGeneralUserRole.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuDefGeneralUserRole.Name = "mnuDefGeneralUserRole"
+        Me.mnuDefGeneralUserRole.SubItemsExpandWidth = 14
+        Me.mnuDefGeneralUserRole.Text = "User Role"
+        '
+        'mnuDefGeneralFinancialYear
+        '
+        Me.mnuDefGeneralFinancialYear.Image = Global.EobBTS.My.Resources.Resources.Year
+        Me.mnuDefGeneralFinancialYear.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuDefGeneralFinancialYear.ImagePaddingHorizontal = 8
+        Me.mnuDefGeneralFinancialYear.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuDefGeneralFinancialYear.Name = "mnuDefGeneralFinancialYear"
+        Me.mnuDefGeneralFinancialYear.SubItemsExpandWidth = 14
+        Me.mnuDefGeneralFinancialYear.Text = "Financial Year"
+        '
+        'mnuDefGeneralDBBackup
+        '
+        Me.mnuDefGeneralDBBackup.Image = Global.EobBTS.My.Resources.Resources.backupDB_to_NAS
+        Me.mnuDefGeneralDBBackup.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuDefGeneralDBBackup.ImagePaddingHorizontal = 8
+        Me.mnuDefGeneralDBBackup.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuDefGeneralDBBackup.Name = "mnuDefGeneralDBBackup"
+        Me.mnuDefGeneralDBBackup.SubItemsExpandWidth = 14
+        Me.mnuDefGeneralDBBackup.Text = "Database" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  Backup"
+        '
+        'mnuDefEmp
+        '
+        Me.mnuDefEmp.AutoOverflowEnabled = True
+        Me.mnuDefEmp.Dock = System.Windows.Forms.DockStyle.Left
+        Me.mnuDefEmp.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.mnuDefEmpDef, Me.mnuDefEmpJobAssignment})
+        Me.mnuDefEmp.Location = New System.Drawing.Point(4, 0)
+        Me.mnuDefEmp.Margin = New System.Windows.Forms.Padding(4)
+        Me.mnuDefEmp.Name = "mnuDefEmp"
+        Me.mnuDefEmp.Size = New System.Drawing.Size(197, 129)
+        Me.mnuDefEmp.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
+        Me.mnuDefEmp.TabIndex = 0
+        Me.mnuDefEmp.Text = "Employees"
+        '
+        'mnuDefEmpDef
+        '
+        Me.mnuDefEmpDef.Image = Global.EobBTS.My.Resources.Resources._1277
+        Me.mnuDefEmpDef.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuDefEmpDef.ImagePaddingHorizontal = 8
+        Me.mnuDefEmpDef.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuDefEmpDef.Name = "mnuDefEmpDef"
+        Me.mnuDefEmpDef.SubItemsExpandWidth = 14
+        Me.mnuDefEmpDef.Text = "Employee" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Definition"
+        '
+        'mnuDefEmpJobAssignment
+        '
+        Me.mnuDefEmpJobAssignment.Image = Global.EobBTS.My.Resources.Resources.Job_Assignment
+        Me.mnuDefEmpJobAssignment.ImageFixedSize = New System.Drawing.Size(40, 40)
+        Me.mnuDefEmpJobAssignment.ImagePaddingHorizontal = 8
+        Me.mnuDefEmpJobAssignment.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
+        Me.mnuDefEmpJobAssignment.Name = "mnuDefEmpJobAssignment"
+        Me.mnuDefEmpJobAssignment.SubItemsExpandWidth = 14
+        Me.mnuDefEmpJobAssignment.Text = " Job" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Assignment"
         '
         'ImageList1
         '
@@ -422,248 +655,14 @@ Partial Class frmMainscreen
         Me.striplblUser.Name = "striplblUser"
         Me.striplblUser.Size = New System.Drawing.Size(0, 24)
         '
-        'RibbonBar1
-        '
-        Me.RibbonBar1.AutoOverflowEnabled = True
-        Me.RibbonBar1.Dock = System.Windows.Forms.DockStyle.Left
-        Me.RibbonBar1.Items.AddRange(New DevComponents.DotNetBar.BaseItem() {Me.mnuRptPetitionComments})
-        Me.RibbonBar1.Location = New System.Drawing.Point(564, 0)
-        Me.RibbonBar1.Name = "RibbonBar1"
-        Me.RibbonBar1.Size = New System.Drawing.Size(150, 129)
-        Me.RibbonBar1.Style = DevComponents.DotNetBar.eDotNetBarStyle.Office2007
-        Me.RibbonBar1.TabIndex = 2
-        Me.RibbonBar1.Text = "Petitions"
-        '
         'ToolStripDropDownButton1
         '
         Me.ToolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
         Me.ToolStripDropDownButton1.Image = CType(resources.GetObject("ToolStripDropDownButton1.Image"), System.Drawing.Image)
         Me.ToolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripDropDownButton1.Name = "ToolStripDropDownButton1"
-        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(34, 24)
+        Me.ToolStripDropDownButton1.Size = New System.Drawing.Size(34, 27)
         Me.ToolStripDropDownButton1.Text = "ToolStripDropDownButton1"
-        '
-        'mnuRptPetitionComments
-        '
-        Me.mnuRptPetitionComments.Image = Global.EobBTS.My.Resources.Resources.external_petition_activism_flaticons_lineal_color_flat_icons
-        Me.mnuRptPetitionComments.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuRptPetitionComments.ImagePaddingHorizontal = 8
-        Me.mnuRptPetitionComments.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuRptPetitionComments.Name = "mnuRptPetitionComments"
-        Me.mnuRptPetitionComments.SubItemsExpandWidth = 14
-        Me.mnuRptPetitionComments.Text = "  Petition" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Comments"
-        '
-        'mnuRptFIRHistory
-        '
-        Me.mnuRptFIRHistory.Image = Global.EobBTS.My.Resources.Resources.MedicalReportHo
-        Me.mnuRptFIRHistory.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuRptFIRHistory.ImagePaddingHorizontal = 8
-        Me.mnuRptFIRHistory.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuRptFIRHistory.Name = "mnuRptFIRHistory"
-        Me.mnuRptFIRHistory.SubItemsExpandWidth = 14
-        Me.mnuRptFIRHistory.Text = "Case History"
-        '
-        'mnuRptBTSProcessSheet
-        '
-        Me.mnuRptBTSProcessSheet.Image = Global.EobBTS.My.Resources.Resources.VoucherReport
-        Me.mnuRptBTSProcessSheet.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuRptBTSProcessSheet.ImagePaddingHorizontal = 8
-        Me.mnuRptBTSProcessSheet.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuRptBTSProcessSheet.Name = "mnuRptBTSProcessSheet"
-        Me.mnuRptBTSProcessSheet.SubItemsExpandWidth = 14
-        Me.mnuRptBTSProcessSheet.Text = "Process Sheet"
-        '
-        'mnuRptORVerification
-        '
-        Me.mnuRptORVerification.Image = Global.EobBTS.My.Resources.Resources.AnnextA_Icon
-        Me.mnuRptORVerification.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuRptORVerification.ImagePaddingHorizontal = 8
-        Me.mnuRptORVerification.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuRptORVerification.Name = "mnuRptORVerification"
-        Me.mnuRptORVerification.SubItemsExpandWidth = 14
-        Me.mnuRptORVerification.Text = "Other Region" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " Verification"
-        '
-        'mnuRptORVeriReminder
-        '
-        Me.mnuRptORVeriReminder.ForeColor = System.Drawing.Color.Red
-        Me.mnuRptORVeriReminder.Image = Global.EobBTS.My.Resources.Resources.AnnextA_Icon
-        Me.mnuRptORVeriReminder.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuRptORVeriReminder.ImagePaddingHorizontal = 8
-        Me.mnuRptORVeriReminder.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuRptORVeriReminder.Name = "mnuRptORVeriReminder"
-        Me.mnuRptORVeriReminder.SubItemsExpandWidth = 14
-        Me.mnuRptORVeriReminder.Text = "OR Verification" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Reminder"
-        '
-        'mnuRptClaimCasesReport
-        '
-        Me.mnuRptClaimCasesReport.Image = Global.EobBTS.My.Resources.Resources.tune_up_v2__3D
-        Me.mnuRptClaimCasesReport.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuRptClaimCasesReport.ImagePaddingHorizontal = 8
-        Me.mnuRptClaimCasesReport.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuRptClaimCasesReport.Name = "mnuRptClaimCasesReport"
-        Me.mnuRptClaimCasesReport.SubItemsExpandWidth = 14
-        Me.mnuRptClaimCasesReport.Text = "Claim Cases" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  Reports"
-        '
-        'mnuRptEmpRegionEmployees
-        '
-        Me.mnuRptEmpRegionEmployees.Image = Global.EobBTS.My.Resources.Resources._1277
-        Me.mnuRptEmpRegionEmployees.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuRptEmpRegionEmployees.ImagePaddingHorizontal = 8
-        Me.mnuRptEmpRegionEmployees.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuRptEmpRegionEmployees.Name = "mnuRptEmpRegionEmployees"
-        Me.mnuRptEmpRegionEmployees.SubItemsExpandWidth = 14
-        Me.mnuRptEmpRegionEmployees.Text = "Region" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Employees"
-        '
-        'mnuActCaseReceived
-        '
-        Me.mnuActCaseReceived.Image = Global.EobBTS.My.Resources.Resources.Receipt_Voucher
-        Me.mnuActCaseReceived.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuActCaseReceived.ImagePaddingHorizontal = 8
-        Me.mnuActCaseReceived.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuActCaseReceived.Name = "mnuActCaseReceived"
-        Me.mnuActCaseReceived.SubItemsExpandWidth = 14
-        Me.mnuActCaseReceived.Text = "    FIR" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Case Receive"
-        '
-        'mnuActVerificationReceived
-        '
-        Me.mnuActVerificationReceived.Image = Global.EobBTS.My.Resources.Resources.Script_Editor
-        Me.mnuActVerificationReceived.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuActVerificationReceived.ImagePaddingHorizontal = 8
-        Me.mnuActVerificationReceived.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuActVerificationReceived.Name = "mnuActVerificationReceived"
-        Me.mnuActVerificationReceived.SubItemsExpandWidth = 14
-        Me.mnuActVerificationReceived.Text = "Verification " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " Received"
-        '
-        'mnuActCaseRecommended
-        '
-        Me.mnuActCaseRecommended.Image = Global.EobBTS.My.Resources.Resources.Opening_Balance
-        Me.mnuActCaseRecommended.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuActCaseRecommended.ImagePaddingHorizontal = 8
-        Me.mnuActCaseRecommended.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuActCaseRecommended.Name = "mnuActCaseRecommended"
-        Me.mnuActCaseRecommended.SubItemsExpandWidth = 14
-        Me.mnuActCaseRecommended.Text = "Case" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Recommended"
-        '
-        'mnuActCaseSettle
-        '
-        Me.mnuActCaseSettle.Image = Global.EobBTS.My.Resources.Resources.dossier_partage_3D
-        Me.mnuActCaseSettle.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuActCaseSettle.ImagePaddingHorizontal = 8
-        Me.mnuActCaseSettle.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuActCaseSettle.Name = "mnuActCaseSettle"
-        Me.mnuActCaseSettle.SubItemsExpandWidth = 14
-        Me.mnuActCaseSettle.Text = "Case" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Settle"
-        '
-        'mnuActORVerification
-        '
-        Me.mnuActORVerification.Image = Global.EobBTS.My.Resources.Resources.designer_3D
-        Me.mnuActORVerification.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuActORVerification.ImagePaddingHorizontal = 8
-        Me.mnuActORVerification.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuActORVerification.Name = "mnuActORVerification"
-        Me.mnuActORVerification.SubItemsExpandWidth = 14
-        Me.mnuActORVerification.Text = "Other Region" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " Verification"
-        '
-        'mnuActORVerificationReminder
-        '
-        Me.mnuActORVerificationReminder.ForeColor = System.Drawing.Color.Red
-        Me.mnuActORVerificationReminder.Image = Global.EobBTS.My.Resources.Resources.designer_3D
-        Me.mnuActORVerificationReminder.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuActORVerificationReminder.ImagePaddingHorizontal = 8
-        Me.mnuActORVerificationReminder.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuActORVerificationReminder.Name = "mnuActORVerificationReminder"
-        Me.mnuActORVerificationReminder.SubItemsExpandWidth = 14
-        Me.mnuActORVerificationReminder.Text = "Other Region" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & " Reminder"
-        '
-        'mnuActCaseUpdates
-        '
-        Me.mnuActCaseUpdates.Image = Global.EobBTS.My.Resources.Resources.Update
-        Me.mnuActCaseUpdates.ImageFixedSize = New System.Drawing.Size(50, 40)
-        Me.mnuActCaseUpdates.ImagePaddingHorizontal = 8
-        Me.mnuActCaseUpdates.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuActCaseUpdates.Name = "mnuActCaseUpdates"
-        Me.mnuActCaseUpdates.SubItemsExpandWidth = 14
-        Me.mnuActCaseUpdates.Text = "Update Case" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "   Status"
-        '
-        'mnuActPetitions
-        '
-        Me.mnuActPetitions.Image = Global.EobBTS.My.Resources.Resources.AnnextA_Icon
-        Me.mnuActPetitions.ImageFixedSize = New System.Drawing.Size(50, 40)
-        Me.mnuActPetitions.ImagePaddingHorizontal = 8
-        Me.mnuActPetitions.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuActPetitions.Name = "mnuActPetitions"
-        Me.mnuActPetitions.SubItemsExpandWidth = 14
-        Me.mnuActPetitions.Text = "Petitions" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Comments"
-        '
-        'mnuDefGeneralRegInfo
-        '
-        Me.mnuDefGeneralRegInfo.Image = Global.EobBTS.My.Resources.Resources.Region_Info
-        Me.mnuDefGeneralRegInfo.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuDefGeneralRegInfo.ImagePaddingHorizontal = 8
-        Me.mnuDefGeneralRegInfo.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuDefGeneralRegInfo.Name = "mnuDefGeneralRegInfo"
-        Me.mnuDefGeneralRegInfo.SubItemsExpandWidth = 14
-        Me.mnuDefGeneralRegInfo.Text = "   Region" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Information"
-        '
-        'mnuDefGeneralUsers
-        '
-        Me.mnuDefGeneralUsers.Image = Global.EobBTS.My.Resources.Resources._1396
-        Me.mnuDefGeneralUsers.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuDefGeneralUsers.ImagePaddingHorizontal = 8
-        Me.mnuDefGeneralUsers.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuDefGeneralUsers.Name = "mnuDefGeneralUsers"
-        Me.mnuDefGeneralUsers.SubItemsExpandWidth = 14
-        Me.mnuDefGeneralUsers.Text = "Users"
-        '
-        'mnuDefGeneralUserRole
-        '
-        Me.mnuDefGeneralUserRole.Image = Global.EobBTS.My.Resources.Resources.User_Roles
-        Me.mnuDefGeneralUserRole.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuDefGeneralUserRole.ImagePaddingHorizontal = 8
-        Me.mnuDefGeneralUserRole.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuDefGeneralUserRole.Name = "mnuDefGeneralUserRole"
-        Me.mnuDefGeneralUserRole.SubItemsExpandWidth = 14
-        Me.mnuDefGeneralUserRole.Text = "User Role"
-        '
-        'mnuDefGeneralFinancialYear
-        '
-        Me.mnuDefGeneralFinancialYear.Image = Global.EobBTS.My.Resources.Resources.Year
-        Me.mnuDefGeneralFinancialYear.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuDefGeneralFinancialYear.ImagePaddingHorizontal = 8
-        Me.mnuDefGeneralFinancialYear.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuDefGeneralFinancialYear.Name = "mnuDefGeneralFinancialYear"
-        Me.mnuDefGeneralFinancialYear.SubItemsExpandWidth = 14
-        Me.mnuDefGeneralFinancialYear.Text = "Financial Year"
-        '
-        'mnuDefGeneralDBBackup
-        '
-        Me.mnuDefGeneralDBBackup.Image = Global.EobBTS.My.Resources.Resources.backupDB_to_NAS
-        Me.mnuDefGeneralDBBackup.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuDefGeneralDBBackup.ImagePaddingHorizontal = 8
-        Me.mnuDefGeneralDBBackup.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuDefGeneralDBBackup.Name = "mnuDefGeneralDBBackup"
-        Me.mnuDefGeneralDBBackup.SubItemsExpandWidth = 14
-        Me.mnuDefGeneralDBBackup.Text = "Database" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "  Backup"
-        '
-        'mnuDefEmpDef
-        '
-        Me.mnuDefEmpDef.Image = Global.EobBTS.My.Resources.Resources._1277
-        Me.mnuDefEmpDef.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuDefEmpDef.ImagePaddingHorizontal = 8
-        Me.mnuDefEmpDef.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuDefEmpDef.Name = "mnuDefEmpDef"
-        Me.mnuDefEmpDef.SubItemsExpandWidth = 14
-        Me.mnuDefEmpDef.Text = "Employee" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Definition"
-        '
-        'mnuDefEmpJobAssignment
-        '
-        Me.mnuDefEmpJobAssignment.Image = Global.EobBTS.My.Resources.Resources.Job_Assignment
-        Me.mnuDefEmpJobAssignment.ImageFixedSize = New System.Drawing.Size(40, 40)
-        Me.mnuDefEmpJobAssignment.ImagePaddingHorizontal = 8
-        Me.mnuDefEmpJobAssignment.ImagePosition = DevComponents.DotNetBar.eImagePosition.Top
-        Me.mnuDefEmpJobAssignment.Name = "mnuDefEmpJobAssignment"
-        Me.mnuDefEmpJobAssignment.SubItemsExpandWidth = 14
-        Me.mnuDefEmpJobAssignment.Text = " Job" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Assignment"
         '
         'frmMainscreen
         '
@@ -685,9 +684,9 @@ Partial Class frmMainscreen
         Me.Text = "Main Screen"
         Me.RibbonControl1.ResumeLayout(False)
         Me.RibbonControl1.PerformLayout()
+        Me.RibbonPanel3.ResumeLayout(False)
         Me.RibbonPanel2.ResumeLayout(False)
         Me.RibbonPanel1.ResumeLayout(False)
-        Me.RibbonPanel3.ResumeLayout(False)
         Me.StatusStrip1.ResumeLayout(False)
         Me.StatusStrip1.PerformLayout()
         Me.ResumeLayout(False)
@@ -749,6 +748,6 @@ Partial Class frmMainscreen
     Friend WithEvents mnuActCaseUpdates As DevComponents.DotNetBar.ButtonItem
     Friend WithEvents mnuDefGeneralDBBackup As DevComponents.DotNetBar.ButtonItem
     Friend WithEvents mnuActPetitions As DevComponents.DotNetBar.ButtonItem
-    Friend WithEvents RibbonBar1 As DevComponents.DotNetBar.RibbonBar
+    Friend WithEvents mnuRptPetitions As DevComponents.DotNetBar.RibbonBar
     Friend WithEvents mnuRptPetitionComments As DevComponents.DotNetBar.ButtonItem
 End Class

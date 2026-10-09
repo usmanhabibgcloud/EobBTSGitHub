@@ -117,6 +117,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_576F87EE891640C09849C60532121037"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_5A4EE197B4614885801436340D921A61"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
@@ -322,6 +328,12 @@
         "Entry"
         {
         "MsmKey" = "8:_ED9EB8C4D26F4154AC5F7D813D32DC78"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_EDA41BE13B5A439A972728E9E604D550"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -797,6 +809,26 @@
             {
             "SourcePath" = "8:..\\EobBTS\\Reports\\crORPendingCases.vb"
             "TargetName" = "8:crORPendingCases.vb"
+            "Tag" = "8:"
+            "Folder" = "8:_B011C9AAC8B249ED88FC1ADB54827250"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_576F87EE891640C09849C60532121037"
+            {
+            "SourcePath" = "8:..\\EobBTS\\Reports\\crAuthorityComments.vb"
+            "TargetName" = "8:crAuthorityComments.vb"
             "Tag" = "8:"
             "Folder" = "8:_B011C9AAC8B249ED88FC1ADB54827250"
             "Condition" = "8:"
@@ -1537,6 +1569,26 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EDA41BE13B5A439A972728E9E604D550"
+            {
+            "SourcePath" = "8:..\\EobBTS\\Reports\\crAuthorityComments.rpt"
+            "TargetName" = "8:crAuthorityComments.rpt"
+            "Tag" = "8:"
+            "Folder" = "8:_B011C9AAC8B249ED88FC1ADB54827250"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EE8F24EDB8294AFA8F6C72BCA74DA9DD"
             {
             "SourcePath" = "8:..\\EobBTS\\Reports\\crFIRHistory.vb"
@@ -1645,7 +1697,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:EOB_BTS_Setup"
         "ProductCode" = "8:{657C6054-50E4-41FF-A97D-E72576A794FB}"
-        "PackageCode" = "8:{1DC820BF-B208-4038-AFA4-1D353F10EF98}"
+        "PackageCode" = "8:{11133B4F-18E5-4D3A-BBB5-6979E6D69656}"
         "UpgradeCode" = "8:{4B79FE5E-9577-4D6C-BC53-6159BBF207AA}"
         "AspNetVersion" = "8:2.0.50727.0"
         "RestartWWWService" = "11:FALSE"
