@@ -91,8 +91,8 @@ Partial Class frmMainscreen
         'RibbonControl1
         '
         Me.RibbonControl1.CaptionVisible = True
-        Me.RibbonControl1.Controls.Add(Me.RibbonPanel1)
         Me.RibbonControl1.Controls.Add(Me.RibbonPanel3)
+        Me.RibbonControl1.Controls.Add(Me.RibbonPanel1)
         Me.RibbonControl1.Controls.Add(Me.RibbonPanel2)
         Me.RibbonControl1.Dock = System.Windows.Forms.DockStyle.Top
         Me.RibbonControl1.Images = Me.ImageList1
@@ -122,7 +122,6 @@ Partial Class frmMainscreen
         Me.RibbonPanel3.Padding = New System.Windows.Forms.Padding(4, 0, 4, 4)
         Me.RibbonPanel3.Size = New System.Drawing.Size(1211, 133)
         Me.RibbonPanel3.TabIndex = 3
-        Me.RibbonPanel3.Visible = False
         '
         'mnuRptPetitions
         '
@@ -367,6 +366,7 @@ Partial Class frmMainscreen
         Me.RibbonPanel1.Padding = New System.Windows.Forms.Padding(4, 0, 4, 4)
         Me.RibbonPanel1.Size = New System.Drawing.Size(1211, 133)
         Me.RibbonPanel1.TabIndex = 1
+        Me.RibbonPanel1.Visible = False
         '
         'mnuDefGeneral
         '
@@ -480,7 +480,6 @@ Partial Class frmMainscreen
         '
         'mnuDefinitions
         '
-        Me.mnuDefinitions.Checked = True
         Me.mnuDefinitions.ImagePaddingHorizontal = 8
         Me.mnuDefinitions.Name = "mnuDefinitions"
         Me.mnuDefinitions.Panel = Me.RibbonPanel1
@@ -495,6 +494,7 @@ Partial Class frmMainscreen
         '
         'mnuReports
         '
+        Me.mnuReports.Checked = True
         Me.mnuReports.ImagePaddingHorizontal = 8
         Me.mnuReports.Name = "mnuReports"
         Me.mnuReports.Panel = Me.RibbonPanel3

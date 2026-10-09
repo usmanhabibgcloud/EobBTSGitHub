@@ -59,6 +59,8 @@
         mnuDefEmp.Visible = MenuVisible("mnuDefEmp")
         mnuDefEmpJobAssignment.Visible = MenuVisible("mnuDefEmpJobAssignment")
         mnuDefEmpDef.Visible = MenuVisible("mnuDefEmpDef")
+
+
         mnuActivities.Visible = MenuVisible("mnuActivities")
         mnuActCases.Visible = MenuVisible("mnuActCases")
         mnuActCaseReceived.Visible = MenuVisible("mnuActCaseReceived")
